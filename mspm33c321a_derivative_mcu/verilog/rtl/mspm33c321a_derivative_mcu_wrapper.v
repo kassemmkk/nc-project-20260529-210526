@@ -2358,13 +2358,17 @@ assign clk_oe_n = 1'b1;
 assign clk_inp_dis = 1'b0;
 
 // Compute subsystem instantiation
+// NOTE (PnR fix): wrapper was generated with JTAG ports (tck/tms/tdi/trst_n)
+// but compute_ss uses SWD (swclk/swdi/swdo/swdo_en). Replaced with correct SWD
+// port connections; debug inputs are tied-off as no SWD pad exists in this wrapper.
 mspm33c321a_derivative_compute_ss u_core (
     .clk(clk_in),
     .reset_n(reset_n_xres_h_n),
-    .tck(1'b0),
-    .tms(1'b0),
-    .tdi(1'b0),
-    .trst_n(1'b0),
+    .swclk(1'b0),
+    .swdi(1'b0),
+    .swdo(),
+    .swdo_en(),
+    .halted(),
     .qspi_sck(),
     .qspi_ce_n(),
     .qspi_din(4'b0),

@@ -1,0 +1,1 @@
+{"id": 113, "timestamp": "2026-05-29T06:01:04.587672", "source": "agent", "message": "Stage 2 of 3: Peer review - ranking proposals...", "cause": 111, "observation": "council_progress", "content": "Stage 2 of 3: Peer review - ranking proposals...", "extras": {"stage": 2, "total_stages": 3, "council_type": "advisory", "advisory_name": "Signoff Advisory"}}

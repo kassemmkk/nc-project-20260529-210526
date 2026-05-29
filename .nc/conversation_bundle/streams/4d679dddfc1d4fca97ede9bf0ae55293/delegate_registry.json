@@ -1,7 +1,7 @@
 {
   "session_id": "4d679dddfc1d4fca97ede9bf0ae55293",
   "created_at": "2026-05-29T04:07:05.014661",
-  "last_updated": "2026-05-29T05:01:04.593993",
+  "last_updated": "2026-05-29T06:04:00.978435",
   "delegates": [
     {
       "id": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_requirements",
@@ -35,6 +35,24 @@
       "agent_name": "mcu_factory_verification",
       "created_at": "2026-05-29T05:01:04.593827",
       "task": "Run nc_chipgen verify --all --coverage on the mspm33c321a_derivative_mcu design root and produce evidence-backed verification outputs.",
+      "status": "completed",
+      "completed_at": "2026-05-29T05:50:26.236448",
+      "parent_id": "4d679dddfc1d4fca97ede9bf0ae55293"
+    },
+    {
+      "id": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_verification_reviewer",
+      "agent_name": "mcu_factory_verification_reviewer",
+      "created_at": "2026-05-29T05:50:56.199854",
+      "task": "Review all verification evidence for the mspm33c321a_derivative design, update the checklist, generate the dashboard, and run the Signoff Advisory as the functional match for the MCU Factory Verification Review Advisory.",
+      "status": "completed",
+      "completed_at": "2026-05-29T06:03:28.061568",
+      "parent_id": "4d679dddfc1d4fca97ede9bf0ae55293"
+    },
+    {
+      "id": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-chipgen_pnr",
+      "agent_name": "chipgen_pnr",
+      "created_at": "2026-05-29T06:04:00.977711",
+      "task": "Execute hierarchical Place-and-Route for the mspm33c321a_derivative_mcu design using nc_chipgen's pre-generated OpenLane config, harden the wrapper macro, then run top-level chip PnR integrating the wrapper with the padframe GDS.",
       "status": "active",
       "completed_at": null,
       "parent_id": "4d679dddfc1d4fca97ede9bf0ae55293"

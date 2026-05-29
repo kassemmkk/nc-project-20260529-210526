@@ -1,0 +1,1 @@
+{"id": 112, "timestamp": "2026-05-29T06:00:48.140754", "source": "agent", "message": "Stage 1 of 3: Collecting responses from advisory models...", "cause": 111, "observation": "council_progress", "content": "Stage 1 of 3: Collecting responses from advisory models...", "extras": {"stage": 1, "total_stages": 3, "council_type": "advisory", "advisory_name": "Signoff Advisory"}}

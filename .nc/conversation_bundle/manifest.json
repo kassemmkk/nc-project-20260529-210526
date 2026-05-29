@@ -12,7 +12,7 @@
     "mcu_factory_verification_reviewer": "anthropic/claude-sonnet-4-6",
     "chipgen_pnr": "anthropic/claude-sonnet-4-6"
   },
-  "exported_at": "2026-05-29T05:21:08.286714+00:00",
+  "exported_at": "2026-05-29T06:29:46.741943+00:00",
   "streams": [
     {
       "sid": "4d679dddfc1d4fca97ede9bf0ae55293",
@@ -21,6 +21,14 @@
       "llm": "anthropic/claude-sonnet-4-6",
       "storage_dir": "users/12261587/sessions/4d679dddfc1d4fca97ede9bf0ae55293/",
       "runtime_dir": "streams/4d679dddfc1d4fca97ede9bf0ae55293"
+    },
+    {
+      "sid": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-chipgen_pnr",
+      "role": "delegate",
+      "agent_name": "chipgen_pnr",
+      "llm": "anthropic/claude-sonnet-4-6",
+      "storage_dir": "users/12261587/sessions/4d679dddfc1d4fca97ede9bf0ae55293-delegate-chipgen_pnr/",
+      "runtime_dir": "streams/4d679dddfc1d4fca97ede9bf0ae55293-delegate-chipgen_pnr"
     },
     {
       "sid": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_generation",
@@ -53,6 +61,14 @@
       "llm": "anthropic/claude-sonnet-4-6",
       "storage_dir": "users/12261587/sessions/4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_verification_planning/",
       "runtime_dir": "streams/4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_verification_planning"
+    },
+    {
+      "sid": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_verification_reviewer",
+      "role": "delegate",
+      "agent_name": "mcu_factory_verification_reviewer",
+      "llm": "anthropic/claude-sonnet-4-6",
+      "storage_dir": "users/12261587/sessions/4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_verification_reviewer/",
+      "runtime_dir": "streams/4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_verification_reviewer"
     }
   ]
 }

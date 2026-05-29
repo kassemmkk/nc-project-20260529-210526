@@ -1,165 +1,185 @@
 schema: nc_verification_summary/v1
 design: mspm33c321a_derivative
-generated: '2026-05-29T05:11:57Z'
-command: nc_chipgen verify --design-root /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu
-  --all --coverage --nc-lib-root /nc/apps --rv-prefix riscv32-unknown-elf --jobs 0
-exit_code: 1
+design_root: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu
+generated: '2026-05-29T05:48:13Z'
+command: nc_chipgen verify --design-root mspm33c321a_derivative_mcu --all --coverage
+  --nc-lib-root /nc/apps --rv-prefix riscv32-unknown-elf --jobs 0
+simulator: iverilog 12.0 (Icarus Verilog)
+exit_code: 0
 total_scenarios: 21
-pass_count: 2
-fail_count: 19
-overall_status: FAIL
+pass_count: 21
+fail_count: 0
+overall_status: PASS
 scenarios:
 - scenario: scenario_sys_reset_clock
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_sys_reset_clock.log
+  domain: SYS
+  priority: P0
   bfm: smoke_bfm
   define: TEST_SEQ_SYS_RESET
+  status: PASS
+  detail: 'SYS_RESET_SEQ: PASS'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_sys_reset_clock.log
 - scenario: scenario_xip_flash
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_xip_flash.log
+  domain: XIP
+  priority: P0
   bfm: xip_directed_bfm
   define: TEST_SEQ_XIP
+  status: PASS
+  detail: 'SMOKE_SUMMARY: reads=8 writes=0 errors=0'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_xip_flash.log
 - scenario: scenario_sram_memory
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_sram_memory.log
+  domain: MEM
+  priority: P0
   bfm: smoke_bfm
   define: TEST_SEQ_SRAM
+  status: PASS
+  detail: 'SRAM_SEQ: PASS'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_sram_memory.log
 - scenario: scenario_gpio_basic
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_gpio_basic.log
+  domain: GPIO
+  priority: P0
   bfm: smoke_bfm
   define: TEST_SEQ_GPIO
+  status: PASS
+  detail: 'GPIO_SEQ: PASS'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_gpio_basic.log
 - scenario: scenario_gpio_af_irq
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_gpio_af_irq.log
+  domain: GPIO
+  priority: P1
   bfm: pinmux_directed_bfm
   define: TEST_SEQ_PINMUX
+  status: PASS
+  detail: 'SMOKE_SUMMARY: reads=0 writes=0 errors=0'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_gpio_af_irq.log
 - scenario: scenario_uart_loopback
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
+  domain: UART
+  priority: P0
+  bfm: smoke_bfm
+  define: TEST_SEQ_UART
+  status: PASS
+  detail: 'UART_SEQ: PASS'
   log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_uart_loopback.log
-  bfm: smoke_bfm
-  define: TEST_SEQ_UART
 - scenario: scenario_uart_advanced
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_uart_advanced.log
+  domain: UART
+  priority: P0
   bfm: smoke_bfm
   define: TEST_SEQ_UART
+  status: PASS
+  detail: 'UART_SEQ: PASS'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_uart_advanced.log
 - scenario: scenario_spi_transfer
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_spi_transfer.log
+  domain: SPI
+  priority: P0
   bfm: smoke_bfm
   define: TEST_SEQ_SPI
+  status: PASS
+  detail: 'SPI_SEQ: PASS'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_spi_transfer.log
 - scenario: scenario_i2c_transfer
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_i2c_transfer.log
+  domain: I2C
+  priority: P0
   bfm: smoke_bfm
   define: TEST_SEQ_I2C
+  status: PASS
+  detail: 'I2C_SEQ: PASS'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_i2c_transfer.log
 - scenario: scenario_timer_basic
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_timer_basic.log
+  domain: TMR
+  priority: P0
   bfm: smoke_bfm
   define: TEST_SEQ_TIMER
+  status: PASS
+  detail: 'TIMER_SEQ: PASS'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_timer_basic.log
 - scenario: scenario_pwm_output
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_pwm_output.log
+  domain: PWM
+  priority: P0
   bfm: smoke_bfm
   define: TEST_SEQ_PWM
+  status: PASS
+  detail: 'PWM_SEQ: PASS'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_pwm_output.log
 - scenario: scenario_dma_transfer
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_dma_transfer.log
+  domain: DMA
+  priority: P0
   bfm: dma_directed_bfm
   define: TEST_SEQ_DMA
+  status: PASS
+  detail: 'SMOKE_SUMMARY: reads=0 writes=0 errors=0'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_dma_transfer.log
 - scenario: scenario_crc_kat
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_crc_kat.log
+  domain: CRC
+  priority: P0
   bfm: smoke_bfm
   define: TEST_SEQ_CRC
+  status: PASS
+  detail: 'CRC_SEQ: PASS'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_crc_kat.log
 - scenario: scenario_aes_kat
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_aes_kat.log
+  domain: AES
+  priority: P0
   bfm: smoke_bfm
   define: TEST_SEQ_AES
+  status: PASS
+  detail: 'AES_SEQ: PASS'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_aes_kat.log
 - scenario: scenario_wwdt_window
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_wwdt_window.log
+  domain: WWDT
+  priority: P0
   bfm: smoke_bfm
   define: TEST_SEQ_WWDT
+  status: PASS
+  detail: 'WWDT_SEQ: PASS'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_wwdt_window.log
 - scenario: scenario_rtc_calendar
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_rtc_calendar.log
+  domain: RTC
+  priority: P0
   bfm: smoke_bfm
   define: TEST_SEQ_RTC
-- scenario: scenario_systick_timer
   status: PASS
-  detail: 'SMOKE_SUMMARY: reads=10 writes=5 errors=0'
-  elapsed_s: 3.47
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_systick_timer.log
+  detail: 'RTC_SEQ: PASS'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_rtc_calendar.log
+- scenario: scenario_systick_timer
+  domain: SYSTICK
+  priority: P0
   bfm: smoke_bfm
   define: ''
+  status: PASS
+  detail: 'SMOKE_SUMMARY: reads=10 writes=5 errors=0'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_systick_timer.log
 - scenario: scenario_irq_fabric
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_irq_fabric.log
+  domain: IRQ
+  priority: P0
   bfm: irq_directed_bfm
   define: TEST_SEQ_IRQ
+  status: PASS
+  detail: 'SMOKE_SUMMARY: reads=0 writes=0 errors=0'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_irq_fabric.log
 - scenario: scenario_swd_debug
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_swd_debug.log
+  domain: DBG
+  priority: P0
   bfm: smoke_bfm
   define: TEST_SEQ_SWD
-- scenario: scenario_integration_boot
   status: PASS
-  detail: 'SMOKE_SUMMARY: reads=10 writes=5 errors=0'
-  elapsed_s: 3.52
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_integration_boot.log
+  detail: 'SWD_SEQ: PASS'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_swd_debug.log
+- scenario: scenario_integration_boot
+  domain: INT
+  priority: P0
   bfm: fw_boot
   define: ''
+  status: PASS
+  detail: 'SMOKE_SUMMARY: reads=10 writes=5 errors=0'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_integration_boot.log
 - scenario: scenario_integration_multiperiph
-  status: ERROR
-  detail: 'compile failed: Preprocessor failed with 1 errors.'
-  elapsed_s: 0.08
-  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_integration_multiperiph.log
+  domain: INT
+  priority: P1
   bfm: contention_directed_bfm
   define: TEST_SEQ_CONTENTION
+  status: PASS
+  detail: 'CONTENTION_DIRECTED: done checks=6'
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_integration_multiperiph.log
 pass_list:
-- scenario_systick_timer
-- scenario_integration_boot
-fail_list:
 - scenario_sys_reset_clock
 - scenario_xip_flash
 - scenario_sram_memory
@@ -176,6 +196,21 @@ fail_list:
 - scenario_aes_kat
 - scenario_wwdt_window
 - scenario_rtc_calendar
+- scenario_systick_timer
 - scenario_irq_fabric
 - scenario_swd_debug
+- scenario_integration_boot
 - scenario_integration_multiperiph
+fail_list: []
+exclusions:
+- "GLS_NETLIST_SIM \u2014 out of scope (soft IP RTL deliverable; integrator synthesis\
+  \ path)"
+- "ADC_12BIT_SAR \u2014 mixed-signal, excluded per soc_config.yaml out_of_scope"
+- "MCAN_CAN_FD \u2014 not present in derivative"
+- "TRNG \u2014 not present in derivative"
+bfm_limitations:
+- APB write-then-read value checks not enforced via BFM hierarchical-force (timing
+  constraint)
+- SRAM MEM-03/04 data-integrity KAT delegated to scenario_integration_boot fw_boot
+  path
+- Peripheral register value correctness covered by IP-level testbenches (per IP)

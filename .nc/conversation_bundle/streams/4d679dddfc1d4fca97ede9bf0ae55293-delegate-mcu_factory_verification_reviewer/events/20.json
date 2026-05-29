@@ -1,0 +1,1 @@
+{"id": 20, "timestamp": "2026-05-29T05:52:21.887841", "source": "environment", "message": "", "observation": "agent_state_changed", "content": "", "extras": {"agent_state": "running", "reason": "", "agent_name": "mcu_factory_verification_reviewer", "agent_class": "CodeActAgent"}}
