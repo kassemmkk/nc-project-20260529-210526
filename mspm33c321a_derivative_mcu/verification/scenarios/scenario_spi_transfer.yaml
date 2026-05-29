@@ -1,0 +1,163 @@
+scenario_name: scenario_spi_transfer
+description: >
+  Verifies SPI0 and SPI1 master-mode operation on mspm33c321a_derivative.
+  Tests cover SPI mode 0 (CPOL=0,CPHA=0) and mode 3 (CPOL=1,CPHA=1)
+  full-duplex transfers, 16-bit frame mode on SPI0, SPI1 baseline transfer,
+  and register smoke test across both instances.
+checklist_ids:
+  - SPI-01
+  - SPI-02
+  - SPI-03
+  - SPI-04
+  - SPI-05
+test_names:
+  - test_spi0_mode0_transfer
+  - test_spi0_mode3_transfer
+  - test_spi1_transfer
+  - test_spi0_16bit_frame
+  - test_spi_reg_smoke
+priority: P0
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+external_devices:
+  - name: spi_slave_model
+    type: spi_slave
+    connect:
+      sclk: spi0_sclk
+      mosi: spi0_mosi
+      miso: spi0_miso
+      nss:  spi0_nss
+    params:
+      cpol: 0
+      cpha: 0
+      frame_bits: 8
+      loopback: true
+  - name: spi1_slave_model
+    type: spi_slave
+    connect:
+      sclk: spi1_sclk
+      mosi: spi1_mosi
+      miso: spi1_miso
+      nss:  spi1_nss
+    params:
+      cpol: 0
+      cpha: 0
+      frame_bits: 8
+      loopback: true
+
+stimulus:
+  - step: 1
+    action: release_reset
+    description: Release reset
+  - step: 2
+    action: apb_configure_spi
+    instance: SPI0
+    mode: 0
+    frame_bits: 8
+    clock_div: 4
+    description: Configure SPI0 for mode 0, 8-bit frame, clk/4 prescaler
+  - step: 3
+    action: spi_master_transfer
+    instance: SPI0
+    tx_data: 0xA5
+    description: Initiate SPI0 8-bit transfer; slave model echoes data back
+  - step: 4
+    action: apb_read_check
+    peripheral: SPI0
+    register: RXDATA
+    expected: 0xA5
+    description: Read SPI0 RX FIFO; verify echoed data matches transmitted
+  - step: 5
+    action: apb_configure_spi
+    instance: SPI0
+    mode: 3
+    frame_bits: 8
+    description: Reconfigure SPI0 for mode 3 (CPOL=1, CPHA=1)
+  - step: 6
+    action: spi_master_transfer
+    instance: SPI0
+    tx_data: 0x3C
+    description: Mode-3 transfer; slave model echoes
+  - step: 7
+    action: apb_read_check
+    peripheral: SPI0
+    register: RXDATA
+    expected: 0x3C
+    description: Verify mode-3 receive data
+  - step: 8
+    action: apb_configure_spi
+    instance: SPI1
+    mode: 0
+    frame_bits: 8
+    description: Configure SPI1 for mode 0, 8-bit frame
+  - step: 9
+    action: spi_master_transfer
+    instance: SPI1
+    tx_data: 0x7E
+    description: SPI1 transfer with spi1_slave_model in loopback
+  - step: 10
+    action: apb_read_check
+    peripheral: SPI1
+    register: RXDATA
+    expected: 0x7E
+    description: Verify SPI1 receive data
+  - step: 11
+    action: apb_configure_spi
+    instance: SPI0
+    mode: 0
+    frame_bits: 16
+    description: Reconfigure SPI0 for 16-bit frame mode
+  - step: 12
+    action: spi_master_transfer
+    instance: SPI0
+    tx_data: 0xDEAD
+    description: 16-bit frame transfer on SPI0
+  - step: 13
+    action: apb_read_check
+    peripheral: SPI0
+    register: RXDATA
+    expected: 0xDEAD
+    description: Verify 16-bit received word
+  - step: 14
+    action: apb_read_all_csr
+    peripherals: [SPI0, SPI1]
+    description: Read all SPI CSRs; verify reset-default values
+
+checks:
+  - id: CHK-SPI-01
+    checklist_id: SPI-01
+    description: SPI0 mode-0 8-bit transfer echoed correctly
+    expected: RXDATA == 0xA5
+  - id: CHK-SPI-02
+    checklist_id: SPI-02
+    description: SPI0 mode-3 8-bit transfer echoed correctly
+    expected: RXDATA == 0x3C
+  - id: CHK-SPI-03
+    checklist_id: SPI-03
+    description: SPI1 mode-0 8-bit transfer echoed correctly
+    expected: RXDATA == 0x7E
+  - id: CHK-SPI-04
+    checklist_id: SPI-04
+    description: SPI0 16-bit frame transfer echoed correctly
+    expected: RXDATA == 0xDEAD
+  - id: CHK-SPI-05
+    checklist_id: SPI-05
+    description: All SPI CSRs at both instances read expected reset defaults
+    expected: No unexpected register values
+
+pass_criteria:
+  - All CHK-SPI checks PASS
+  - SPI slave models report no protocol errors
+  - No APB errors during configuration or data access

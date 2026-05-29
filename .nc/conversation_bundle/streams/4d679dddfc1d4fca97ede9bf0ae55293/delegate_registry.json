@@ -1,7 +1,7 @@
 {
   "session_id": "4d679dddfc1d4fca97ede9bf0ae55293",
   "created_at": "2026-05-29T04:07:05.014661",
-  "last_updated": "2026-05-29T04:27:22.113221",
+  "last_updated": "2026-05-29T05:01:04.593993",
   "delegates": [
     {
       "id": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_requirements",
@@ -17,6 +17,24 @@
       "agent_name": "mcu_factory_verification_planning",
       "created_at": "2026-05-29T04:27:22.113180",
       "task": "Build a complete verification checklist and generate all scenario YAMLs for the MSPM33C321A derivative MCU (mspm33c321a_deriv).",
+      "status": "completed",
+      "completed_at": "2026-05-29T04:46:47.822953",
+      "parent_id": "4d679dddfc1d4fca97ede9bf0ae55293"
+    },
+    {
+      "id": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_generation",
+      "agent_name": "mcu_factory_generation",
+      "created_at": "2026-05-29T04:47:14.959894",
+      "task": "Run nc_chipgen generate for the mspm33c321a_deriv design using all 21 scenario files from Stage 2, producing the generated design root and all required artifacts.",
+      "status": "completed",
+      "completed_at": "2026-05-29T05:00:40.521526",
+      "parent_id": "4d679dddfc1d4fca97ede9bf0ae55293"
+    },
+    {
+      "id": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_verification",
+      "agent_name": "mcu_factory_verification",
+      "created_at": "2026-05-29T05:01:04.593827",
+      "task": "Run nc_chipgen verify --all --coverage on the mspm33c321a_derivative_mcu design root and produce evidence-backed verification outputs.",
       "status": "active",
       "completed_at": null,
       "parent_id": "4d679dddfc1d4fca97ede9bf0ae55293"

@@ -1,0 +1,27 @@
+instance,type,module,bus,slot,base_addr,irq,dma_reqs
+gpio0,gpio,nc_gpio,apb0,0,0x40000000,0,
+gpio1,gpio,nc_gpio,apb0,1,0x40001000,1,
+gpio2,gpio,nc_gpio,apb0,2,0x40002000,2,
+uart0,uart,nc_uart,apb0,3,0x40003000,3,0 1
+uart1,uart,nc_uart,apb0,4,0x40004000,4,2 3
+uart2,uart,nc_uart,apb0,5,0x40005000,5,4 5
+uart3,uart,nc_uart,apb0,6,0x40006000,6,6 7
+spi0,spi,nc_spi,apb0,7,0x40007000,7,8 9
+spi1,spi,nc_spi,apb0,8,0x40008000,8,10 11
+i2c0,i2c,nc_i2c,apb0,9,0x40009000,9,
+i2c1,i2c,nc_i2c,apb0,10,0x4000A000,10,
+i2c2,i2c,nc_i2c,apb0,11,0x4000B000,11,
+tmr0,tmr,nc_tmr,apb0,12,0x4000C000,12,
+tmr1,tmr,nc_tmr,apb0,13,0x4000D000,13,
+tmr2,tmr,nc_tmr,apb0,14,0x4000E000,14,
+tmr3,tmr,nc_tmr,apb0,15,0x4000F000,15,
+tmr4,tmr,nc_tmr,apb1,0,0x40010000,16,
+tmr5,tmr,nc_tmr,apb1,1,0x40011000,17,
+pwm0,pwm,nc_pwm,apb1,2,0x40012000,18,
+pwm1,pwm,nc_pwm,apb1,3,0x40013000,19,
+dmac0,dmac,nc_dmac,apb1,4,0x40014000,20,
+crc0,crc,nc_crc,apb1,5,0x40015000,21,12
+aes0,aes,nc_aes,apb1,6,0x40016000,22,13 14
+wwdt0,wwdt,nc_wwdt,apb1,7,0x40017000,23,
+rtc0,rtc,nc_rtc,apb1,8,0x40018000,24,
+systick0,systick,nc_systick,apb1,14,0x4001E000,,

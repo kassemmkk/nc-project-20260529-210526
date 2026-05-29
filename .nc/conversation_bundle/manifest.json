@@ -12,7 +12,7 @@
     "mcu_factory_verification_reviewer": "anthropic/claude-sonnet-4-6",
     "chipgen_pnr": "anthropic/claude-sonnet-4-6"
   },
-  "exported_at": "2026-05-29T04:35:38.043914+00:00",
+  "exported_at": "2026-05-29T05:02:29.713117+00:00",
   "streams": [
     {
       "sid": "4d679dddfc1d4fca97ede9bf0ae55293",
@@ -23,12 +23,28 @@
       "runtime_dir": "streams/4d679dddfc1d4fca97ede9bf0ae55293"
     },
     {
+      "sid": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_generation",
+      "role": "delegate",
+      "agent_name": "mcu_factory_generation",
+      "llm": "anthropic/claude-sonnet-4-6",
+      "storage_dir": "users/12261587/sessions/4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_generation/",
+      "runtime_dir": "streams/4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_generation"
+    },
+    {
       "sid": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_requirements",
       "role": "delegate",
       "agent_name": "mcu_factory_requirements",
       "llm": "anthropic/claude-sonnet-4-6",
       "storage_dir": "users/12261587/sessions/4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_requirements/",
       "runtime_dir": "streams/4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_requirements"
+    },
+    {
+      "sid": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_verification",
+      "role": "delegate",
+      "agent_name": "mcu_factory_verification",
+      "llm": "anthropic/claude-sonnet-4-6",
+      "storage_dir": "users/12261587/sessions/4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_verification/",
+      "runtime_dir": "streams/4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_verification"
     },
     {
       "sid": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_verification_planning",

@@ -1,0 +1,88 @@
+scenario_name: scenario_integration_boot
+description: >
+  System-level integration test: full SoC boot of mspm33c321a_derivative.
+  The CPU fetches the reset vector from XIP flash at 0x00000000, executes
+  a pre-compiled firmware image (crt0 + main), and writes a magic signature
+  word to a fixed SRAM address as a boot-complete indicator. The test
+  monitors the SRAM location and declares PASS when the signature appears.
+checklist_ids:
+  - INT-01
+test_names:
+  - test_int_full_boot
+priority: P0
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+flash_image:
+  hex_file: verification/fw/xip_boot_smoke.hex
+  base_addr: 0x00000000
+  size_bytes: 0x00080000   # 512 KB XIP image
+
+boot_signature:
+  addr: 0x20000000
+  value: 0xB007C0DE       # Magic value firmware writes on successful boot
+
+external_devices: []
+
+stimulus:
+  - step: 1
+    action: load_flash_image
+    file: verification/fw/xip_boot_smoke.hex
+    description: Pre-load XIP flash BFM with firmware image containing crt0 + main
+  - step: 2
+    action: assert_reset
+    cycles: 20
+    description: Assert reset for 20 cycles
+  - step: 3
+    action: release_reset
+    description: Release reset; CPU begins execution from 0x00000000
+  - step: 4
+    action: monitor_ifu_address
+    expected: 0x00000000
+    description: Confirm first instruction fetch is from 0x00000000 (reset vector)
+  - step: 5
+    action: poll_sram_signature
+    addr: 0x20000000
+    expected_value: 0xB007C0DE
+    timeout_cycles: 1000000
+    description: >
+      Poll SRAM[0x20000000] for magic signature 0xB007C0DE. The firmware
+      initialises BSS, runs main(), and writes the signature on completion.
+  - step: 6
+    action: verify_no_fault
+    description: Confirm no AHB fault, XIP error, or CPU exception during boot sequence
+  - step: 7
+    action: verify_peripheral_accessible
+    peripheral: UART0
+    register: STATUS
+    description: Confirm APB peripherals accessible after boot (UART0 STATUS readable)
+
+checks:
+  - id: CHK-INT-01
+    checklist_id: INT-01
+    description: SRAM signature 0xB007C0DE written by firmware within 1M clock cycles
+    expected: SRAM[0x20000000] == 0xB007C0DE within 1,000,000 clock cycles
+  - id: CHK-INT-01B
+    checklist_id: INT-01
+    description: First CPU instruction fetch is from XIP address 0x00000000
+    expected: IFU address == 0x00000000 on first valid fetch
+  - id: CHK-INT-01C
+    checklist_id: INT-01
+    description: No AHB HRESP errors or CPU exceptions during boot sequence
+    expected: Clean execution; no fault signals asserted
+
+pass_criteria:
+  - CHK-INT-01, CHK-INT-01B, CHK-INT-01C all PASS
+  - Simulation completes within 1,000,000 clock cycles
+  - No X-states observed on critical data paths after reset release

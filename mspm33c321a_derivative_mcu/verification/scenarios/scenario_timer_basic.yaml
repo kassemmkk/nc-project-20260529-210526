@@ -1,0 +1,174 @@
+scenario_name: scenario_timer_basic
+description: >
+  Verifies all six timer instances (TMR0–TMR5) of mspm33c321a_derivative.
+  TMR0–TMR3 are general-purpose 16-bit timers; TMR4–TMR5 are advanced control
+  timers. Tests cover overflow interrupt, input capture, compare-match
+  interrupt, prescaler configuration, up/down count mode (TMR4), and
+  center-aligned count mode (TMR5), plus register smoke test for all instances.
+checklist_ids:
+  - TMR-01
+  - TMR-02
+  - TMR-03
+  - TMR-04
+  - TMR-05
+  - TMR-06
+  - TMR-07
+test_names:
+  - test_tmr0_overflow_irq
+  - test_tmr1_input_capture
+  - test_tmr2_compare_irq
+  - test_tmr3_prescaler
+  - test_tmr4_updown_count
+  - test_tmr5_center_aligned
+  - test_tmr_reg_smoke
+priority: P0
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+external_devices:
+  - name: jtag_probe_model
+    type: gpio_stimulus
+    connect:
+      stimulus_out: tmr1_capture_in
+    params:
+      pulse_width_ns: 100
+      assert_polarity: high
+
+stimulus:
+  - step: 1
+    action: release_reset
+    description: Release reset
+  - step: 2
+    action: apb_configure_timer
+    instance: TMR0
+    mode: up_count
+    period: 0xFFFF
+    prescaler: 1
+    irq_enable: overflow
+    description: Configure TMR0 as up-count timer; enable overflow IRQ
+  - step: 3
+    action: apb_write
+    peripheral: TMR0
+    register: CR1
+    value: CEN_BIT
+    description: Enable TMR0 counter
+  - step: 4
+    action: wait_irq
+    irq_vector: 12
+    timeout_cycles: 200000
+    description: Wait for TMR0 overflow IRQ (IRQ12) to fire
+  - step: 5
+    action: apb_configure_timer
+    instance: TMR1
+    mode: input_capture
+    capture_edge: rising
+    description: Configure TMR1 in input capture mode on rising edge
+  - step: 6
+    action: drive_gpio_stimulus
+    device: jtag_probe_model
+    description: Pulse TMR1 capture input via gpio_stimulus model
+  - step: 7
+    action: apb_read_check
+    peripheral: TMR1
+    register: CCR1
+    description: Read TMR1 capture register; verify captured value is non-zero
+  - step: 8
+    action: apb_configure_timer
+    instance: TMR2
+    mode: up_count
+    period: 0x1000
+    compare_value: 0x0800
+    irq_enable: compare_match
+    description: Configure TMR2 with compare match at half period
+  - step: 9
+    action: apb_write
+    peripheral: TMR2
+    register: CR1
+    value: CEN_BIT
+    description: Enable TMR2
+  - step: 10
+    action: wait_irq
+    irq_vector: 14
+    timeout_cycles: 50000
+    description: Wait for TMR2 compare-match IRQ (IRQ14)
+  - step: 11
+    action: apb_configure_timer
+    instance: TMR3
+    mode: up_count
+    period: 0x00FF
+    prescaler_values: [1, 4, 16, 64]
+    description: Test TMR3 with multiple prescaler values; measure resulting period
+  - step: 12
+    action: apb_configure_timer
+    instance: TMR4
+    mode: up_down_count
+    period: 0x07FF
+    description: Configure TMR4 advanced timer in up/down count mode
+  - step: 13
+    action: apb_write
+    peripheral: TMR4
+    register: CR1
+    value: CEN_BIT
+    description: Enable TMR4 and observe counting direction changes
+  - step: 14
+    action: apb_configure_timer
+    instance: TMR5
+    mode: center_aligned
+    period: 0x03FF
+    description: Configure TMR5 advanced timer in center-aligned (edge-aligned) mode
+  - step: 15
+    action: apb_write
+    peripheral: TMR5
+    register: CR1
+    value: CEN_BIT
+    description: Enable TMR5 center-aligned counter
+  - step: 16
+    action: apb_read_all_csr
+    peripherals: [TMR0, TMR1, TMR2, TMR3, TMR4, TMR5]
+    description: Read all timer CSRs across all six instances
+
+checks:
+  - id: CHK-TMR-01
+    checklist_id: TMR-01
+    description: TMR0 overflow IRQ fires within expected period; ISR acknowledges
+    expected: IRQ12 asserts after 0xFFFF count cycles; ISR clears flag
+  - id: CHK-TMR-02
+    checklist_id: TMR-02
+    description: TMR1 CCR1 latches non-zero value after capture input pulse
+    expected: CCR1 != 0x0000 after stimulus pulse
+  - id: CHK-TMR-03
+    checklist_id: TMR-03
+    description: TMR2 compare-match IRQ fires when count reaches 0x0800
+    expected: IRQ14 asserts at count == 0x0800
+  - id: CHK-TMR-04
+    checklist_id: TMR-04
+    description: TMR3 period scales correctly with prescaler values 1/4/16/64
+    expected: Measured period ratio matches prescaler ratio
+  - id: CHK-TMR-05
+    checklist_id: TMR-05
+    description: TMR4 count direction reverses at period and zero boundaries
+    expected: Count increments to 0x07FF then decrements back to 0
+  - id: CHK-TMR-06
+    checklist_id: TMR-06
+    description: TMR5 center-aligned counter operates symmetrically
+    expected: Count peaks at 0x03FF and reverses; overflow IRQ at center
+  - id: CHK-TMR-07
+    checklist_id: TMR-07
+    description: All timer CSRs across all six instances at reset defaults
+    expected: No unexpected register values
+
+pass_criteria:
+  - All CHK-TMR checks PASS
+  - No simulation timeout waiting for timer IRQs
+  - No APB errors during timer configuration

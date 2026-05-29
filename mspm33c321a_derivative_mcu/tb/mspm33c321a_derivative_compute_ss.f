@@ -1,0 +1,9 @@
++define+CF_SRAM_USE_BEHAV_MODEL
++incdir+/nc/apps/nc_socgen/external/cf_sram/hdl/beh_models
++incdir+/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/rtl
++incdir+/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb
++incdir+/workspace/nc-project-20260529-210526/ip/NC_XIP/rtl
+/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/tb_mspm33c321a_derivative_compute_ss_smoke_bfm.v
+/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/tb_mspm33c321a_derivative_compute_ss_fw_boot.v
+/workspace/nc-project-20260529-210526/ip/NC_XIP/rtl/sst26wf080b.v
+/nc/apps/nc_socgen/external/cf_sram/hdl/beh_models/CF_SRAM_1024x32.tt_180V_25C.v

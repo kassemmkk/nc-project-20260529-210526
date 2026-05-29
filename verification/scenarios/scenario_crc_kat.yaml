@@ -1,0 +1,159 @@
+scenario_name: scenario_crc_kat
+description: >
+  Verifies the CRC accelerator of mspm33c321a_derivative using known-answer
+  tests (KATs) for CRC-32 (IEEE 802.3), CRC-16 (CCITT), and CRC-8 (MAXIM)
+  polynomials, plus a register smoke test covering polynomial selection,
+  data input, and result registers.
+checklist_ids:
+  - CRC-01
+  - CRC-02
+  - CRC-03
+  - CRC-04
+test_names:
+  - test_crc32_kat
+  - test_crc16_kat
+  - test_crc8_kat
+  - test_crc_reg_smoke
+priority: P0
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+external_devices: []
+
+crc_test_vectors:
+  - name: crc32_ieee8023
+    polynomial: 0x04C11DB7
+    init_value: 0xFFFFFFFF
+    input_reflected: true
+    output_reflected: true
+    final_xor: 0xFFFFFFFF
+    input_bytes: [0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39]  # "123456789"
+    expected_result: 0xCBF43926
+  - name: crc16_ccitt
+    polynomial: 0x1021
+    init_value: 0xFFFF
+    input_reflected: false
+    output_reflected: false
+    final_xor: 0x0000
+    input_bytes: [0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39]
+    expected_result: 0x29B1
+  - name: crc8_maxim
+    polynomial: 0x31
+    init_value: 0x00
+    input_reflected: true
+    output_reflected: true
+    final_xor: 0x00
+    input_bytes: [0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39]
+    expected_result: 0xA1
+
+stimulus:
+  - step: 1
+    action: release_reset
+    description: Release reset; CRC accelerator initialised
+  - step: 2
+    action: apb_write
+    peripheral: CRC0
+    register: POLY_SEL
+    value: CRC32_IEEE8023
+    description: Select CRC-32 IEEE 802.3 polynomial
+  - step: 3
+    action: apb_write
+    peripheral: CRC0
+    register: INIT
+    value: 0xFFFFFFFF
+    description: Load CRC-32 init value
+  - step: 4
+    action: apb_burst_write_crc
+    peripheral: CRC0
+    data: [0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39]
+    description: Feed "123456789" into CRC data register byte by byte
+  - step: 5
+    action: apb_read_check
+    peripheral: CRC0
+    register: RESULT
+    expected: 0xCBF43926
+    description: Read CRC-32 result; compare against known answer
+  - step: 6
+    action: apb_write
+    peripheral: CRC0
+    register: POLY_SEL
+    value: CRC16_CCITT
+    description: Switch to CRC-16 CCITT polynomial
+  - step: 7
+    action: apb_write
+    peripheral: CRC0
+    register: INIT
+    value: 0xFFFF
+    description: Load CRC-16 init value
+  - step: 8
+    action: apb_burst_write_crc
+    peripheral: CRC0
+    data: [0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39]
+    description: Feed "123456789" into CRC data register
+  - step: 9
+    action: apb_read_check
+    peripheral: CRC0
+    register: RESULT
+    expected: 0x29B1
+    description: Read CRC-16 result; compare against known answer
+  - step: 10
+    action: apb_write
+    peripheral: CRC0
+    register: POLY_SEL
+    value: CRC8_MAXIM
+    description: Switch to CRC-8 MAXIM polynomial
+  - step: 11
+    action: apb_write
+    peripheral: CRC0
+    register: INIT
+    value: 0x00
+    description: Load CRC-8 init value
+  - step: 12
+    action: apb_burst_write_crc
+    peripheral: CRC0
+    data: [0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39]
+    description: Feed "123456789" into CRC data register
+  - step: 13
+    action: apb_read_check
+    peripheral: CRC0
+    register: RESULT
+    expected: 0xA1
+    description: Read CRC-8 result; compare against known answer
+  - step: 14
+    action: apb_read_all_csr
+    peripherals: [CRC0]
+    description: Read all CRC CSRs; verify accessibility and reset defaults
+
+checks:
+  - id: CHK-CRC-01
+    checklist_id: CRC-01
+    description: CRC-32 result for "123456789" equals 0xCBF43926
+    expected: RESULT == 0xCBF43926
+  - id: CHK-CRC-02
+    checklist_id: CRC-02
+    description: CRC-16 result for "123456789" equals 0x29B1
+    expected: RESULT == 0x29B1
+  - id: CHK-CRC-03
+    checklist_id: CRC-03
+    description: CRC-8 result for "123456789" equals 0xA1
+    expected: RESULT == 0xA1
+  - id: CHK-CRC-04
+    checklist_id: CRC-04
+    description: CRC polynomial selection, data, and result registers all accessible
+    expected: No APB errors; registers readable and writable
+
+pass_criteria:
+  - All CHK-CRC checks PASS
+  - All three KAT results match reference values exactly
+  - No APB errors during CSR access

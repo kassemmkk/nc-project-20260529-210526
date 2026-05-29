@@ -1,0 +1,136 @@
+scenario_name: scenario_gpio_basic
+description: >
+  Verifies basic GPIO functionality across all three ports (GPIOA, GPIOB, GPIOC)
+  of mspm33c321a_derivative. Covers output direction control and toggling on each
+  of 48 pins, input read-back driven by an external gpio_stimulus model, and
+  power-on reset default state (all pins Hi-Z input).
+checklist_ids:
+  - GPIO-01
+  - GPIO-02
+  - GPIO-03
+  - GPIO-04
+  - GPIO-05
+  - GPIO-06
+  - GPIO-07
+test_names:
+  - test_gpio_porta_output
+  - test_gpio_porta_input
+  - test_gpio_portb_output
+  - test_gpio_portb_input
+  - test_gpio_portc_output
+  - test_gpio_portc_input
+  - test_gpio_reset_state
+priority: P0
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+external_devices:
+  - name: jtag_probe_model
+    type: gpio_stimulus
+    connect:
+      stimulus_out: gpioa_in[15:0]
+    params:
+      drive_pattern: WALKING_ONES
+      hold_cycles: 4
+  - name: jtag_probe_model_b
+    type: gpio_stimulus
+    connect:
+      stimulus_out: gpiob_in[15:0]
+    params:
+      drive_pattern: WALKING_ONES
+      hold_cycles: 4
+  - name: jtag_probe_model_c
+    type: gpio_stimulus
+    connect:
+      stimulus_out: gpioc_in[15:0]
+    params:
+      drive_pattern: WALKING_ONES
+      hold_cycles: 4
+
+stimulus:
+  - step: 1
+    action: check_reset_state
+    description: Immediately after reset assert, sample OE registers for all three ports
+    expected_oe: 0x0000   # all inputs (Hi-Z)
+  - step: 2
+    action: release_reset
+    description: Release reset; GPIO ports remain in input mode
+  - step: 3
+    action: apb_write
+    peripheral: GPIOA
+    register: DIRCFG
+    value: 0xFFFF
+    description: Configure all GPIOA pins as output
+  - step: 4
+    action: apb_write
+    peripheral: GPIOA
+    register: DOUT
+    value: 0xAAAA
+    description: Write alternating pattern to GPIOA output register
+  - step: 5
+    action: sample_pad_output
+    port: gpioa_out
+    expected: 0xAAAA
+    description: Observe GPIOA pad output signals match written pattern
+  - step: 6
+    action: drive_gpio_stimulus
+    device: jtag_probe_model
+    pattern: WALKING_ONES
+    description: Drive GPIOA pads with walking-ones pattern via external model
+  - step: 7
+    action: apb_read_check
+    peripheral: GPIOA
+    register: DIN
+    description: Read GPIOA input register; compare against driven pattern
+  - step: 8
+    action: repeat_steps
+    steps: [3, 4, 5, 6, 7]
+    ports: [GPIOB, GPIOC]
+    devices: [jtag_probe_model_b, jtag_probe_model_c]
+    description: Repeat output/input tests for GPIOB and GPIOC
+
+checks:
+  - id: CHK-GPIO-01
+    checklist_id: GPIO-01
+    description: GPIOA output pads reflect 0xAAAA written to DOUT
+    expected: gpioa_out == 0xAAAA when DIRCFG=0xFFFF
+  - id: CHK-GPIO-02
+    checklist_id: GPIO-02
+    description: GPIOA DIN reads back walking-ones pattern driven by stimulus model
+    expected: DIN matches stimulus pattern on each cycle
+  - id: CHK-GPIO-03
+    checklist_id: GPIO-03
+    description: GPIOB output pads reflect pattern written to DOUT
+    expected: gpiob_out matches written value when all pins configured as output
+  - id: CHK-GPIO-04
+    checklist_id: GPIO-04
+    description: GPIOB DIN reads back walking-ones pattern
+    expected: DIN matches stimulus
+  - id: CHK-GPIO-05
+    checklist_id: GPIO-05
+    description: GPIOC output pads reflect pattern written to DOUT
+    expected: gpioc_out matches written value
+  - id: CHK-GPIO-06
+    checklist_id: GPIO-06
+    description: GPIOC DIN reads back walking-ones pattern
+    expected: DIN matches stimulus
+  - id: CHK-GPIO-07
+    checklist_id: GPIO-07
+    description: All three port DIRCFG registers read 0x0000 immediately after reset
+    expected: Default output-enable is 0 (input mode) for all 48 pins
+
+pass_criteria:
+  - All CHK-GPIO checks PASS
+  - No X-states on output pads in output mode
+  - No APB protocol errors during CSR access

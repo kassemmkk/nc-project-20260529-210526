@@ -1,0 +1,202 @@
+scenario_name: scenario_i2c_transfer
+description: >
+  Verifies all three I2C instances (I2C0, I2C1, I2C2) of mspm33c321a_derivative.
+  I2C2 is the derivative-added instance (R-006). Tests cover 7-bit address
+  write/read transactions on all instances, 10-bit address mode on I2C0,
+  fast-mode (400 kHz) and fast-plus-mode (1 MHz) on I2C0, and register
+  smoke test across all three instances. Each instance uses an independent
+  I2C slave memory model.
+checklist_ids:
+  - I2C-01
+  - I2C-02
+  - I2C-03
+  - I2C-04
+  - I2C-05
+  - I2C-06
+  - I2C-07
+  - I2C-08
+test_names:
+  - test_i2c0_7bit_write
+  - test_i2c0_7bit_read
+  - test_i2c1_transfer
+  - test_i2c2_transfer
+  - test_i2c0_10bit_addr
+  - test_i2c0_fast_mode
+  - test_i2c0_fast_plus
+  - test_i2c_reg_smoke
+priority: P0
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+external_devices:
+  - name: i2c_slave_model
+    type: i2c_memory
+    connect:
+      sda: i2c0_sda
+      scl: i2c0_scl
+    params:
+      address_7bit: 0x50
+      mem_size_bytes: 256
+      speed_hz: 100000
+  - name: i2c1_slave_model
+    type: i2c_memory
+    connect:
+      sda: i2c1_sda
+      scl: i2c1_scl
+    params:
+      address_7bit: 0x51
+      mem_size_bytes: 256
+      speed_hz: 100000
+  - name: i2c2_slave_model
+    type: i2c_memory
+    connect:
+      sda: i2c2_sda
+      scl: i2c2_scl
+    params:
+      address_7bit: 0x52
+      mem_size_bytes: 256
+      speed_hz: 100000
+
+stimulus:
+  - step: 1
+    action: release_reset
+    description: Release reset; all I2C instances idle
+  - step: 2
+    action: apb_configure_i2c
+    instance: I2C0
+    mode: standard_100kHz
+    addr_mode: 7bit
+    description: Configure I2C0 at 100 kHz, 7-bit addressing
+  - step: 3
+    action: i2c_master_write
+    instance: I2C0
+    slave_addr: 0x50
+    reg_addr: 0x00
+    data: 0xAB
+    description: I2C0 7-bit write 0xAB to slave register 0x00; verify ACK
+  - step: 4
+    action: i2c_master_read
+    instance: I2C0
+    slave_addr: 0x50
+    reg_addr: 0x00
+    expected: 0xAB
+    description: I2C0 7-bit read from slave register 0x00; verify data
+  - step: 5
+    action: apb_configure_i2c
+    instance: I2C1
+    mode: standard_100kHz
+    addr_mode: 7bit
+    description: Configure I2C1 at 100 kHz, 7-bit addressing
+  - step: 6
+    action: i2c_master_write_read
+    instance: I2C1
+    slave_addr: 0x51
+    reg_addr: 0x10
+    write_data: 0xCD
+    description: I2C1 write and read-back test
+  - step: 7
+    action: apb_configure_i2c
+    instance: I2C2
+    mode: standard_100kHz
+    addr_mode: 7bit
+    description: Configure derivative I2C2 instance at 100 kHz
+  - step: 8
+    action: i2c_master_write_read
+    instance: I2C2
+    slave_addr: 0x52
+    reg_addr: 0x20
+    write_data: 0xEF
+    description: I2C2 (new derivative instance) write and read-back test
+  - step: 9
+    action: apb_configure_i2c
+    instance: I2C0
+    mode: standard_100kHz
+    addr_mode: 10bit
+    description: Reconfigure I2C0 for 10-bit addressing
+  - step: 10
+    action: i2c_master_write_read
+    instance: I2C0
+    slave_addr: 0x150
+    reg_addr: 0x00
+    write_data: 0x99
+    description: I2C0 10-bit address write/read
+  - step: 11
+    action: apb_configure_i2c
+    instance: I2C0
+    mode: fast_400kHz
+    addr_mode: 7bit
+    description: Switch I2C0 to fast-mode 400 kHz
+  - step: 12
+    action: i2c_master_write_read
+    instance: I2C0
+    slave_addr: 0x50
+    reg_addr: 0x05
+    write_data: 0x11
+    description: Fast-mode transaction at 400 kHz
+  - step: 13
+    action: apb_configure_i2c
+    instance: I2C0
+    mode: fast_plus_1MHz
+    addr_mode: 7bit
+    description: Switch I2C0 to fast-plus mode 1 MHz
+  - step: 14
+    action: i2c_master_write_read
+    instance: I2C0
+    slave_addr: 0x50
+    reg_addr: 0x06
+    write_data: 0x22
+    description: Fast-plus-mode transaction at 1 MHz
+  - step: 15
+    action: apb_read_all_csr
+    peripherals: [I2C0, I2C1, I2C2]
+    description: Read all I2C CSRs; verify reset-value defaults for all three instances
+
+checks:
+  - id: CHK-I2C-01
+    checklist_id: I2C-01
+    description: I2C0 7-bit write 0xAB to slave ACKed; slave registers value
+    expected: I2C0 STATUS.BUSY clears; no NACK; slave contains 0xAB at reg 0x00
+  - id: CHK-I2C-02
+    checklist_id: I2C-02
+    description: I2C0 7-bit read from slave returns 0xAB
+    expected: RXDATA == 0xAB
+  - id: CHK-I2C-03
+    checklist_id: I2C-03
+    description: I2C1 write/read cycle completes correctly
+    expected: Written value read back from I2C1 slave
+  - id: CHK-I2C-04
+    checklist_id: I2C-04
+    description: I2C2 (derivative new instance) write/read cycle completes correctly
+    expected: Written value read back from I2C2 slave; NACK not observed
+  - id: CHK-I2C-05
+    checklist_id: I2C-05
+    description: I2C0 10-bit address transaction ACKed; data verified
+    expected: 10-bit slave at 0x150 responds; data matches
+  - id: CHK-I2C-06
+    checklist_id: I2C-06
+    description: I2C0 400 kHz fast-mode transaction completes without errors
+    expected: Transfer completes; no timeout; slave ACKs
+  - id: CHK-I2C-07
+    checklist_id: I2C-07
+    description: I2C0 1 MHz fast-plus-mode transaction completes without errors
+    expected: Transfer completes; no timeout; slave ACKs
+  - id: CHK-I2C-08
+    checklist_id: I2C-08
+    description: All I2C CSRs across I2C0, I2C1, I2C2 read expected reset defaults
+    expected: No unexpected values; no APB errors
+
+pass_criteria:
+  - All CHK-I2C checks PASS
+  - I2C slave models report no protocol violations
+  - I2C2 (derivative instance) behaves identically to I2C0/I2C1

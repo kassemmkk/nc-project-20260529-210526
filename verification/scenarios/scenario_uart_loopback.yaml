@@ -1,0 +1,136 @@
+scenario_name: scenario_uart_loopback
+description: >
+  Verifies all four UART instances (UART0–UART3) of mspm33c321a_derivative
+  using external UART BFM models in loopback configuration at 115200 baud.
+  Each instance transmits a known byte and the corresponding receive model
+  returns it; the test confirms end-to-end data integrity for every instance.
+checklist_ids:
+  - UART-01
+  - UART-02
+  - UART-03
+  - UART-04
+test_names:
+  - test_uart0_loopback_115200
+  - test_uart1_loopback_115200
+  - test_uart2_loopback_115200
+  - test_uart3_loopback_115200
+priority: P0
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+external_devices:
+  - name: uart_model
+    type: uart
+    connect:
+      rx_from_soc: uart0_tx
+      tx_to_soc: uart0_rx
+    params:
+      baud_rate: 115200
+      data_bits: 8
+      stop_bits: 1
+      parity: none
+  - name: uart1_model
+    type: uart
+    connect:
+      rx_from_soc: uart1_tx
+      tx_to_soc: uart1_rx
+    params:
+      baud_rate: 115200
+      data_bits: 8
+      stop_bits: 1
+      parity: none
+  - name: uart2_model
+    type: uart
+    connect:
+      rx_from_soc: uart2_tx
+      tx_to_soc: uart2_rx
+    params:
+      baud_rate: 115200
+      data_bits: 8
+      stop_bits: 1
+      parity: none
+  - name: uart3_model
+    type: uart
+    connect:
+      rx_from_soc: uart3_tx
+      tx_to_soc: uart3_rx
+    params:
+      baud_rate: 115200
+      data_bits: 8
+      stop_bits: 1
+      parity: none
+
+stimulus:
+  - step: 1
+    action: release_reset
+    description: Release reset; all UARTs are in idle state
+  - step: 2
+    action: apb_configure_uart
+    instance: UART0
+    baud_rate: 115200
+    data_bits: 8
+    stop_bits: 1
+    parity: none
+    description: Configure UART0 baud rate and frame format
+  - step: 3
+    action: apb_write_uart_tx
+    instance: UART0
+    data: 0xA5
+    description: Write 0xA5 to UART0 TX FIFO
+  - step: 4
+    action: uart_model_receive
+    device: uart_model
+    expected_byte: 0xA5
+    description: uart_model captures transmitted byte from UART0 TX
+  - step: 5
+    action: uart_model_send
+    device: uart_model
+    data: 0x5A
+    description: uart_model sends 0x5A to UART0 RX
+  - step: 6
+    action: apb_read_uart_rx
+    instance: UART0
+    expected: 0x5A
+    description: Read UART0 RX FIFO; verify received byte is 0x5A
+  - step: 7
+    action: repeat_steps
+    steps: [2, 3, 4, 5, 6]
+    instances: [UART1, UART2, UART3]
+    devices: [uart1_model, uart2_model, uart3_model]
+    tx_byte: 0xB6
+    rx_byte: 0x49
+    description: Repeat loopback test for UART1, UART2, UART3
+
+checks:
+  - id: CHK-UART-01
+    checklist_id: UART-01
+    description: UART0 transmitted 0xA5 received by model; model reply 0x5A received by UART0
+    expected: TX byte == 0xA5 at model; RX FIFO == 0x5A
+  - id: CHK-UART-02
+    checklist_id: UART-02
+    description: UART1 loopback data integrity verified
+    expected: TX and RX bytes match at both ends
+  - id: CHK-UART-03
+    checklist_id: UART-03
+    description: UART2 loopback data integrity verified
+    expected: TX and RX bytes match at both ends
+  - id: CHK-UART-04
+    checklist_id: UART-04
+    description: UART3 loopback data integrity verified
+    expected: TX and RX bytes match at both ends
+
+pass_criteria:
+  - All CHK-UART checks PASS
+  - No framing, overrun, or parity errors detected
+  - All UART models report clean transactions

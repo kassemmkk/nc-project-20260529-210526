@@ -1,0 +1,148 @@
+scenario_name: scenario_wwdt_window
+description: >
+  Verifies the Windowed Watchdog Timer (WWDT) of mspm33c321a_derivative.
+  Tests cover correct service within the valid window (no reset), early-warning
+  interrupt before the window opens, watchdog timeout reset (service missed),
+  and window-violation reset (service outside permitted window).
+checklist_ids:
+  - WWDT-01
+  - WWDT-02
+  - WWDT-03
+  - WWDT-04
+test_names:
+  - test_wwdt_normal_service
+  - test_wwdt_early_warning_irq
+  - test_wwdt_timeout_reset
+  - test_wwdt_window_violation
+priority: P0
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+external_devices: []
+
+wwdt_params:
+  window_upper_pct: 75   # Window opens at 75% of timeout period
+  window_lower_pct: 25   # Window closes at 25% (lower bound for service)
+  timeout_cycles: 10000  # WWDT period in fast test mode
+  early_warning_pct: 90  # Early-warning interrupt at 90% of timeout
+
+stimulus:
+  - step: 1
+    action: release_reset
+    description: Release reset; WWDT in idle state
+  - step: 2
+    action: apb_configure_wwdt
+    timeout_cycles: 10000
+    window_upper: 0x7F
+    window_lower: 0x3F
+    early_warning_enable: true
+    description: Configure WWDT with 10000-cycle timeout, window, early-warning
+  - step: 3
+    action: apb_write
+    peripheral: WWDT0
+    register: CR
+    value: WDGA_BIT
+    description: Activate WWDT (hardware watchdog started)
+  - step: 4
+    action: wait_cycles
+    cycles: 6500
+    description: Wait until inside the permitted service window (25-75% of period)
+  - step: 5
+    action: apb_write
+    peripheral: WWDT0
+    register: CR
+    value: RELOAD_KEY | 0x7F
+    description: Service WWDT within valid window (reload counter)
+  - step: 6
+    action: check_no_reset
+    description: Verify reset_n has NOT been asserted after service in window
+  - step: 7
+    action: apb_configure_wwdt
+    timeout_cycles: 10000
+    early_warning_enable: true
+    description: Reconfigure WWDT for early-warning test
+  - step: 8
+    action: wait_early_warning_irq
+    irq_vector: 23
+    timeout_cycles: 12000
+    description: Wait for WWDT early-warning IRQ (IRQ23) to fire at 90% of period
+  - step: 9
+    action: check_irq
+    irq_vector: 23
+    description: Confirm WWDT early-warning IRQ asserted
+  - step: 10
+    action: apb_configure_wwdt
+    timeout_cycles: 5000
+    early_warning_enable: false
+    description: Reconfigure WWDT with shorter timeout; disable early warning
+  - step: 11
+    action: do_not_service_wwdt
+    description: Intentionally do NOT service WWDT; wait for timeout expiry
+  - step: 12
+    action: wait_cycles
+    cycles: 6000
+    description: Wait beyond WWDT timeout period
+  - step: 13
+    action: check_reset_asserted
+    description: Verify reset_n asserted due to WWDT timeout (chip reset)
+  - step: 14
+    action: release_reset
+    description: Re-release reset after watchdog reset for next sub-test
+  - step: 15
+    action: apb_configure_wwdt
+    timeout_cycles: 10000
+    window_lower: 0x3F
+    description: Configure WWDT with lower window bound
+  - step: 16
+    action: apb_write
+    peripheral: WWDT0
+    register: CR
+    value: WDGA_BIT
+    description: Activate WWDT
+  - step: 17
+    action: wait_cycles
+    cycles: 1000
+    description: Wait in the early (forbidden) zone before window opens
+  - step: 18
+    action: apb_write
+    peripheral: WWDT0
+    register: CR
+    value: RELOAD_KEY | 0x7F
+    description: Attempt to service WWDT outside valid window (violation)
+  - step: 19
+    action: check_reset_asserted
+    description: Verify window-violation triggers immediate chip reset
+
+checks:
+  - id: CHK-WWDT-01
+    checklist_id: WWDT-01
+    description: Service within valid window does not cause reset; counter reloads
+    expected: reset_n remains high; WWDT counter reloads to 0x7F
+  - id: CHK-WWDT-02
+    checklist_id: WWDT-02
+    description: Early-warning IRQ asserts at configured threshold before window
+    expected: IRQ23 fires at ~90% of WWDT period
+  - id: CHK-WWDT-03
+    checklist_id: WWDT-03
+    description: Missing WWDT service causes chip reset after timeout expires
+    expected: reset_n asserted within 1 clock of WWDT counter reaching 0
+  - id: CHK-WWDT-04
+    checklist_id: WWDT-04
+    description: Service attempted in forbidden zone triggers immediate chip reset
+    expected: reset_n asserted within 1 clock of out-of-window service attempt
+
+pass_criteria:
+  - All CHK-WWDT checks PASS
+  - Reset observed only when expected (timeout or violation)
+  - Early-warning IRQ fires before window opens in sub-test 2

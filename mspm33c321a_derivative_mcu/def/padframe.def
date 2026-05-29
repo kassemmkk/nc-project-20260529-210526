@@ -1,0 +1,1548 @@
+VERSION 5.8 ;
+NAMESCASESENSITIVE ON ;
+DIVIDERCHAR "/" ;
+BUSBITCHARS "[]" ;
+DESIGN mspm33c321a_derivative_mcu ;
+TECHNOLOGY sky130A ;
+UNITS DISTANCE MICRONS 1000 ;
+
+DIEAREA ( 0 0 ) ( 4700000 4200000 ) ;
+
+COMPONENTS 767 ;
+   - corner_sw sky130_ef_io__corner_pad
+      + PLACED ( 0 0 ) S ;
+   - corner_se sky130_ef_io__corner_pad
+      + PLACED ( 4496000 0 ) E ;
+   - corner_ne sky130_ef_io__corner_pad
+      + PLACED ( 4500000 3996000 ) N ;
+   - corner_nw sky130_ef_io__corner_pad
+      + PLACED ( 0 4000000 ) W ;
+   - vddio_S_0 sky130_ef_io__vddio_hvc_clamped_pad
+      + PLACED ( 305000 0 ) S ;
+   - vddio_S_1 sky130_ef_io__vddio_hvc_clamped_pad
+      + PLACED ( 485000 0 ) S ;
+   - vddio_S_2 sky130_ef_io__vddio_hvc_clamped_pad
+      + PLACED ( 665000 0 ) S ;
+   - vddio_S_3 sky130_ef_io__vddio_hvc_clamped_pad
+      + PLACED ( 845000 0 ) S ;
+   - vssio_S_0 sky130_ef_io__vssio_hvc_clamped_pad
+      + PLACED ( 1025000 0 ) S ;
+   - vssio_S_1 sky130_ef_io__vssio_hvc_clamped_pad
+      + PLACED ( 1205000 0 ) S ;
+   - vssio_S_2 sky130_ef_io__vssio_hvc_clamped_pad
+      + PLACED ( 1385000 0 ) S ;
+   - vssio_S_3 sky130_ef_io__vssio_hvc_clamped_pad
+      + PLACED ( 1565000 0 ) S ;
+   - vccd_S_0 sky130_ef_io__vccd_lvc_clamped_pad
+      + PLACED ( 1745000 0 ) S ;
+   - vccd_S_1 sky130_ef_io__vccd_lvc_clamped_pad
+      + PLACED ( 1925000 0 ) S ;
+   - vssd_S_0 sky130_ef_io__vssd_lvc_clamped_pad
+      + PLACED ( 2105000 0 ) S ;
+   - vssd_S_1 sky130_ef_io__vssd_lvc_clamped_pad
+      + PLACED ( 2285000 0 ) S ;
+   - clk sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 2465000 0 ) S ;
+   - reset_n sky130_fd_io__top_xres4v2
+      + PLACED ( 2650000 0 ) S ;
+   - pad_gpioa_0 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 2830000 0 ) S ;
+   - pad_gpioa_1 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 3015000 0 ) S ;
+   - pad_gpioa_2 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 3200000 0 ) S ;
+   - pad_gpioa_3 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 3385000 0 ) S ;
+   - pad_gpioa_4 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 3570000 0 ) S ;
+   - pad_gpioa_5 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 3755000 0 ) S ;
+   - pad_gpioa_6 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 3940000 0 ) S ;
+   - pad_gpioa_7 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 4125000 0 ) S ;
+   - pad_gpioa_8 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 4310000 0 ) S ;
+   - bus_slice_S_0 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 200000 0 ) S ;
+   - bus_slice_S_1 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 220000 0 ) S ;
+   - bus_slice_S_2 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 240000 0 ) S ;
+   - bus_slice_S_3 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 260000 0 ) S ;
+   - bus_slice_S_4 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 280000 0 ) S ;
+   - bus_slice_S_5 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 300000 0 ) S ;
+   - bus_slice_S_6 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 380000 0 ) S ;
+   - bus_slice_S_7 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 400000 0 ) S ;
+   - bus_slice_S_8 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 420000 0 ) S ;
+   - bus_slice_S_9 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 440000 0 ) S ;
+   - bus_slice_S_10 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 460000 0 ) S ;
+   - bus_slice_S_11 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 480000 0 ) S ;
+   - bus_slice_S_12 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 560000 0 ) S ;
+   - bus_slice_S_13 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 580000 0 ) S ;
+   - bus_slice_S_14 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 600000 0 ) S ;
+   - bus_slice_S_15 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 620000 0 ) S ;
+   - bus_slice_S_16 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 640000 0 ) S ;
+   - bus_slice_S_17 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 660000 0 ) S ;
+   - bus_slice_S_18 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 740000 0 ) S ;
+   - bus_slice_S_19 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 760000 0 ) S ;
+   - bus_slice_S_20 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 780000 0 ) S ;
+   - bus_slice_S_21 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 800000 0 ) S ;
+   - bus_slice_S_22 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 820000 0 ) S ;
+   - bus_slice_S_23 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 840000 0 ) S ;
+   - bus_slice_S_24 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 920000 0 ) S ;
+   - bus_slice_S_25 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 940000 0 ) S ;
+   - bus_slice_S_26 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 960000 0 ) S ;
+   - bus_slice_S_27 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 980000 0 ) S ;
+   - bus_slice_S_28 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1000000 0 ) S ;
+   - bus_slice_S_29 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 1020000 0 ) S ;
+   - bus_slice_S_30 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1100000 0 ) S ;
+   - bus_slice_S_31 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1120000 0 ) S ;
+   - bus_slice_S_32 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1140000 0 ) S ;
+   - bus_slice_S_33 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1160000 0 ) S ;
+   - bus_slice_S_34 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1180000 0 ) S ;
+   - bus_slice_S_35 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 1200000 0 ) S ;
+   - bus_slice_S_36 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1280000 0 ) S ;
+   - bus_slice_S_37 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1300000 0 ) S ;
+   - bus_slice_S_38 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1320000 0 ) S ;
+   - bus_slice_S_39 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1340000 0 ) S ;
+   - bus_slice_S_40 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1360000 0 ) S ;
+   - bus_slice_S_41 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 1380000 0 ) S ;
+   - bus_slice_S_42 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1460000 0 ) S ;
+   - bus_slice_S_43 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1480000 0 ) S ;
+   - bus_slice_S_44 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1500000 0 ) S ;
+   - bus_slice_S_45 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1520000 0 ) S ;
+   - bus_slice_S_46 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1540000 0 ) S ;
+   - bus_slice_S_47 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 1560000 0 ) S ;
+   - bus_slice_S_48 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1640000 0 ) S ;
+   - bus_slice_S_49 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1660000 0 ) S ;
+   - bus_slice_S_50 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1680000 0 ) S ;
+   - bus_slice_S_51 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1700000 0 ) S ;
+   - bus_slice_S_52 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1720000 0 ) S ;
+   - bus_slice_S_53 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 1740000 0 ) S ;
+   - bus_slice_S_54 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1820000 0 ) S ;
+   - bus_slice_S_55 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1840000 0 ) S ;
+   - bus_slice_S_56 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1860000 0 ) S ;
+   - bus_slice_S_57 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1880000 0 ) S ;
+   - bus_slice_S_58 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1900000 0 ) S ;
+   - bus_slice_S_59 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 1920000 0 ) S ;
+   - bus_slice_S_60 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2000000 0 ) S ;
+   - bus_slice_S_61 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2020000 0 ) S ;
+   - bus_slice_S_62 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2040000 0 ) S ;
+   - bus_slice_S_63 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2060000 0 ) S ;
+   - bus_slice_S_64 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2080000 0 ) S ;
+   - bus_slice_S_65 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 2100000 0 ) S ;
+   - bus_slice_S_66 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2180000 0 ) S ;
+   - bus_slice_S_67 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2200000 0 ) S ;
+   - bus_slice_S_68 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2220000 0 ) S ;
+   - bus_slice_S_69 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2240000 0 ) S ;
+   - bus_slice_S_70 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2260000 0 ) S ;
+   - bus_slice_S_71 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 2280000 0 ) S ;
+   - bus_slice_S_72 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2360000 0 ) S ;
+   - bus_slice_S_73 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2380000 0 ) S ;
+   - bus_slice_S_74 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2400000 0 ) S ;
+   - bus_slice_S_75 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2420000 0 ) S ;
+   - bus_slice_S_76 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2440000 0 ) S ;
+   - bus_slice_S_77 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 2460000 0 ) S ;
+   - bus_slice_S_78 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2545000 0 ) S ;
+   - bus_slice_S_79 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2565000 0 ) S ;
+   - bus_slice_S_80 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2585000 0 ) S ;
+   - bus_slice_S_81 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2605000 0 ) S ;
+   - bus_slice_S_82 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2625000 0 ) S ;
+   - bus_slice_S_83 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 2645000 0 ) S ;
+   - bus_slice_S_84 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2725000 0 ) S ;
+   - bus_slice_S_85 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2745000 0 ) S ;
+   - bus_slice_S_86 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2765000 0 ) S ;
+   - bus_slice_S_87 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2785000 0 ) S ;
+   - bus_slice_S_88 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2805000 0 ) S ;
+   - bus_slice_S_89 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 2825000 0 ) S ;
+   - bus_slice_S_90 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2910000 0 ) S ;
+   - bus_slice_S_91 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2930000 0 ) S ;
+   - bus_slice_S_92 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2950000 0 ) S ;
+   - bus_slice_S_93 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2970000 0 ) S ;
+   - bus_slice_S_94 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2990000 0 ) S ;
+   - bus_slice_S_95 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 3010000 0 ) S ;
+   - bus_slice_S_96 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3095000 0 ) S ;
+   - bus_slice_S_97 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3115000 0 ) S ;
+   - bus_slice_S_98 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3135000 0 ) S ;
+   - bus_slice_S_99 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3155000 0 ) S ;
+   - bus_slice_S_100 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3175000 0 ) S ;
+   - bus_slice_S_101 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 3195000 0 ) S ;
+   - bus_slice_S_102 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3280000 0 ) S ;
+   - bus_slice_S_103 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3300000 0 ) S ;
+   - bus_slice_S_104 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3320000 0 ) S ;
+   - bus_slice_S_105 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3340000 0 ) S ;
+   - bus_slice_S_106 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3360000 0 ) S ;
+   - bus_slice_S_107 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 3380000 0 ) S ;
+   - bus_slice_S_108 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3465000 0 ) S ;
+   - bus_slice_S_109 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3485000 0 ) S ;
+   - bus_slice_S_110 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3505000 0 ) S ;
+   - bus_slice_S_111 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3525000 0 ) S ;
+   - bus_slice_S_112 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3545000 0 ) S ;
+   - bus_slice_S_113 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 3565000 0 ) S ;
+   - bus_slice_S_114 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3650000 0 ) S ;
+   - bus_slice_S_115 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3670000 0 ) S ;
+   - bus_slice_S_116 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3690000 0 ) S ;
+   - bus_slice_S_117 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3710000 0 ) S ;
+   - bus_slice_S_118 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3730000 0 ) S ;
+   - bus_slice_S_119 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 3750000 0 ) S ;
+   - bus_slice_S_120 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3835000 0 ) S ;
+   - bus_slice_S_121 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3855000 0 ) S ;
+   - bus_slice_S_122 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3875000 0 ) S ;
+   - bus_slice_S_123 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3895000 0 ) S ;
+   - bus_slice_S_124 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3915000 0 ) S ;
+   - bus_slice_S_125 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 3935000 0 ) S ;
+   - bus_slice_S_126 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4020000 0 ) S ;
+   - bus_slice_S_127 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4040000 0 ) S ;
+   - bus_slice_S_128 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4060000 0 ) S ;
+   - bus_slice_S_129 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4080000 0 ) S ;
+   - bus_slice_S_130 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4100000 0 ) S ;
+   - bus_slice_S_131 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4120000 0 ) S ;
+   - bus_slice_S_132 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4205000 0 ) S ;
+   - bus_slice_S_133 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4225000 0 ) S ;
+   - bus_slice_S_134 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4245000 0 ) S ;
+   - bus_slice_S_135 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4265000 0 ) S ;
+   - bus_slice_S_136 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4285000 0 ) S ;
+   - bus_slice_S_137 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4305000 0 ) S ;
+   - bus_slice_S_138 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4390000 0 ) S ;
+   - bus_slice_S_139 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4410000 0 ) S ;
+   - bus_slice_S_140 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4430000 0 ) S ;
+   - bus_slice_S_141 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4450000 0 ) S ;
+   - bus_slice_S_142 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4470000 0 ) S ;
+   - bus_slice_S_143 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4490000 0 ) S ;
+   - bus_slice_S_144 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4495000 0 ) S ;
+   - vddio_E_0 sky130_ef_io__vddio_hvc_clamped_pad
+      + PLACED ( 4502035 298000 ) E ;
+   - vddio_E_1 sky130_ef_io__vddio_hvc_clamped_pad
+      + PLACED ( 4502035 471000 ) E ;
+   - vssio_E_0 sky130_ef_io__vssio_hvc_clamped_pad
+      + PLACED ( 4502035 644000 ) E ;
+   - vssio_E_1 sky130_ef_io__vssio_hvc_clamped_pad
+      + PLACED ( 4502035 817000 ) E ;
+   - vccd_E_0 sky130_ef_io__vccd_lvc_clamped_pad
+      + PLACED ( 4502035 990000 ) E ;
+   - vccd_E_1 sky130_ef_io__vccd_lvc_clamped_pad
+      + PLACED ( 4502035 1163000 ) E ;
+   - vssd_E_0 sky130_ef_io__vssd_lvc_clamped_pad
+      + PLACED ( 4502035 1336000 ) E ;
+   - vssd_E_1 sky130_ef_io__vssd_lvc_clamped_pad
+      + PLACED ( 4502035 1509000 ) E ;
+   - pad_gpioa_9 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 4489035 1682000 ) E ;
+   - pad_gpioa_10 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 4489035 1860000 ) E ;
+   - pad_gpioa_11 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 4489035 2038000 ) E ;
+   - pad_gpioa_12 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 4489035 2216000 ) E ;
+   - pad_gpioa_13 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 4489035 2394000 ) E ;
+   - pad_gpioa_14 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 4489035 2572000 ) E ;
+   - pad_gpioa_15 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 4489035 2750000 ) E ;
+   - pad_gpioc_0 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 4489035 2928000 ) E ;
+   - pad_gpioc_1 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 4489035 3106000 ) E ;
+   - pad_gpioc_2 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 4489035 3284000 ) E ;
+   - pad_gpioc_3 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 4489035 3462000 ) E ;
+   - pad_gpioc_4 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 4489035 3640000 ) E ;
+   - pad_gpioc_5 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 4489035 3818000 ) E ;
+   - bus_slice_E_0 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 200000 ) E ;
+   - bus_slice_E_1 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 220000 ) E ;
+   - bus_slice_E_2 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 240000 ) E ;
+   - bus_slice_E_3 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 260000 ) E ;
+   - bus_slice_E_4 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 280000 ) E ;
+   - bus_slice_E_5 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 290000 ) E ;
+   - bus_slice_E_6 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 295000 ) E ;
+   - bus_slice_E_7 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 296000 ) E ;
+   - bus_slice_E_8 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 297000 ) E ;
+   - bus_slice_E_9 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 373000 ) E ;
+   - bus_slice_E_10 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 393000 ) E ;
+   - bus_slice_E_11 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 413000 ) E ;
+   - bus_slice_E_12 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 433000 ) E ;
+   - bus_slice_E_13 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 453000 ) E ;
+   - bus_slice_E_14 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 463000 ) E ;
+   - bus_slice_E_15 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 468000 ) E ;
+   - bus_slice_E_16 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 469000 ) E ;
+   - bus_slice_E_17 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 470000 ) E ;
+   - bus_slice_E_18 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 546000 ) E ;
+   - bus_slice_E_19 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 566000 ) E ;
+   - bus_slice_E_20 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 586000 ) E ;
+   - bus_slice_E_21 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 606000 ) E ;
+   - bus_slice_E_22 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 626000 ) E ;
+   - bus_slice_E_23 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 636000 ) E ;
+   - bus_slice_E_24 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 641000 ) E ;
+   - bus_slice_E_25 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 642000 ) E ;
+   - bus_slice_E_26 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 643000 ) E ;
+   - bus_slice_E_27 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 719000 ) E ;
+   - bus_slice_E_28 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 739000 ) E ;
+   - bus_slice_E_29 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 759000 ) E ;
+   - bus_slice_E_30 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 779000 ) E ;
+   - bus_slice_E_31 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 799000 ) E ;
+   - bus_slice_E_32 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 809000 ) E ;
+   - bus_slice_E_33 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 814000 ) E ;
+   - bus_slice_E_34 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 815000 ) E ;
+   - bus_slice_E_35 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 816000 ) E ;
+   - bus_slice_E_36 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 892000 ) E ;
+   - bus_slice_E_37 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 912000 ) E ;
+   - bus_slice_E_38 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 932000 ) E ;
+   - bus_slice_E_39 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 952000 ) E ;
+   - bus_slice_E_40 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 972000 ) E ;
+   - bus_slice_E_41 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 982000 ) E ;
+   - bus_slice_E_42 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 987000 ) E ;
+   - bus_slice_E_43 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 988000 ) E ;
+   - bus_slice_E_44 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 989000 ) E ;
+   - bus_slice_E_45 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1065000 ) E ;
+   - bus_slice_E_46 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1085000 ) E ;
+   - bus_slice_E_47 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1105000 ) E ;
+   - bus_slice_E_48 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1125000 ) E ;
+   - bus_slice_E_49 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 1145000 ) E ;
+   - bus_slice_E_50 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 1155000 ) E ;
+   - bus_slice_E_51 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 1160000 ) E ;
+   - bus_slice_E_52 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 1161000 ) E ;
+   - bus_slice_E_53 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 1162000 ) E ;
+   - bus_slice_E_54 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1238000 ) E ;
+   - bus_slice_E_55 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1258000 ) E ;
+   - bus_slice_E_56 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1278000 ) E ;
+   - bus_slice_E_57 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1298000 ) E ;
+   - bus_slice_E_58 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 1318000 ) E ;
+   - bus_slice_E_59 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 1328000 ) E ;
+   - bus_slice_E_60 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 1333000 ) E ;
+   - bus_slice_E_61 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 1334000 ) E ;
+   - bus_slice_E_62 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 1335000 ) E ;
+   - bus_slice_E_63 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1411000 ) E ;
+   - bus_slice_E_64 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1431000 ) E ;
+   - bus_slice_E_65 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1451000 ) E ;
+   - bus_slice_E_66 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1471000 ) E ;
+   - bus_slice_E_67 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 1491000 ) E ;
+   - bus_slice_E_68 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 1501000 ) E ;
+   - bus_slice_E_69 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 1506000 ) E ;
+   - bus_slice_E_70 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 1507000 ) E ;
+   - bus_slice_E_71 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 1508000 ) E ;
+   - bus_slice_E_72 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1584000 ) E ;
+   - bus_slice_E_73 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1604000 ) E ;
+   - bus_slice_E_74 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1624000 ) E ;
+   - bus_slice_E_75 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1644000 ) E ;
+   - bus_slice_E_76 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 1664000 ) E ;
+   - bus_slice_E_77 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 1674000 ) E ;
+   - bus_slice_E_78 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 1679000 ) E ;
+   - bus_slice_E_79 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 1680000 ) E ;
+   - bus_slice_E_80 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 1681000 ) E ;
+   - bus_slice_E_81 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1762000 ) E ;
+   - bus_slice_E_82 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1782000 ) E ;
+   - bus_slice_E_83 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1802000 ) E ;
+   - bus_slice_E_84 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1822000 ) E ;
+   - bus_slice_E_85 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 1842000 ) E ;
+   - bus_slice_E_86 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 1852000 ) E ;
+   - bus_slice_E_87 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 1857000 ) E ;
+   - bus_slice_E_88 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 1858000 ) E ;
+   - bus_slice_E_89 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 1859000 ) E ;
+   - bus_slice_E_90 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1940000 ) E ;
+   - bus_slice_E_91 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1960000 ) E ;
+   - bus_slice_E_92 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 1980000 ) E ;
+   - bus_slice_E_93 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2000000 ) E ;
+   - bus_slice_E_94 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 2020000 ) E ;
+   - bus_slice_E_95 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 2030000 ) E ;
+   - bus_slice_E_96 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 2035000 ) E ;
+   - bus_slice_E_97 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 2036000 ) E ;
+   - bus_slice_E_98 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 2037000 ) E ;
+   - bus_slice_E_99 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2118000 ) E ;
+   - bus_slice_E_100 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2138000 ) E ;
+   - bus_slice_E_101 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2158000 ) E ;
+   - bus_slice_E_102 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2178000 ) E ;
+   - bus_slice_E_103 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 2198000 ) E ;
+   - bus_slice_E_104 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 2208000 ) E ;
+   - bus_slice_E_105 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 2213000 ) E ;
+   - bus_slice_E_106 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 2214000 ) E ;
+   - bus_slice_E_107 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 2215000 ) E ;
+   - bus_slice_E_108 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2296000 ) E ;
+   - bus_slice_E_109 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2316000 ) E ;
+   - bus_slice_E_110 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2336000 ) E ;
+   - bus_slice_E_111 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2356000 ) E ;
+   - bus_slice_E_112 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 2376000 ) E ;
+   - bus_slice_E_113 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 2386000 ) E ;
+   - bus_slice_E_114 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 2391000 ) E ;
+   - bus_slice_E_115 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 2392000 ) E ;
+   - bus_slice_E_116 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 2393000 ) E ;
+   - bus_slice_E_117 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2474000 ) E ;
+   - bus_slice_E_118 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2494000 ) E ;
+   - bus_slice_E_119 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2514000 ) E ;
+   - bus_slice_E_120 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2534000 ) E ;
+   - bus_slice_E_121 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 2554000 ) E ;
+   - bus_slice_E_122 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 2564000 ) E ;
+   - bus_slice_E_123 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 2569000 ) E ;
+   - bus_slice_E_124 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 2570000 ) E ;
+   - bus_slice_E_125 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 2571000 ) E ;
+   - bus_slice_E_126 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2652000 ) E ;
+   - bus_slice_E_127 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2672000 ) E ;
+   - bus_slice_E_128 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2692000 ) E ;
+   - bus_slice_E_129 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2712000 ) E ;
+   - bus_slice_E_130 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 2732000 ) E ;
+   - bus_slice_E_131 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 2742000 ) E ;
+   - bus_slice_E_132 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 2747000 ) E ;
+   - bus_slice_E_133 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 2748000 ) E ;
+   - bus_slice_E_134 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 2749000 ) E ;
+   - bus_slice_E_135 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2830000 ) E ;
+   - bus_slice_E_136 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2850000 ) E ;
+   - bus_slice_E_137 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2870000 ) E ;
+   - bus_slice_E_138 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 2890000 ) E ;
+   - bus_slice_E_139 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 2910000 ) E ;
+   - bus_slice_E_140 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 2920000 ) E ;
+   - bus_slice_E_141 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 2925000 ) E ;
+   - bus_slice_E_142 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 2926000 ) E ;
+   - bus_slice_E_143 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 2927000 ) E ;
+   - bus_slice_E_144 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3008000 ) E ;
+   - bus_slice_E_145 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3028000 ) E ;
+   - bus_slice_E_146 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3048000 ) E ;
+   - bus_slice_E_147 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3068000 ) E ;
+   - bus_slice_E_148 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 3088000 ) E ;
+   - bus_slice_E_149 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 3098000 ) E ;
+   - bus_slice_E_150 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 3103000 ) E ;
+   - bus_slice_E_151 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 3104000 ) E ;
+   - bus_slice_E_152 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 3105000 ) E ;
+   - bus_slice_E_153 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3186000 ) E ;
+   - bus_slice_E_154 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3206000 ) E ;
+   - bus_slice_E_155 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3226000 ) E ;
+   - bus_slice_E_156 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3246000 ) E ;
+   - bus_slice_E_157 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 3266000 ) E ;
+   - bus_slice_E_158 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 3276000 ) E ;
+   - bus_slice_E_159 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 3281000 ) E ;
+   - bus_slice_E_160 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 3282000 ) E ;
+   - bus_slice_E_161 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 3283000 ) E ;
+   - bus_slice_E_162 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3364000 ) E ;
+   - bus_slice_E_163 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3384000 ) E ;
+   - bus_slice_E_164 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3404000 ) E ;
+   - bus_slice_E_165 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3424000 ) E ;
+   - bus_slice_E_166 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 3444000 ) E ;
+   - bus_slice_E_167 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 3454000 ) E ;
+   - bus_slice_E_168 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 3459000 ) E ;
+   - bus_slice_E_169 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 3460000 ) E ;
+   - bus_slice_E_170 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 3461000 ) E ;
+   - bus_slice_E_171 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3542000 ) E ;
+   - bus_slice_E_172 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3562000 ) E ;
+   - bus_slice_E_173 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3582000 ) E ;
+   - bus_slice_E_174 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3602000 ) E ;
+   - bus_slice_E_175 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 3622000 ) E ;
+   - bus_slice_E_176 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 3632000 ) E ;
+   - bus_slice_E_177 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 3637000 ) E ;
+   - bus_slice_E_178 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 3638000 ) E ;
+   - bus_slice_E_179 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 3639000 ) E ;
+   - bus_slice_E_180 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3720000 ) E ;
+   - bus_slice_E_181 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3740000 ) E ;
+   - bus_slice_E_182 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3760000 ) E ;
+   - bus_slice_E_183 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3780000 ) E ;
+   - bus_slice_E_184 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 3800000 ) E ;
+   - bus_slice_E_185 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 3810000 ) E ;
+   - bus_slice_E_186 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 3815000 ) E ;
+   - bus_slice_E_187 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 3816000 ) E ;
+   - bus_slice_E_188 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 3817000 ) E ;
+   - bus_slice_E_189 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3898000 ) E ;
+   - bus_slice_E_190 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3918000 ) E ;
+   - bus_slice_E_191 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3938000 ) E ;
+   - bus_slice_E_192 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4502035 3958000 ) E ;
+   - bus_slice_E_193 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4502035 3978000 ) E ;
+   - bus_slice_E_194 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4502035 3988000 ) E ;
+   - bus_slice_E_195 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 3993000 ) E ;
+   - bus_slice_E_196 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 3994000 ) E ;
+   - bus_slice_E_197 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4502035 3995000 ) E ;
+   - vddio_N_0 sky130_ef_io__vddio_hvc_clamped_pad
+      + PLACED ( 294000 4002035 ) N ;
+   - vddio_N_1 sky130_ef_io__vddio_hvc_clamped_pad
+      + PLACED ( 459000 4002035 ) N ;
+   - vddio_N_2 sky130_ef_io__vddio_hvc_clamped_pad
+      + PLACED ( 624000 4002035 ) N ;
+   - vddio_N_3 sky130_ef_io__vddio_hvc_clamped_pad
+      + PLACED ( 789000 4002035 ) N ;
+   - vssio_N_0 sky130_ef_io__vssio_hvc_clamped_pad
+      + PLACED ( 954000 4002035 ) N ;
+   - vssio_N_1 sky130_ef_io__vssio_hvc_clamped_pad
+      + PLACED ( 1119000 4002035 ) N ;
+   - vssio_N_2 sky130_ef_io__vssio_hvc_clamped_pad
+      + PLACED ( 1284000 4002035 ) N ;
+   - vssio_N_3 sky130_ef_io__vssio_hvc_clamped_pad
+      + PLACED ( 1449000 4002035 ) N ;
+   - vccd_N_0 sky130_ef_io__vccd_lvc_clamped_pad
+      + PLACED ( 1614000 4002035 ) N ;
+   - vccd_N_1 sky130_ef_io__vccd_lvc_clamped_pad
+      + PLACED ( 1779000 4002035 ) N ;
+   - vssd_N_0 sky130_ef_io__vssd_lvc_clamped_pad
+      + PLACED ( 1944000 4002035 ) N ;
+   - vssd_N_1 sky130_ef_io__vssd_lvc_clamped_pad
+      + PLACED ( 2109000 4002035 ) N ;
+   - pad_gpiob_0 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 2274000 3989035 ) N ;
+   - pad_gpiob_1 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 2444000 3989035 ) N ;
+   - pad_gpiob_2 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 2614000 3989035 ) N ;
+   - pad_gpiob_3 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 2784000 3989035 ) N ;
+   - pad_gpiob_4 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 2954000 3989035 ) N ;
+   - pad_gpiob_5 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 3124000 3989035 ) N ;
+   - pad_gpiob_6 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 3294000 3989035 ) N ;
+   - pad_gpiob_7 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 3464000 3989035 ) N ;
+   - pad_gpiob_8 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 3634000 3989035 ) N ;
+   - pad_gpiob_9 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 3804000 3989035 ) N ;
+   - pad_gpiob_10 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 3974000 3989035 ) N ;
+   - pad_gpiob_11 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 4144000 3989035 ) N ;
+   - pad_gpiob_12 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 4314000 3989035 ) N ;
+   - bus_slice_N_0 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 204000 4002035 ) N ;
+   - bus_slice_N_1 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 224000 4002035 ) N ;
+   - bus_slice_N_2 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 244000 4002035 ) N ;
+   - bus_slice_N_3 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 264000 4002035 ) N ;
+   - bus_slice_N_4 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 284000 4002035 ) N ;
+   - bus_slice_N_5 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 369000 4002035 ) N ;
+   - bus_slice_N_6 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 389000 4002035 ) N ;
+   - bus_slice_N_7 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 409000 4002035 ) N ;
+   - bus_slice_N_8 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 429000 4002035 ) N ;
+   - bus_slice_N_9 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 449000 4002035 ) N ;
+   - bus_slice_N_10 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 534000 4002035 ) N ;
+   - bus_slice_N_11 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 554000 4002035 ) N ;
+   - bus_slice_N_12 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 574000 4002035 ) N ;
+   - bus_slice_N_13 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 594000 4002035 ) N ;
+   - bus_slice_N_14 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 614000 4002035 ) N ;
+   - bus_slice_N_15 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 699000 4002035 ) N ;
+   - bus_slice_N_16 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 719000 4002035 ) N ;
+   - bus_slice_N_17 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 739000 4002035 ) N ;
+   - bus_slice_N_18 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 759000 4002035 ) N ;
+   - bus_slice_N_19 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 779000 4002035 ) N ;
+   - bus_slice_N_20 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 864000 4002035 ) N ;
+   - bus_slice_N_21 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 884000 4002035 ) N ;
+   - bus_slice_N_22 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 904000 4002035 ) N ;
+   - bus_slice_N_23 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 924000 4002035 ) N ;
+   - bus_slice_N_24 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 944000 4002035 ) N ;
+   - bus_slice_N_25 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1029000 4002035 ) N ;
+   - bus_slice_N_26 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1049000 4002035 ) N ;
+   - bus_slice_N_27 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1069000 4002035 ) N ;
+   - bus_slice_N_28 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1089000 4002035 ) N ;
+   - bus_slice_N_29 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 1109000 4002035 ) N ;
+   - bus_slice_N_30 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1194000 4002035 ) N ;
+   - bus_slice_N_31 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1214000 4002035 ) N ;
+   - bus_slice_N_32 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1234000 4002035 ) N ;
+   - bus_slice_N_33 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1254000 4002035 ) N ;
+   - bus_slice_N_34 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 1274000 4002035 ) N ;
+   - bus_slice_N_35 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1359000 4002035 ) N ;
+   - bus_slice_N_36 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1379000 4002035 ) N ;
+   - bus_slice_N_37 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1399000 4002035 ) N ;
+   - bus_slice_N_38 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1419000 4002035 ) N ;
+   - bus_slice_N_39 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 1439000 4002035 ) N ;
+   - bus_slice_N_40 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1524000 4002035 ) N ;
+   - bus_slice_N_41 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1544000 4002035 ) N ;
+   - bus_slice_N_42 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1564000 4002035 ) N ;
+   - bus_slice_N_43 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1584000 4002035 ) N ;
+   - bus_slice_N_44 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 1604000 4002035 ) N ;
+   - bus_slice_N_45 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1689000 4002035 ) N ;
+   - bus_slice_N_46 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1709000 4002035 ) N ;
+   - bus_slice_N_47 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1729000 4002035 ) N ;
+   - bus_slice_N_48 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1749000 4002035 ) N ;
+   - bus_slice_N_49 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 1769000 4002035 ) N ;
+   - bus_slice_N_50 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1854000 4002035 ) N ;
+   - bus_slice_N_51 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1874000 4002035 ) N ;
+   - bus_slice_N_52 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1894000 4002035 ) N ;
+   - bus_slice_N_53 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 1914000 4002035 ) N ;
+   - bus_slice_N_54 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 1934000 4002035 ) N ;
+   - bus_slice_N_55 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2019000 4002035 ) N ;
+   - bus_slice_N_56 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2039000 4002035 ) N ;
+   - bus_slice_N_57 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2059000 4002035 ) N ;
+   - bus_slice_N_58 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2079000 4002035 ) N ;
+   - bus_slice_N_59 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 2099000 4002035 ) N ;
+   - bus_slice_N_60 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2184000 4002035 ) N ;
+   - bus_slice_N_61 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2204000 4002035 ) N ;
+   - bus_slice_N_62 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2224000 4002035 ) N ;
+   - bus_slice_N_63 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2244000 4002035 ) N ;
+   - bus_slice_N_64 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 2264000 4002035 ) N ;
+   - bus_slice_N_65 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2354000 4002035 ) N ;
+   - bus_slice_N_66 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2374000 4002035 ) N ;
+   - bus_slice_N_67 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2394000 4002035 ) N ;
+   - bus_slice_N_68 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2414000 4002035 ) N ;
+   - bus_slice_N_69 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 2434000 4002035 ) N ;
+   - bus_slice_N_70 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2524000 4002035 ) N ;
+   - bus_slice_N_71 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2544000 4002035 ) N ;
+   - bus_slice_N_72 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2564000 4002035 ) N ;
+   - bus_slice_N_73 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2584000 4002035 ) N ;
+   - bus_slice_N_74 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 2604000 4002035 ) N ;
+   - bus_slice_N_75 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2694000 4002035 ) N ;
+   - bus_slice_N_76 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2714000 4002035 ) N ;
+   - bus_slice_N_77 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2734000 4002035 ) N ;
+   - bus_slice_N_78 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2754000 4002035 ) N ;
+   - bus_slice_N_79 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 2774000 4002035 ) N ;
+   - bus_slice_N_80 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2864000 4002035 ) N ;
+   - bus_slice_N_81 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2884000 4002035 ) N ;
+   - bus_slice_N_82 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2904000 4002035 ) N ;
+   - bus_slice_N_83 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 2924000 4002035 ) N ;
+   - bus_slice_N_84 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 2944000 4002035 ) N ;
+   - bus_slice_N_85 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3034000 4002035 ) N ;
+   - bus_slice_N_86 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3054000 4002035 ) N ;
+   - bus_slice_N_87 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3074000 4002035 ) N ;
+   - bus_slice_N_88 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3094000 4002035 ) N ;
+   - bus_slice_N_89 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 3114000 4002035 ) N ;
+   - bus_slice_N_90 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3204000 4002035 ) N ;
+   - bus_slice_N_91 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3224000 4002035 ) N ;
+   - bus_slice_N_92 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3244000 4002035 ) N ;
+   - bus_slice_N_93 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3264000 4002035 ) N ;
+   - bus_slice_N_94 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 3284000 4002035 ) N ;
+   - bus_slice_N_95 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3374000 4002035 ) N ;
+   - bus_slice_N_96 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3394000 4002035 ) N ;
+   - bus_slice_N_97 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3414000 4002035 ) N ;
+   - bus_slice_N_98 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3434000 4002035 ) N ;
+   - bus_slice_N_99 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 3454000 4002035 ) N ;
+   - bus_slice_N_100 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3544000 4002035 ) N ;
+   - bus_slice_N_101 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3564000 4002035 ) N ;
+   - bus_slice_N_102 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3584000 4002035 ) N ;
+   - bus_slice_N_103 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3604000 4002035 ) N ;
+   - bus_slice_N_104 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 3624000 4002035 ) N ;
+   - bus_slice_N_105 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3714000 4002035 ) N ;
+   - bus_slice_N_106 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3734000 4002035 ) N ;
+   - bus_slice_N_107 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3754000 4002035 ) N ;
+   - bus_slice_N_108 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3774000 4002035 ) N ;
+   - bus_slice_N_109 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 3794000 4002035 ) N ;
+   - bus_slice_N_110 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3884000 4002035 ) N ;
+   - bus_slice_N_111 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3904000 4002035 ) N ;
+   - bus_slice_N_112 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3924000 4002035 ) N ;
+   - bus_slice_N_113 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 3944000 4002035 ) N ;
+   - bus_slice_N_114 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 3964000 4002035 ) N ;
+   - bus_slice_N_115 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4054000 4002035 ) N ;
+   - bus_slice_N_116 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4074000 4002035 ) N ;
+   - bus_slice_N_117 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4094000 4002035 ) N ;
+   - bus_slice_N_118 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4114000 4002035 ) N ;
+   - bus_slice_N_119 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4134000 4002035 ) N ;
+   - bus_slice_N_120 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4224000 4002035 ) N ;
+   - bus_slice_N_121 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4244000 4002035 ) N ;
+   - bus_slice_N_122 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4264000 4002035 ) N ;
+   - bus_slice_N_123 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4284000 4002035 ) N ;
+   - bus_slice_N_124 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 4304000 4002035 ) N ;
+   - bus_slice_N_125 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4394000 4002035 ) N ;
+   - bus_slice_N_126 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4414000 4002035 ) N ;
+   - bus_slice_N_127 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4434000 4002035 ) N ;
+   - bus_slice_N_128 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4454000 4002035 ) N ;
+   - bus_slice_N_129 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 4474000 4002035 ) N ;
+   - bus_slice_N_130 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 4494000 4002035 ) N ;
+   - bus_slice_N_131 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 4499000 4002035 ) N ;
+   - vddio_W_0 sky130_ef_io__vddio_hvc_clamped_pad
+      + PLACED ( 0 302000 ) W ;
+   - vddio_W_1 sky130_ef_io__vddio_hvc_clamped_pad
+      + PLACED ( 0 475000 ) W ;
+   - vssio_W_0 sky130_ef_io__vssio_hvc_clamped_pad
+      + PLACED ( 0 648000 ) W ;
+   - vssio_W_1 sky130_ef_io__vssio_hvc_clamped_pad
+      + PLACED ( 0 821000 ) W ;
+   - vccd_W_0 sky130_ef_io__vccd_lvc_clamped_pad
+      + PLACED ( 0 994000 ) W ;
+   - vccd_W_1 sky130_ef_io__vccd_lvc_clamped_pad
+      + PLACED ( 0 1167000 ) W ;
+   - vssd_W_0 sky130_ef_io__vssd_lvc_clamped_pad
+      + PLACED ( 0 1340000 ) W ;
+   - vssd_W_1 sky130_ef_io__vssd_lvc_clamped_pad
+      + PLACED ( 0 1513000 ) W ;
+   - pad_gpiob_13 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 0 1686000 ) W ;
+   - pad_gpiob_14 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 0 1864000 ) W ;
+   - pad_gpiob_15 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 0 2042000 ) W ;
+   - pad_gpioc_6 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 0 2220000 ) W ;
+   - pad_gpioc_7 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 0 2398000 ) W ;
+   - pad_gpioc_8 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 0 2576000 ) W ;
+   - pad_gpioc_9 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 0 2754000 ) W ;
+   - pad_gpioc_10 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 0 2932000 ) W ;
+   - pad_gpioc_11 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 0 3110000 ) W ;
+   - pad_gpioc_12 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 0 3288000 ) W ;
+   - pad_gpioc_13 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 0 3466000 ) W ;
+   - pad_gpioc_14 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 0 3644000 ) W ;
+   - pad_gpioc_15 sky130_ef_io__gpiov2_pad_wrapped
+      + PLACED ( 0 3822000 ) W ;
+   - bus_slice_W_0 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 204000 ) W ;
+   - bus_slice_W_1 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 224000 ) W ;
+   - bus_slice_W_2 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 244000 ) W ;
+   - bus_slice_W_3 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 264000 ) W ;
+   - bus_slice_W_4 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 284000 ) W ;
+   - bus_slice_W_5 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 294000 ) W ;
+   - bus_slice_W_6 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 299000 ) W ;
+   - bus_slice_W_7 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 300000 ) W ;
+   - bus_slice_W_8 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 301000 ) W ;
+   - bus_slice_W_9 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 377000 ) W ;
+   - bus_slice_W_10 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 397000 ) W ;
+   - bus_slice_W_11 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 417000 ) W ;
+   - bus_slice_W_12 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 437000 ) W ;
+   - bus_slice_W_13 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 457000 ) W ;
+   - bus_slice_W_14 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 467000 ) W ;
+   - bus_slice_W_15 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 472000 ) W ;
+   - bus_slice_W_16 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 473000 ) W ;
+   - bus_slice_W_17 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 474000 ) W ;
+   - bus_slice_W_18 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 550000 ) W ;
+   - bus_slice_W_19 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 570000 ) W ;
+   - bus_slice_W_20 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 590000 ) W ;
+   - bus_slice_W_21 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 610000 ) W ;
+   - bus_slice_W_22 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 630000 ) W ;
+   - bus_slice_W_23 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 640000 ) W ;
+   - bus_slice_W_24 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 645000 ) W ;
+   - bus_slice_W_25 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 646000 ) W ;
+   - bus_slice_W_26 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 647000 ) W ;
+   - bus_slice_W_27 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 723000 ) W ;
+   - bus_slice_W_28 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 743000 ) W ;
+   - bus_slice_W_29 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 763000 ) W ;
+   - bus_slice_W_30 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 783000 ) W ;
+   - bus_slice_W_31 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 803000 ) W ;
+   - bus_slice_W_32 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 813000 ) W ;
+   - bus_slice_W_33 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 818000 ) W ;
+   - bus_slice_W_34 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 819000 ) W ;
+   - bus_slice_W_35 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 820000 ) W ;
+   - bus_slice_W_36 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 896000 ) W ;
+   - bus_slice_W_37 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 916000 ) W ;
+   - bus_slice_W_38 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 936000 ) W ;
+   - bus_slice_W_39 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 956000 ) W ;
+   - bus_slice_W_40 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 976000 ) W ;
+   - bus_slice_W_41 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 986000 ) W ;
+   - bus_slice_W_42 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 991000 ) W ;
+   - bus_slice_W_43 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 992000 ) W ;
+   - bus_slice_W_44 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 993000 ) W ;
+   - bus_slice_W_45 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1069000 ) W ;
+   - bus_slice_W_46 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1089000 ) W ;
+   - bus_slice_W_47 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1109000 ) W ;
+   - bus_slice_W_48 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1129000 ) W ;
+   - bus_slice_W_49 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 1149000 ) W ;
+   - bus_slice_W_50 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 1159000 ) W ;
+   - bus_slice_W_51 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 1164000 ) W ;
+   - bus_slice_W_52 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 1165000 ) W ;
+   - bus_slice_W_53 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 1166000 ) W ;
+   - bus_slice_W_54 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1242000 ) W ;
+   - bus_slice_W_55 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1262000 ) W ;
+   - bus_slice_W_56 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1282000 ) W ;
+   - bus_slice_W_57 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1302000 ) W ;
+   - bus_slice_W_58 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 1322000 ) W ;
+   - bus_slice_W_59 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 1332000 ) W ;
+   - bus_slice_W_60 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 1337000 ) W ;
+   - bus_slice_W_61 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 1338000 ) W ;
+   - bus_slice_W_62 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 1339000 ) W ;
+   - bus_slice_W_63 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1415000 ) W ;
+   - bus_slice_W_64 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1435000 ) W ;
+   - bus_slice_W_65 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1455000 ) W ;
+   - bus_slice_W_66 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1475000 ) W ;
+   - bus_slice_W_67 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 1495000 ) W ;
+   - bus_slice_W_68 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 1505000 ) W ;
+   - bus_slice_W_69 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 1510000 ) W ;
+   - bus_slice_W_70 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 1511000 ) W ;
+   - bus_slice_W_71 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 1512000 ) W ;
+   - bus_slice_W_72 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1588000 ) W ;
+   - bus_slice_W_73 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1608000 ) W ;
+   - bus_slice_W_74 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1628000 ) W ;
+   - bus_slice_W_75 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1648000 ) W ;
+   - bus_slice_W_76 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 1668000 ) W ;
+   - bus_slice_W_77 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 1678000 ) W ;
+   - bus_slice_W_78 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 1683000 ) W ;
+   - bus_slice_W_79 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 1684000 ) W ;
+   - bus_slice_W_80 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 1685000 ) W ;
+   - bus_slice_W_81 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1766000 ) W ;
+   - bus_slice_W_82 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1786000 ) W ;
+   - bus_slice_W_83 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1806000 ) W ;
+   - bus_slice_W_84 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1826000 ) W ;
+   - bus_slice_W_85 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 1846000 ) W ;
+   - bus_slice_W_86 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 1856000 ) W ;
+   - bus_slice_W_87 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 1861000 ) W ;
+   - bus_slice_W_88 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 1862000 ) W ;
+   - bus_slice_W_89 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 1863000 ) W ;
+   - bus_slice_W_90 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1944000 ) W ;
+   - bus_slice_W_91 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1964000 ) W ;
+   - bus_slice_W_92 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 1984000 ) W ;
+   - bus_slice_W_93 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2004000 ) W ;
+   - bus_slice_W_94 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 2024000 ) W ;
+   - bus_slice_W_95 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 2034000 ) W ;
+   - bus_slice_W_96 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 2039000 ) W ;
+   - bus_slice_W_97 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 2040000 ) W ;
+   - bus_slice_W_98 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 2041000 ) W ;
+   - bus_slice_W_99 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2122000 ) W ;
+   - bus_slice_W_100 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2142000 ) W ;
+   - bus_slice_W_101 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2162000 ) W ;
+   - bus_slice_W_102 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2182000 ) W ;
+   - bus_slice_W_103 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 2202000 ) W ;
+   - bus_slice_W_104 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 2212000 ) W ;
+   - bus_slice_W_105 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 2217000 ) W ;
+   - bus_slice_W_106 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 2218000 ) W ;
+   - bus_slice_W_107 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 2219000 ) W ;
+   - bus_slice_W_108 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2300000 ) W ;
+   - bus_slice_W_109 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2320000 ) W ;
+   - bus_slice_W_110 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2340000 ) W ;
+   - bus_slice_W_111 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2360000 ) W ;
+   - bus_slice_W_112 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 2380000 ) W ;
+   - bus_slice_W_113 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 2390000 ) W ;
+   - bus_slice_W_114 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 2395000 ) W ;
+   - bus_slice_W_115 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 2396000 ) W ;
+   - bus_slice_W_116 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 2397000 ) W ;
+   - bus_slice_W_117 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2478000 ) W ;
+   - bus_slice_W_118 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2498000 ) W ;
+   - bus_slice_W_119 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2518000 ) W ;
+   - bus_slice_W_120 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2538000 ) W ;
+   - bus_slice_W_121 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 2558000 ) W ;
+   - bus_slice_W_122 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 2568000 ) W ;
+   - bus_slice_W_123 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 2573000 ) W ;
+   - bus_slice_W_124 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 2574000 ) W ;
+   - bus_slice_W_125 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 2575000 ) W ;
+   - bus_slice_W_126 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2656000 ) W ;
+   - bus_slice_W_127 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2676000 ) W ;
+   - bus_slice_W_128 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2696000 ) W ;
+   - bus_slice_W_129 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2716000 ) W ;
+   - bus_slice_W_130 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 2736000 ) W ;
+   - bus_slice_W_131 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 2746000 ) W ;
+   - bus_slice_W_132 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 2751000 ) W ;
+   - bus_slice_W_133 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 2752000 ) W ;
+   - bus_slice_W_134 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 2753000 ) W ;
+   - bus_slice_W_135 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2834000 ) W ;
+   - bus_slice_W_136 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2854000 ) W ;
+   - bus_slice_W_137 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2874000 ) W ;
+   - bus_slice_W_138 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 2894000 ) W ;
+   - bus_slice_W_139 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 2914000 ) W ;
+   - bus_slice_W_140 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 2924000 ) W ;
+   - bus_slice_W_141 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 2929000 ) W ;
+   - bus_slice_W_142 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 2930000 ) W ;
+   - bus_slice_W_143 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 2931000 ) W ;
+   - bus_slice_W_144 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3012000 ) W ;
+   - bus_slice_W_145 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3032000 ) W ;
+   - bus_slice_W_146 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3052000 ) W ;
+   - bus_slice_W_147 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3072000 ) W ;
+   - bus_slice_W_148 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 3092000 ) W ;
+   - bus_slice_W_149 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 3102000 ) W ;
+   - bus_slice_W_150 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 3107000 ) W ;
+   - bus_slice_W_151 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 3108000 ) W ;
+   - bus_slice_W_152 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 3109000 ) W ;
+   - bus_slice_W_153 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3190000 ) W ;
+   - bus_slice_W_154 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3210000 ) W ;
+   - bus_slice_W_155 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3230000 ) W ;
+   - bus_slice_W_156 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3250000 ) W ;
+   - bus_slice_W_157 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 3270000 ) W ;
+   - bus_slice_W_158 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 3280000 ) W ;
+   - bus_slice_W_159 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 3285000 ) W ;
+   - bus_slice_W_160 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 3286000 ) W ;
+   - bus_slice_W_161 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 3287000 ) W ;
+   - bus_slice_W_162 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3368000 ) W ;
+   - bus_slice_W_163 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3388000 ) W ;
+   - bus_slice_W_164 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3408000 ) W ;
+   - bus_slice_W_165 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3428000 ) W ;
+   - bus_slice_W_166 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 3448000 ) W ;
+   - bus_slice_W_167 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 3458000 ) W ;
+   - bus_slice_W_168 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 3463000 ) W ;
+   - bus_slice_W_169 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 3464000 ) W ;
+   - bus_slice_W_170 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 3465000 ) W ;
+   - bus_slice_W_171 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3546000 ) W ;
+   - bus_slice_W_172 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3566000 ) W ;
+   - bus_slice_W_173 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3586000 ) W ;
+   - bus_slice_W_174 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3606000 ) W ;
+   - bus_slice_W_175 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 3626000 ) W ;
+   - bus_slice_W_176 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 3636000 ) W ;
+   - bus_slice_W_177 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 3641000 ) W ;
+   - bus_slice_W_178 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 3642000 ) W ;
+   - bus_slice_W_179 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 3643000 ) W ;
+   - bus_slice_W_180 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3724000 ) W ;
+   - bus_slice_W_181 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3744000 ) W ;
+   - bus_slice_W_182 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3764000 ) W ;
+   - bus_slice_W_183 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3784000 ) W ;
+   - bus_slice_W_184 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 3804000 ) W ;
+   - bus_slice_W_185 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 3814000 ) W ;
+   - bus_slice_W_186 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 3819000 ) W ;
+   - bus_slice_W_187 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 3820000 ) W ;
+   - bus_slice_W_188 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 3821000 ) W ;
+   - bus_slice_W_189 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3902000 ) W ;
+   - bus_slice_W_190 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3922000 ) W ;
+   - bus_slice_W_191 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3942000 ) W ;
+   - bus_slice_W_192 sky130_ef_io__com_bus_slice_20um
+      + PLACED ( 0 3962000 ) W ;
+   - bus_slice_W_193 sky130_ef_io__com_bus_slice_10um
+      + PLACED ( 0 3982000 ) W ;
+   - bus_slice_W_194 sky130_ef_io__com_bus_slice_5um
+      + PLACED ( 0 3992000 ) W ;
+   - bus_slice_W_195 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 3997000 ) W ;
+   - bus_slice_W_196 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 3998000 ) W ;
+   - bus_slice_W_197 sky130_ef_io__com_bus_slice_1um
+      + PLACED ( 0 3999000 ) W ;
+END COMPONENTS
+
+END DESIGN

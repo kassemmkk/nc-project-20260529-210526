@@ -1,0 +1,14 @@
+{
+  "has_systemverilog": true,
+  "recommended_iverilog_flags": "-g2005-sv",
+  "sv_file_count": 2,
+  "verilog_file_count": 78,
+  "sv_files": [
+    "/workspace/nc-project-20260529-210526/ip/NC_I2C/rtl/nc_i2c.sv",
+    "/workspace/nc-project-20260529-210526/ip/NC_I2C/rtl/nc_i2c_master.sv"
+  ],
+  "notes": [
+    "SystemVerilog sources detected in generated filelist.",
+    "Recommended Icarus flags: -g2005-sv"
+  ]
+}

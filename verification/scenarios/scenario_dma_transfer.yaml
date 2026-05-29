@@ -1,0 +1,182 @@
+scenario_name: scenario_dma_transfer
+description: >
+  Verifies the 8-channel DMA controller of mspm33c321a_derivative. Tests cover
+  memory-to-memory transfer on channel 0, peripheral-to-memory (UART0 RX) and
+  memory-to-peripheral (UART0 TX) transfers, all 8 channels concurrently,
+  transfer-complete and error interrupts, and channel priority arbitration.
+checklist_ids:
+  - DMA-01
+  - DMA-02
+  - DMA-03
+  - DMA-04
+  - DMA-05
+  - DMA-06
+  - DMA-07
+test_names:
+  - test_dma_mem2mem
+  - test_dma_uart_rx_to_mem
+  - test_dma_mem_to_uart_tx
+  - test_dma_8ch_concurrent
+  - test_dma_done_irq
+  - test_dma_error_irq
+  - test_dma_priority_arb
+priority: P0
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+external_devices:
+  - name: uart_model
+    type: uart
+    connect:
+      rx_from_soc: uart0_tx
+      tx_to_soc: uart0_rx
+    params:
+      baud_rate: 115200
+      data_bits: 8
+      stop_bits: 1
+      parity: none
+
+dma_params:
+  channel_count: 8
+  src_base_addr: 0x20000000
+  dst_base_addr: 0x20010000
+  transfer_size_bytes: 256
+
+stimulus:
+  - step: 1
+    action: release_reset
+    description: Release reset; initialise SRAM test buffers
+  - step: 2
+    action: fill_sram
+    addr: 0x20000000
+    size: 256
+    pattern: INCREMENTING
+    description: Fill source buffer with 0x00..0xFF incrementing pattern
+  - step: 3
+    action: apb_configure_dma_channel
+    channel: 0
+    mode: mem_to_mem
+    src_addr: 0x20000000
+    dst_addr: 0x20010000
+    length: 256
+    irq_enable: transfer_complete
+    description: Configure DMA channel 0 for 256-byte M2M transfer
+  - step: 4
+    action: apb_write
+    peripheral: DMAC
+    register: CH0_CR
+    value: EN_BIT
+    description: Enable DMA channel 0
+  - step: 5
+    action: wait_irq
+    irq_vector: 20
+    timeout_cycles: 50000
+    description: Wait for DMA transfer-complete IRQ (IRQ20)
+  - step: 6
+    action: compare_memory
+    src_addr: 0x20000000
+    dst_addr: 0x20010000
+    size: 256
+    description: Compare source and destination buffers; verify identical
+  - step: 7
+    action: uart_model_send_block
+    device: uart_model
+    data_block: [0x10, 0x20, 0x30, 0x40, 0x50, 0x60, 0x70, 0x80]
+    description: uart_model sends 8 bytes to UART0 RX; DMA receives into SRAM
+  - step: 8
+    action: apb_configure_dma_channel
+    channel: 1
+    mode: periph_to_mem
+    src_periph: UART0_RX
+    dst_addr: 0x20020000
+    length: 8
+    irq_enable: transfer_complete
+    description: Configure DMA channel 1 to receive UART0 RX data into SRAM
+  - step: 9
+    action: apb_configure_dma_channel
+    channel: 2
+    mode: mem_to_periph
+    src_addr: 0x20030000
+    dst_periph: UART0_TX
+    length: 8
+    irq_enable: transfer_complete
+    description: Configure DMA channel 2 to transmit SRAM data via UART0 TX
+  - step: 10
+    action: configure_all_8_channels
+    base_src: 0x20000000
+    base_dst: 0x20008000
+    length_each: 32
+    description: Configure all 8 DMA channels for simultaneous M2M transfers
+  - step: 11
+    action: enable_all_channels
+    description: Simultaneously enable all 8 DMA channels
+  - step: 12
+    action: wait_all_done
+    timeout_cycles: 500000
+    description: Wait for all 8 channel transfer-complete flags
+  - step: 13
+    action: apb_configure_dma_channel
+    channel: 3
+    mode: invalid_config
+    description: Configure DMA channel 3 with invalid src/dst alignment to trigger error
+  - step: 14
+    action: wait_irq
+    irq_vector: 20
+    irq_type: error
+    timeout_cycles: 10000
+    description: Wait for DMA error IRQ
+  - step: 15
+    action: set_channel_priority
+    channel_high: 7
+    channel_low: 0
+    description: Set channel 7 to highest priority and channel 0 to lowest
+  - step: 16
+    action: trigger_simultaneous_request
+    channels: [0, 7]
+    description: Simultaneously trigger channels 0 and 7; verify channel 7 is served first
+
+checks:
+  - id: CHK-DMA-01
+    checklist_id: DMA-01
+    description: 256-byte M2M transfer destination matches source exactly
+    expected: Zero mismatches in buffer comparison
+  - id: CHK-DMA-02
+    checklist_id: DMA-02
+    description: UART0 RX bytes arrive in SRAM destination buffer via DMA
+    expected: SRAM at 0x20020000 contains [0x10,0x20,...,0x80]
+  - id: CHK-DMA-03
+    checklist_id: DMA-03
+    description: SRAM data transmitted via UART0 TX through DMA; model receives correct bytes
+    expected: uart_model receives all bytes in order
+  - id: CHK-DMA-04
+    checklist_id: DMA-04
+    description: All 8 concurrent DMA transfers complete without data corruption
+    expected: All 8 destination buffers match source buffers
+  - id: CHK-DMA-05
+    checklist_id: DMA-05
+    description: Transfer-complete IRQ fires after each channel completes transfer
+    expected: IRQ20 asserts; DONE flag set in DMAC status
+  - id: CHK-DMA-06
+    checklist_id: DMA-06
+    description: DMA error IRQ fires on invalid transfer configuration
+    expected: Error flag set; IRQ20 error variant asserts
+  - id: CHK-DMA-07
+    checklist_id: DMA-07
+    description: Higher-priority channel 7 is serviced before lower-priority channel 0
+    expected: Channel 7 transfer starts before channel 0 when simultaneously requested
+
+pass_criteria:
+  - All CHK-DMA checks PASS
+  - No data corruption across any concurrent transfer
+  - uart_model reports clean protocol during DMA-UART tests

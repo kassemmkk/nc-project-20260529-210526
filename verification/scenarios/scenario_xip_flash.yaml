@@ -1,0 +1,93 @@
+scenario_name: scenario_xip_flash
+description: >
+  Verifies the XIP (Execute-in-Place) flash controller of mspm33c321a_derivative.
+  Tests cover reset-vector boot fetch at 0x00000000, CSR smoke access, data
+  integrity over the full 512 KB range, and address-boundary behaviour at the
+  512 KB ceiling (0x0007_FFFF / 0x0008_0000).
+checklist_ids:
+  - XIP-01
+  - XIP-02
+  - XIP-03
+  - XIP-04
+test_names:
+  - test_xip_boot_fetch
+  - test_xip_reg_smoke
+  - test_xip_data_integrity
+  - test_xip_addr_boundary
+priority: P0
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+flash_image:
+  hex_file: verification/fw/xip_boot_smoke.hex
+  base_addr: 0x00000000
+  size_bytes: 0x00080000   # 512 KB
+
+external_devices: []
+
+stimulus:
+  - step: 1
+    action: load_flash_image
+    file: verification/fw/xip_boot_smoke.hex
+    description: Pre-load flash BFM with known hex image containing test patterns
+  - step: 2
+    action: release_reset
+    description: Release reset; CPU begins fetching from 0x00000000
+  - step: 3
+    action: monitor_ifu_addr
+    expected_first_fetch: 0x00000000
+    description: Observe first instruction fetch address from CPU IFU
+  - step: 4
+    action: apb_read_check
+    peripheral: XIP_CTRL
+    registers: [STATUS, CONFIG, BASE_ADDR, SIZE]
+    description: Read all XIP controller CSRs; compare against documented reset values
+  - step: 5
+    action: read_memory_range
+    start_addr: 0x00000000
+    end_addr: 0x0007FFFF
+    pattern: WALKING_ONES
+    description: Read 512 KB via AHB; verify walking-ones pattern placed in flash image
+  - step: 6
+    action: read_memory_address
+    addr: 0x0007FFFF
+    description: Access last valid 512 KB address
+  - step: 7
+    action: read_memory_address
+    addr: 0x00080000
+    expected_response: BUS_ERROR_OR_WRAP
+    description: Access one byte past 512 KB boundary; expect fault or wrap
+
+checks:
+  - id: CHK-XIP-01
+    checklist_id: XIP-01
+    description: First CPU instruction fetch is from address 0x00000000
+    expected: IFU request address = 0x00000000 on first valid clock after reset release
+  - id: CHK-XIP-02
+    checklist_id: XIP-02
+    description: All XIP CSRs return documented reset values
+    expected: No unexpected values in XIP register reads
+  - id: CHK-XIP-03
+    checklist_id: XIP-03
+    description: All 512 KB read-back data matches pre-loaded flash image pattern
+    expected: Zero byte mismatches across full image
+  - id: CHK-XIP-04
+    checklist_id: XIP-04
+    description: Address 0x0007FFFF read succeeds; 0x00080000 returns error or wraps
+    expected: Valid response at 0x0007FFFF; HRESP=ERROR or wrap at 0x00080000
+
+pass_criteria:
+  - All CHK-XIP checks PASS
+  - No data corruption in pattern comparison
+  - Flash BFM reports no protocol errors

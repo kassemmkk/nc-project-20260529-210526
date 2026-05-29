@@ -1,0 +1,404 @@
+{
+  "generated_utc": "2026-05-29T04:57:53.077343+00:00",
+  "generator": "nc_socgen/scripts/gen_soc.py",
+  "generator_version": "1.1.0",
+  "source_config": "/tmp/soc_config_gen.yaml",
+  "source_variant": null,
+  "scope": "compute_ss",
+  "soc": {
+    "name": "mspm33c321a_derivative",
+    "top_module": "mspm33c321a_derivative_compute_ss",
+    "cpu_type": "hazard3_2port_swd",
+    "package": "LQFP64",
+    "clock_hz": 80000000,
+    "reset_active_low": true,
+    "interrupt_policy": "hazard3_internal"
+  },
+  "apb_buses": [
+    {
+      "name": "apb0",
+      "base_addr": "0x40000000",
+      "slot_size": 4096,
+      "slots": 16,
+      "enabled": true
+    },
+    {
+      "name": "apb1",
+      "base_addr": "0x40010000",
+      "slot_size": 4096,
+      "slots": 16,
+      "enabled": true
+    }
+  ],
+  "instances": [
+    {
+      "instance": "gpio0",
+      "type": "gpio",
+      "module": "nc_gpio",
+      "bus": "apb0",
+      "slot": 0,
+      "base_addr": "0x40000000",
+      "irq": 0,
+      "dma_reqs": []
+    },
+    {
+      "instance": "gpio1",
+      "type": "gpio",
+      "module": "nc_gpio",
+      "bus": "apb0",
+      "slot": 1,
+      "base_addr": "0x40001000",
+      "irq": 1,
+      "dma_reqs": []
+    },
+    {
+      "instance": "gpio2",
+      "type": "gpio",
+      "module": "nc_gpio",
+      "bus": "apb0",
+      "slot": 2,
+      "base_addr": "0x40002000",
+      "irq": 2,
+      "dma_reqs": []
+    },
+    {
+      "instance": "uart0",
+      "type": "uart",
+      "module": "nc_uart",
+      "bus": "apb0",
+      "slot": 3,
+      "base_addr": "0x40003000",
+      "irq": 3,
+      "dma_reqs": [
+        0,
+        1
+      ]
+    },
+    {
+      "instance": "uart1",
+      "type": "uart",
+      "module": "nc_uart",
+      "bus": "apb0",
+      "slot": 4,
+      "base_addr": "0x40004000",
+      "irq": 4,
+      "dma_reqs": [
+        2,
+        3
+      ]
+    },
+    {
+      "instance": "uart2",
+      "type": "uart",
+      "module": "nc_uart",
+      "bus": "apb0",
+      "slot": 5,
+      "base_addr": "0x40005000",
+      "irq": 5,
+      "dma_reqs": [
+        4,
+        5
+      ]
+    },
+    {
+      "instance": "uart3",
+      "type": "uart",
+      "module": "nc_uart",
+      "bus": "apb0",
+      "slot": 6,
+      "base_addr": "0x40006000",
+      "irq": 6,
+      "dma_reqs": [
+        6,
+        7
+      ]
+    },
+    {
+      "instance": "spi0",
+      "type": "spi",
+      "module": "nc_spi",
+      "bus": "apb0",
+      "slot": 7,
+      "base_addr": "0x40007000",
+      "irq": 7,
+      "dma_reqs": [
+        8,
+        9
+      ]
+    },
+    {
+      "instance": "spi1",
+      "type": "spi",
+      "module": "nc_spi",
+      "bus": "apb0",
+      "slot": 8,
+      "base_addr": "0x40008000",
+      "irq": 8,
+      "dma_reqs": [
+        10,
+        11
+      ]
+    },
+    {
+      "instance": "i2c0",
+      "type": "i2c",
+      "module": "nc_i2c",
+      "bus": "apb0",
+      "slot": 9,
+      "base_addr": "0x40009000",
+      "irq": 9,
+      "dma_reqs": []
+    },
+    {
+      "instance": "i2c1",
+      "type": "i2c",
+      "module": "nc_i2c",
+      "bus": "apb0",
+      "slot": 10,
+      "base_addr": "0x4000A000",
+      "irq": 10,
+      "dma_reqs": []
+    },
+    {
+      "instance": "i2c2",
+      "type": "i2c",
+      "module": "nc_i2c",
+      "bus": "apb0",
+      "slot": 11,
+      "base_addr": "0x4000B000",
+      "irq": 11,
+      "dma_reqs": []
+    },
+    {
+      "instance": "tmr0",
+      "type": "tmr",
+      "module": "nc_tmr",
+      "bus": "apb0",
+      "slot": 12,
+      "base_addr": "0x4000C000",
+      "irq": 12,
+      "dma_reqs": []
+    },
+    {
+      "instance": "tmr1",
+      "type": "tmr",
+      "module": "nc_tmr",
+      "bus": "apb0",
+      "slot": 13,
+      "base_addr": "0x4000D000",
+      "irq": 13,
+      "dma_reqs": []
+    },
+    {
+      "instance": "tmr2",
+      "type": "tmr",
+      "module": "nc_tmr",
+      "bus": "apb0",
+      "slot": 14,
+      "base_addr": "0x4000E000",
+      "irq": 14,
+      "dma_reqs": []
+    },
+    {
+      "instance": "tmr3",
+      "type": "tmr",
+      "module": "nc_tmr",
+      "bus": "apb0",
+      "slot": 15,
+      "base_addr": "0x4000F000",
+      "irq": 15,
+      "dma_reqs": []
+    },
+    {
+      "instance": "tmr4",
+      "type": "tmr",
+      "module": "nc_tmr",
+      "bus": "apb1",
+      "slot": 0,
+      "base_addr": "0x40010000",
+      "irq": 16,
+      "dma_reqs": []
+    },
+    {
+      "instance": "tmr5",
+      "type": "tmr",
+      "module": "nc_tmr",
+      "bus": "apb1",
+      "slot": 1,
+      "base_addr": "0x40011000",
+      "irq": 17,
+      "dma_reqs": []
+    },
+    {
+      "instance": "pwm0",
+      "type": "pwm",
+      "module": "nc_pwm",
+      "bus": "apb1",
+      "slot": 2,
+      "base_addr": "0x40012000",
+      "irq": 18,
+      "dma_reqs": []
+    },
+    {
+      "instance": "pwm1",
+      "type": "pwm",
+      "module": "nc_pwm",
+      "bus": "apb1",
+      "slot": 3,
+      "base_addr": "0x40013000",
+      "irq": 19,
+      "dma_reqs": []
+    },
+    {
+      "instance": "dmac0",
+      "type": "dmac",
+      "module": "nc_dmac",
+      "bus": "apb1",
+      "slot": 4,
+      "base_addr": "0x40014000",
+      "irq": 20,
+      "dma_reqs": []
+    },
+    {
+      "instance": "crc0",
+      "type": "crc",
+      "module": "nc_crc",
+      "bus": "apb1",
+      "slot": 5,
+      "base_addr": "0x40015000",
+      "irq": 21,
+      "dma_reqs": [
+        12
+      ]
+    },
+    {
+      "instance": "aes0",
+      "type": "aes",
+      "module": "nc_aes",
+      "bus": "apb1",
+      "slot": 6,
+      "base_addr": "0x40016000",
+      "irq": 22,
+      "dma_reqs": [
+        13,
+        14
+      ]
+    },
+    {
+      "instance": "wwdt0",
+      "type": "wwdt",
+      "module": "nc_wwdt",
+      "bus": "apb1",
+      "slot": 7,
+      "base_addr": "0x40017000",
+      "irq": 23,
+      "dma_reqs": []
+    },
+    {
+      "instance": "rtc0",
+      "type": "rtc",
+      "module": "nc_rtc",
+      "bus": "apb1",
+      "slot": 8,
+      "base_addr": "0x40018000",
+      "irq": 24,
+      "dma_reqs": []
+    },
+    {
+      "instance": "systick0",
+      "type": "systick",
+      "module": "nc_systick",
+      "bus": "apb1",
+      "slot": 14,
+      "base_addr": "0x4001E000",
+      "irq": null,
+      "dma_reqs": []
+    }
+  ],
+  "outputs": {
+    "verilog": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/rtl/mspm33c321a_derivative_compute_ss.v",
+    "addr_csv": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/reports/mspm33c321a_derivative_compute_ss_addr_map.csv",
+    "irq_csv": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/reports/mspm33c321a_derivative_compute_ss_irq_map.csv",
+    "pinmux_csv": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/reports/mspm33c321a_derivative_compute_ss_pinmux_map.csv",
+    "rtl_filelist": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/rtl/mspm33c321a_derivative_compute_ss.f",
+    "filelist": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/mspm33c321a_derivative_compute_ss.f",
+    "filelist_missing": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/reports/mspm33c321a_derivative_compute_ss_filelist_missing.txt",
+    "compatibility": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/reports/mspm33c321a_derivative_compute_ss_compatibility.json",
+    "reg_yaml": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/spec/mspm33c321a_derivative_compute_ss.reg.yaml",
+    "reg_json": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/spec/mspm33c321a_derivative_compute_ss.reg.json",
+    "smoke_seq_vh": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/mspm33c321a_derivative_compute_ss_smoke_seq.vh",
+    "smoke_tb": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/tb_mspm33c321a_derivative_compute_ss_smoke_bfm.v",
+    "rand_sys_seq_vh": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/mspm33c321a_derivative_compute_ss_rand_sys_seq.vh",
+    "irq_directed_seq_vh": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/mspm33c321a_derivative_compute_ss_irq_directed_seq.vh",
+    "dma_directed_seq_vh": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/mspm33c321a_derivative_compute_ss_dma_directed_seq.vh",
+    "xip_directed_seq_vh": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/mspm33c321a_derivative_compute_ss_xip_directed_seq.vh",
+    "pinmux_directed_seq_vh": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/mspm33c321a_derivative_compute_ss_pinmux_directed_seq.vh",
+    "contention_directed_seq_vh": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/mspm33c321a_derivative_compute_ss_contention_directed_seq.vh",
+    "rand_sys_tb": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/tb_mspm33c321a_derivative_compute_ss_rand_sys_bfm.v",
+    "irq_directed_tb": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/tb_mspm33c321a_derivative_compute_ss_irq_directed_bfm.v",
+    "dma_directed_tb": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/tb_mspm33c321a_derivative_compute_ss_dma_directed_bfm.v",
+    "xip_directed_tb": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/tb_mspm33c321a_derivative_compute_ss_xip_directed_bfm.v",
+    "pinmux_directed_tb": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/tb_mspm33c321a_derivative_compute_ss_pinmux_directed_bfm.v",
+    "contention_directed_tb": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/tb_mspm33c321a_derivative_compute_ss_contention_directed_bfm.v",
+    "datasheet_md": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/docs/mspm33c321a_derivative_compute_ss_datasheet.md",
+    "datasheet_pdf": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/docs/mspm33c321a_derivative_compute_ss_datasheet.pdf",
+    "padframe_handoff_yaml": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/reports/mspm33c321a_derivative_compute_ss_padframe_handoff.yaml",
+    "padframe_handoff_json": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/reports/mspm33c321a_derivative_compute_ss_padframe_handoff.json",
+    "fw_memmap_h": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/fw/include/soc_memmap.h",
+    "fw_irq_h": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/fw/include/soc_irq.h",
+    "fw_board_h": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/fw/include/soc_board.h",
+    "fw_pinmux_h": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/fw/include/soc_pinmux.h",
+    "fw_startup_s": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/fw/startup/startup_mspm33c321a_derivative_compute_ss.S",
+    "fw_system_c": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/fw/src/system_mspm33c321a_derivative_compute_ss.c",
+    "fw_drivers_c": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/fw/src/mspm33c321a_derivative_compute_ss_drivers.c",
+    "fw_pinmux_c": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/fw/src/mspm33c321a_derivative_compute_ss_pinmux.c",
+    "fw_smoke_c": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/fw/src/smoke_main.c",
+    "fw_linker_xip_ld": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/fw/linker/mspm33c321a_derivative_compute_ss_xip.ld",
+    "fw_makefile": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/fw/Makefile",
+    "fw_bin_to_hex_py": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/fw/scripts/bin_to_hex.py",
+    "fw_boot_tb": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/tb_mspm33c321a_derivative_compute_ss_fw_boot.v",
+    "fw_boot_tb_f": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/tb_mspm33c321a_derivative_compute_ss_fw_boot.f",
+    "tb_filelist": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/tb/mspm33c321a_derivative_compute_ss.f",
+    "librelane_sdc": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/openlane/mspm33c321a_derivative_compute_ss/mspm33c321a_derivative_compute_ss.sdc",
+    "librelane_config": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/openlane/mspm33c321a_derivative_compute_ss/config.json",
+    "manifest": "/workspace/nc-project-20260529-210526/.mspm33c321a_derivative_mcu_socgen_tmp/reports/mspm33c321a_derivative_compute_ss_manifest.json"
+  },
+  "missing_modules_in_filelist": [],
+  "infra_windows": [
+    {
+      "role": "systick",
+      "bus": "apb1",
+      "slot": 14,
+      "base_addr": "0x4001E000",
+      "size": 4096
+    },
+    {
+      "role": "clk_rst_pwr",
+      "bus": "apb1",
+      "slot": 13,
+      "base_addr": "0x4001D000",
+      "size": 4096
+    },
+    {
+      "role": "io_cfg_ss",
+      "bus": "apb1",
+      "slot": 12,
+      "base_addr": "0x4001C000",
+      "size": 4096
+    }
+  ],
+  "compatibility": {
+    "has_systemverilog": true,
+    "recommended_iverilog_flags": "-g2005-sv",
+    "sv_file_count": 2,
+    "verilog_file_count": 78,
+    "sv_files": [
+      "/workspace/nc-project-20260529-210526/ip/NC_I2C/rtl/nc_i2c.sv",
+      "/workspace/nc-project-20260529-210526/ip/NC_I2C/rtl/nc_i2c_master.sv"
+    ],
+    "notes": [
+      "SystemVerilog sources detected in generated filelist.",
+      "Recommended Icarus flags: -g2005-sv"
+    ]
+  }
+}

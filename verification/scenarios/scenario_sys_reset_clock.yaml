@@ -1,0 +1,92 @@
+scenario_name: scenario_sys_reset_clock
+description: >
+  Verifies the system-level reset and clock architecture of mspm33c321a_derivative.
+  Covers power-on reset (POR) hold behaviour, external nRESET pad assertion,
+  software reset (SYSRESETREQ), 80 MHz clock startup, and the WWDT-to-chip-reset
+  propagation path.
+checklist_ids:
+  - SYS-01
+  - SYS-02
+  - SYS-03
+  - SYS-04
+  - SYS-05
+test_names:
+  - test_sys_por_state
+  - test_sys_external_reset
+  - test_sys_sw_reset
+  - test_sys_clock_freq
+  - test_sys_wwdt_reset_path
+priority: P0
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5       # 80 MHz
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+external_devices:
+  - name: jtag_probe_model
+    type: gpio_stimulus
+    connect:
+      stimulus_out: nreset_pad
+    params:
+      pulse_width_ns: 500
+      assert_polarity: low
+
+stimulus:
+  - step: 1
+    action: assert_reset
+    description: Assert reset_n for 20 clock cycles to establish POR state
+  - step: 2
+    action: check_peripheral_reset
+    description: Verify all peripheral registers hold reset values while reset_n is asserted
+  - step: 3
+    action: deassert_reset
+    description: Release reset_n; verify compute_ss begins normal operation
+  - step: 4
+    action: drive_gpio_stimulus
+    device: jtag_probe_model
+    description: Pulse nRESET pad low via gpio_stimulus model; verify reset_n propagates
+  - step: 5
+    action: write_csr
+    target: SYSRESETREQ_REG
+    value: 0x1
+    description: Write SYSRESETREQ to trigger software reset
+  - step: 6
+    action: wait_cycles
+    cycles: 50
+    description: Wait for WWDT timeout path (fast-timeout mode) and observe chip reset
+
+checks:
+  - id: CHK-SYS-01
+    checklist_id: SYS-01
+    description: All peripheral CSRs read back reset values during POR hold
+    expected: All registers at documented reset values
+  - id: CHK-SYS-02
+    checklist_id: SYS-02
+    description: nRESET pad assertion drives internal reset_n low within 2 clock cycles
+    expected: reset_n asserted within 2 cycles of pad assertion
+  - id: CHK-SYS-03
+    checklist_id: SYS-03
+    description: SYSRESETREQ write causes compute_ss reset; CPU re-fetches from 0x00000000
+    expected: PC returns to reset vector after SYSRESETREQ
+  - id: CHK-SYS-04
+    checklist_id: SYS-04
+    description: Clock measurement confirms 80 MHz ± 0.5% after reset release
+    expected: clk period = 12.5 ns ± 63 ps
+  - id: CHK-SYS-05
+    checklist_id: SYS-05
+    description: WWDT expiry asserts internal reset within specified timeout window
+    expected: reset_n re-asserted within WWDT timeout period
+
+pass_criteria:
+  - All CHK-SYS checks PASS
+  - No unexpected X-states on reset_n or clk during test
+  - Simulation completes without timeout

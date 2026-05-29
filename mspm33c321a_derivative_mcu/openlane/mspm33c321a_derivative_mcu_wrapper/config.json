@@ -1,0 +1,475 @@
+{
+  "meta": {
+    "version": 2
+  },
+  "DESIGN_NAME": "mspm33c321a_derivative_mcu_wrapper",
+  "CLOCK_PORT": "clk_in",
+  "CLOCK_PERIOD": 25.0,
+  "CLOCK_NET": "clk_in",
+  "VERILOG_FILES": [
+    "/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verilog/rtl/mspm33c321a_derivative_mcu_wrapper.v",
+    "/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verilog/rtl/mspm33c321a_derivative_compute_ss.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_core.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_cpu_2port.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/arith/hazard3_alu.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/arith/hazard3_branchcmp.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/arith/hazard3_mul_fast.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/arith/hazard3_muldiv_seq.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/arith/hazard3_onehot_encode.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/arith/hazard3_onehot_priority.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/arith/hazard3_onehot_priority_dynamic.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/arith/hazard3_priority_encode.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/arith/hazard3_shift_barrel.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_csr.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_decode.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_frontend.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_instr_decompress.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_irq_ctrl.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_pmp.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_power_ctrl.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_regfile_1w2r.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_triggers.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/debug/dm/hazard3_dm.v",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/debug/cdc/hazard3_reset_sync.v",
+    "/nc/apps/nc_socgen/external/opendap/hdl/opendap_sw_dp.v",
+    "/nc/apps/nc_socgen/external/opendap/hdl/opendap_sw_dp_serial_comms.v",
+    "/nc/apps/nc_socgen/external/opendap/hdl/opendap_swd_dormant_monitor.v",
+    "/nc/apps/nc_socgen/external/opendap/hdl/cells/opendap_swdio_registers.v",
+    "/nc/apps/nc_socgen/external/opendap/hdl/opendap_mem_ap_apb.v",
+    "/nc/apps/nc_socgen/external/opendap/hdl/opendap_apb_async_bridge.v",
+    "/nc/apps/nc_socgen/external/opendap/hdl/cells/opendap_sync_1bit.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_XIP/rtl/nc_xip.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_AMBA/rtl/nc_mcu_fabric.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_AMBA/rtl/amba.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_AMBA/rtl/nc_amba_blocks.v",
+    "/nc/apps/nc_socgen/external/cf_sram/hdl/CF_SRAM_1024x32.v",
+    "/nc/apps/nc_socgen/external/cf_sram/rtl/CF_SRAM_1024x32_macro_stub.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_COMMON/rtl/nc_sync.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_GPIO/rtl/nc_gpio.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_UART/rtl/nc_uart.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_UART/rtl/common/nc_fifo.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_UART/rtl/common/nc_glitch_filter.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_UART/rtl/common/nc_ticker.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_SPI/rtl/nc_spi.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_SPI/rtl/nc_spi_apb_if.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_SPI/rtl/nc_spi_clk_gen.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_SPI/rtl/nc_spi_cs_ctrl.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_SPI/rtl/nc_spi_ctrl_fsm.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_SPI/rtl/nc_spi_irq_dma.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_SPI/rtl/nc_spi_shift_reg.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_I2C/rtl/nc_i2c.sv",
+    "/workspace/nc-project-20260529-210526/ip/NC_I2C/rtl/nc_i2c_master.sv",
+    "/workspace/nc-project-20260529-210526/ip/NC_TMR/rtl/nc_tmr.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_PWM/rtl/nc_pwm.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_DMAC/rtl/nc_dmac.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_DMAC/rtl/dmac_apb_slave.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_DMAC/rtl/dmac_ahb_master.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_DMAC/rtl/dmac_channel.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_DMAC/rtl/dmac_arbiter.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_DMAC/rtl/dmac_dmamux.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_DMAC/rtl/dmac_register_file.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_CRC/rtl/nc_crc_input_proc.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_CRC/rtl/nc_crc_output_proc.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_CRC/rtl/nc_crc_dma.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_CRC/rtl/nc_crc_core.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_CRC/rtl/nc_crc_ctrl.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_CRC/rtl/nc_crc_apb.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_CRC/rtl/nc_crc.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_AES/rtl/nc_aes.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_AES/rtl/aes_encipher_block_opt.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_AES/rtl/aes_sbox_opt.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_AES/rtl/secworks/aes_core.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_AES/rtl/secworks/aes_encipher_block.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_AES/rtl/secworks/aes_decipher_block.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_AES/rtl/secworks/aes_key_mem.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_AES/rtl/secworks/aes_sbox.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_AES/rtl/secworks/aes_inv_sbox.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_WWDT/rtl/nc_wwdt.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_RTC/rtl/nc_rtc.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_RTC/rtl/rtc_bcd_core.v",
+    "/workspace/nc-project-20260529-210526/ip/NC_SYSTICK/rtl/nc_systick.v"
+  ],
+  "// Synthesis": "Full flat synthesis \u2014 everything except CF_SRAM_1024x32",
+  "FP_CORE_UTIL": 35.0,
+  "RUN_LINTER": false,
+  "ERROR_ON_SYNTH_CHECKS": false,
+  "VERILOG_INCLUDE_DIRS": [
+    "/nc/apps/nc_socgen/external/cf_sram/hdl",
+    "/nc/apps/nc_socgen/external/cf_sram/rtl",
+    "/nc/apps/nc_socgen/external/hazard3/hdl",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/arith",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/debug/cdc",
+    "/nc/apps/nc_socgen/external/hazard3/hdl/debug/dm",
+    "/nc/apps/nc_socgen/external/opendap/hdl",
+    "/nc/apps/nc_socgen/external/opendap/hdl/cells",
+    "/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verilog/rtl",
+    "/workspace/nc-project-20260529-210526/ip/NC_AES/rtl",
+    "/workspace/nc-project-20260529-210526/ip/NC_AES/rtl/secworks",
+    "/workspace/nc-project-20260529-210526/ip/NC_AMBA/rtl",
+    "/workspace/nc-project-20260529-210526/ip/NC_COMMON/rtl",
+    "/workspace/nc-project-20260529-210526/ip/NC_CRC/rtl",
+    "/workspace/nc-project-20260529-210526/ip/NC_DMAC/rtl",
+    "/workspace/nc-project-20260529-210526/ip/NC_GPIO/rtl",
+    "/workspace/nc-project-20260529-210526/ip/NC_I2C/rtl",
+    "/workspace/nc-project-20260529-210526/ip/NC_PWM/rtl",
+    "/workspace/nc-project-20260529-210526/ip/NC_RTC/rtl",
+    "/workspace/nc-project-20260529-210526/ip/NC_SPI/rtl",
+    "/workspace/nc-project-20260529-210526/ip/NC_SYSTICK/rtl",
+    "/workspace/nc-project-20260529-210526/ip/NC_TMR/rtl",
+    "/workspace/nc-project-20260529-210526/ip/NC_UART/rtl",
+    "/workspace/nc-project-20260529-210526/ip/NC_UART/rtl/common",
+    "/workspace/nc-project-20260529-210526/ip/NC_WWDT/rtl",
+    "/workspace/nc-project-20260529-210526/ip/NC_XIP/rtl"
+  ],
+  "PNR_SDC_FILE": "dir::mspm33c321a_derivative_mcu_wrapper.sdc",
+  "SIGNOFF_SDC_FILE": "dir::mspm33c321a_derivative_mcu_wrapper.sdc",
+  "// Floorplan": "Die/core from padframe-gen DEF template",
+  "FP_SIZING": "absolute",
+  "DIE_AREA": [
+    0.0,
+    0.0,
+    4278.67,
+    3778.67
+  ],
+  "CORE_AREA": [
+    275.0,
+    275.0,
+    4003.67,
+    3503.67
+  ],
+  "FP_DEF_TEMPLATE": "dir::fixed_dont_change/mspm33c321a_derivative_mcu_wrapper.def",
+  "// DEF template": "permissive matching + copy power pins from padframe DEF",
+  "FP_TEMPLATE_COPY_POWER_PINS": true,
+  "FP_TEMPLATE_MATCH_MODE": "permissive",
+  "// Power": "Core power nets",
+  "VDD_NETS": [
+    "VCCD"
+  ],
+  "GND_NETS": [
+    "VSSD"
+  ],
+  "// PDN": "met4/met5 main grid + custom pdn for SRAM macro hookup",
+  "FP_PDN_MULTILAYER": true,
+  "ERROR_ON_PDN_VIOLATIONS": false,
+  "FP_PDN_CFG": "dir::pdn_cfg.tcl",
+  "FP_PDN_VPITCH": 100,
+  "FP_PDN_HPITCH": 100,
+  "FP_PDN_VOFFSET": 25,
+  "FP_PDN_HOFFSET": 25,
+  "FP_PDN_VWIDTH": 3.2,
+  "FP_PDN_HWIDTH": 3.2,
+  "FP_PDN_HSPACING": 1.6,
+  "FP_PDN_VSPACING": 1.6,
+  "FP_PDN_CORE_RING": true,
+  "FP_PDN_CORE_RING_VWIDTH": 6,
+  "FP_PDN_CORE_RING_HWIDTH": 6,
+  "FP_PDN_CORE_RING_VOFFSET": -4,
+  "FP_PDN_CORE_RING_HOFFSET": -4,
+  "FP_PDN_CORE_RING_VSPACING": 2.4,
+  "FP_PDN_CORE_RING_HSPACING": 2.4,
+  "// SRAM macros": "CF_SRAM_1024x32 \u2014 4 instances, power hooks, placement",
+  "EXTRA_LEFS": [
+    "/workspace/nc-project-20260529-210526/ip/CF_SRAM_1024x32/lef/CF_SRAM_1024x32.lef"
+  ],
+  "EXTRA_GDS_FILES": [
+    "/workspace/nc-project-20260529-210526/ip/CF_SRAM_1024x32/gds/CF_SRAM_1024x32.gds"
+  ],
+  "EXTRA_LIBS": [
+    "/workspace/nc-project-20260529-210526/ip/CF_SRAM_1024x32/lib/CF_SRAM_1024x32_ff_195V_100C.lib",
+    "/workspace/nc-project-20260529-210526/ip/CF_SRAM_1024x32/lib/CF_SRAM_1024x32_ss_160V_100C.lib",
+    "/workspace/nc-project-20260529-210526/ip/CF_SRAM_1024x32/lib/CF_SRAM_1024x32_tt_180V_25C.lib"
+  ],
+  "EXTRA_VERILOG_MODELS": [
+    "/workspace/nc-project-20260529-210526/ip/CF_SRAM_1024x32/hdl/CF_SRAM_1024x32_stub.v"
+  ],
+  "MACROS": {
+    "CF_SRAM_1024x32": {
+      "gds": [
+        "/workspace/nc-project-20260529-210526/ip/CF_SRAM_1024x32/gds/CF_SRAM_1024x32.gds"
+      ],
+      "lef": [
+        "/workspace/nc-project-20260529-210526/ip/CF_SRAM_1024x32/lef/CF_SRAM_1024x32.lef"
+      ],
+      "instances": {
+        "u_core.u_cf_sram_b0": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b1": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b2": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b3": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b4": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b5": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b6": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b7": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b8": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b9": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b10": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b11": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b12": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b13": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b14": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b15": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b16": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b17": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b18": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b19": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b20": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b21": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b22": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b23": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b24": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b25": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b26": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b27": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b28": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b29": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b30": {
+          "location": null,
+          "orientation": "N"
+        },
+        "u_core.u_cf_sram_b31": {
+          "location": null,
+          "orientation": "N"
+        }
+      },
+      "lib": {
+        "nom_*": [
+          "/workspace/nc-project-20260529-210526/ip/CF_SRAM_1024x32/lib/CF_SRAM_1024x32_tt_180V_25C.lib"
+        ],
+        "min_*": [
+          "/workspace/nc-project-20260529-210526/ip/CF_SRAM_1024x32/lib/CF_SRAM_1024x32_ss_160V_100C.lib"
+        ],
+        "max_*": [
+          "/workspace/nc-project-20260529-210526/ip/CF_SRAM_1024x32/lib/CF_SRAM_1024x32_ff_195V_100C.lib"
+        ]
+      }
+    }
+  },
+  "MACRO_PLACEMENT_CFG": "dir::macro.cfg",
+  "PDN_MACRO_CONNECTIONS": [
+    "u_core.u_cf_sram_b0 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b0 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b0 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b0 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b1 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b1 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b1 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b1 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b2 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b2 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b2 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b2 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b3 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b3 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b3 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b3 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b4 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b4 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b4 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b4 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b5 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b5 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b5 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b5 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b6 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b6 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b6 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b6 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b7 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b7 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b7 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b7 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b8 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b8 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b8 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b8 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b9 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b9 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b9 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b9 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b10 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b10 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b10 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b10 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b11 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b11 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b11 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b11 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b12 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b12 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b12 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b12 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b13 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b13 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b13 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b13 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b14 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b14 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b14 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b14 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b15 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b15 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b15 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b15 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b16 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b16 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b16 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b16 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b17 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b17 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b17 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b17 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b18 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b18 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b18 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b18 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b19 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b19 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b19 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b19 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b20 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b20 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b20 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b20 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b21 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b21 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b21 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b21 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b22 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b22 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b22 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b22 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b23 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b23 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b23 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b23 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b24 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b24 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b24 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b24 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b25 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b25 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b25 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b25 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b26 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b26 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b26 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b26 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b27 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b27 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b27 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b27 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b28 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b28 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b28 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b28 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b29 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b29 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b29 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b29 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b30 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b30 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b30 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b30 VCCD VSSD vpwrm vgnd",
+    "u_core.u_cf_sram_b31 VCCD VSSD vpwra vgnd",
+    "u_core.u_cf_sram_b31 VCCD VSSD vpb vnb",
+    "u_core.u_cf_sram_b31 VCCD VSSD vpwrp vgnd",
+    "u_core.u_cf_sram_b31 VCCD VSSD vpwrm vgnd"
+  ],
+  "// Signoff": "relaxed for initial hardening",
+  "MAGIC_DEF_LABELS": false,
+  "MAGIC_EXT_USE_GDS": true,
+  "RUN_IRDROP_REPORT": false,
+  "RUN_MAGIC_DRC": false,
+  "RUN_LVS": false,
+  "ERROR_ON_MAGIC_DRC": false,
+  "GRT_ADJUSTMENT": 0.2
+}

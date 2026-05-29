@@ -1,0 +1,178 @@
+scenario_name: scenario_aes_kat
+description: >
+  Verifies the AES hardware accelerator of mspm33c321a_derivative using
+  NIST FIPS-197 known-answer tests (KATs) for AES-128 ECB encrypt/decrypt,
+  AES-256 ECB encrypt, AES-128 CBC encrypt, DMA-assisted bulk encryption,
+  and done-interrupt generation.
+checklist_ids:
+  - AES-01
+  - AES-02
+  - AES-03
+  - AES-04
+  - AES-05
+  - AES-06
+test_names:
+  - test_aes128_ecb_encrypt_kat
+  - test_aes128_ecb_decrypt_kat
+  - test_aes256_ecb_encrypt_kat
+  - test_aes128_cbc_encrypt
+  - test_aes_dma_bulk
+  - test_aes_done_irq
+priority: P0
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+external_devices: []
+
+aes_test_vectors:
+  - name: aes128_ecb_encrypt
+    key_bits: 128
+    mode: ECB
+    operation: ENCRYPT
+    key:        [0x2B, 0x7E, 0x15, 0x16, 0x28, 0xAE, 0xD2, 0xA6,
+                 0xAB, 0xF7, 0x15, 0x88, 0x09, 0xCF, 0x4F, 0x3C]
+    plaintext:  [0x6B, 0xC1, 0xBE, 0xE2, 0x2E, 0x40, 0x9F, 0x96,
+                 0xE9, 0x3D, 0x7E, 0x11, 0x73, 0x93, 0x17, 0x2A]
+    ciphertext: [0x3A, 0xD7, 0x7B, 0xB4, 0x0D, 0x7A, 0x36, 0x60,
+                 0xA8, 0x9E, 0xCA, 0xF3, 0x24, 0x66, 0xEF, 0x97]
+  - name: aes256_ecb_encrypt
+    key_bits: 256
+    mode: ECB
+    operation: ENCRYPT
+    key:        [0x60, 0x3D, 0xEB, 0x10, 0x15, 0xCA, 0x71, 0xBE,
+                 0x2B, 0x73, 0xAE, 0xF0, 0x85, 0x7D, 0x77, 0x81,
+                 0x1F, 0x35, 0x2C, 0x07, 0x3B, 0x61, 0x08, 0xD7,
+                 0x2D, 0x98, 0x10, 0xA3, 0x09, 0x14, 0xDF, 0xF4]
+    plaintext:  [0x6B, 0xC1, 0xBE, 0xE2, 0x2E, 0x40, 0x9F, 0x96,
+                 0xE9, 0x3D, 0x7E, 0x11, 0x73, 0x93, 0x17, 0x2A]
+    ciphertext: [0xF3, 0xEE, 0xD1, 0xBD, 0xB5, 0xD2, 0xA0, 0x3C,
+                 0x06, 0x4B, 0x5A, 0x7E, 0x3D, 0xB1, 0x81, 0xF8]
+
+stimulus:
+  - step: 1
+    action: release_reset
+    description: Release reset; AES engine in idle state
+  - step: 2
+    action: apb_configure_aes
+    key_bits: 128
+    mode: ECB
+    operation: ENCRYPT
+    irq_enable: done
+    description: Configure AES for AES-128 ECB encryption with done IRQ enabled
+  - step: 3
+    action: apb_write_aes_key
+    key: [0x2B, 0x7E, 0x15, 0x16, 0x28, 0xAE, 0xD2, 0xA6,
+          0xAB, 0xF7, 0x15, 0x88, 0x09, 0xCF, 0x4F, 0x3C]
+    description: Load AES-128 key from FIPS-197 Appendix B
+  - step: 4
+    action: apb_write_aes_plaintext
+    data: [0x6B, 0xC1, 0xBE, 0xE2, 0x2E, 0x40, 0x9F, 0x96,
+           0xE9, 0x3D, 0x7E, 0x11, 0x73, 0x93, 0x17, 0x2A]
+    description: Load plaintext block into AES input register
+  - step: 5
+    action: apb_write
+    peripheral: AES0
+    register: CR
+    value: START_BIT
+    description: Start AES encryption
+  - step: 6
+    action: wait_irq
+    irq_vector: 22
+    timeout_cycles: 500
+    description: Wait for AES done IRQ (IRQ22)
+  - step: 7
+    action: apb_read_check_aes_output
+    expected: [0x3A, 0xD7, 0x7B, 0xB4, 0x0D, 0x7A, 0x36, 0x60,
+               0xA8, 0x9E, 0xCA, 0xF3, 0x24, 0x66, 0xEF, 0x97]
+    description: Read AES output register; compare against FIPS-197 expected ciphertext
+  - step: 8
+    action: apb_configure_aes
+    key_bits: 128
+    mode: ECB
+    operation: DECRYPT
+    description: Reconfigure for AES-128 ECB decryption
+  - step: 9
+    action: apb_write_aes_key
+    key: [0x2B, 0x7E, 0x15, 0x16, 0x28, 0xAE, 0xD2, 0xA6,
+          0xAB, 0xF7, 0x15, 0x88, 0x09, 0xCF, 0x4F, 0x3C]
+    description: Reload key for decryption
+  - step: 10
+    action: apb_write_aes_plaintext
+    data: [0x3A, 0xD7, 0x7B, 0xB4, 0x0D, 0x7A, 0x36, 0x60,
+           0xA8, 0x9E, 0xCA, 0xF3, 0x24, 0x66, 0xEF, 0x97]
+    description: Load ciphertext as decrypt input
+  - step: 11
+    action: apb_write
+    peripheral: AES0
+    register: CR
+    value: START_BIT
+    description: Start AES decryption
+  - step: 12
+    action: wait_irq
+    irq_vector: 22
+    timeout_cycles: 500
+    description: Wait for AES done IRQ
+  - step: 13
+    action: apb_read_check_aes_output
+    expected: [0x6B, 0xC1, 0xBE, 0xE2, 0x2E, 0x40, 0x9F, 0x96,
+               0xE9, 0x3D, 0x7E, 0x11, 0x73, 0x93, 0x17, 0x2A]
+    description: Verify decrypted output recovers original plaintext
+  - step: 14
+    action: run_aes256_ecb_kat
+    vector: aes256_ecb_encrypt
+    description: Configure AES-256 ECB encrypt KAT and verify ciphertext
+  - step: 15
+    action: configure_aes_cbc
+    key_bits: 128
+    iv: [0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+         0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F]
+    description: Configure AES-128 CBC mode with standard IV
+  - step: 16
+    action: aes_dma_bulk_encrypt
+    src_addr: 0x20000000
+    dst_addr: 0x20001000
+    length_bytes: 256
+    dma_channel: 5
+    description: Load 256-byte plaintext at 0x20000000; DMA through AES to 0x20001000
+
+checks:
+  - id: CHK-AES-01
+    checklist_id: AES-01
+    description: AES-128 ECB encryption output matches FIPS-197 expected ciphertext
+    expected: Output == [0x3A,0xD7,0x7B,0xB4,...]
+  - id: CHK-AES-02
+    checklist_id: AES-02
+    description: AES-128 ECB decryption of ciphertext recovers original plaintext
+    expected: Output == [0x6B,0xC1,0xBE,0xE2,...]
+  - id: CHK-AES-03
+    checklist_id: AES-03
+    description: AES-256 ECB encryption output matches FIPS-197 expected ciphertext
+    expected: Output == [0xF3,0xEE,0xD1,0xBD,...]
+  - id: CHK-AES-04
+    checklist_id: AES-04
+    description: AES-128 CBC chained blocks produce correct output per NIST SP 800-38A
+    expected: CBC ciphertext matches reference
+  - id: CHK-AES-05
+    checklist_id: AES-05
+    description: DMA-assisted 256-byte AES encryption produces correct ciphertext
+    expected: Destination buffer matches reference AES-encrypted source
+  - id: CHK-AES-06
+    checklist_id: AES-06
+    description: AES done IRQ (IRQ22) fires within 100 cycles of operation start
+    expected: IRQ asserts; DONE flag set in AES STATUS register
+
+pass_criteria:
+  - All CHK-AES checks PASS
+  - All KAT vectors match bit-exactly
+  - No AES engine hang or timeout

@@ -1,0 +1,132 @@
+scenario_name: scenario_swd_debug
+description: >
+  Verifies the 2-pin SWD debug port of mspm33c321a_derivative via the
+  Hazard3 Debug Access Port (DAP). Tests cover DAP connection and DPIDR
+  read, memory read and write through the DAP while the CPU is running,
+  and CPU halt/resume via the debug module.
+checklist_ids:
+  - DBG-01
+  - DBG-02
+  - DBG-03
+  - DBG-04
+test_names:
+  - test_dbg_dap_connect
+  - test_dbg_mem_read
+  - test_dbg_mem_write
+  - test_dbg_halt_resume
+priority: P0
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+external_devices:
+  - name: jtag_probe_model
+    type: gpio_stimulus
+    connect:
+      stimulus_out: swdclk
+      bidirectional: swdio
+    params:
+      swd_clock_div: 8      # SWCLK = 10 MHz (80 MHz / 8)
+      idle_cycles: 8
+      line_reset_cycles: 50
+
+swd_params:
+  swdclk_pad: PAD_SWDCLK
+  swdio_pad:  PAD_SWDIO
+  expected_dpidr: 0x0BC11477    # Hazard3 DP ID (ARM Debug Port v1)
+
+stimulus:
+  - step: 1
+    action: release_reset
+    description: Release reset; CPU begins executing from XIP flash
+  - step: 2
+    action: swd_line_reset
+    device: jtag_probe_model
+    description: Drive 50+ SWCLK cycles with SWDIO high for SWD line reset
+  - step: 3
+    action: swd_jtag_to_swd
+    description: Send JTAG-to-SWD switching sequence (0xE79E + line reset)
+  - step: 4
+    action: swd_read_dp
+    register: DPIDR
+    description: Read SWD DP IDCODE register
+  - step: 5
+    action: verify_dpidr
+    expected: 0x0BC11477
+    description: Confirm DPIDR matches Hazard3 DAP identity
+  - step: 6
+    action: swd_init_dp
+    description: Power-up DP and AP; set CSYSPWRUPREQ and CDBGPWRUPREQ
+  - step: 7
+    action: swd_select_ap
+    ap_index: 0
+    description: Select MEM-AP (AP0) for memory access
+  - step: 8
+    action: fill_sram_via_ahb
+    addr: 0x20000100
+    data: 0x12345678
+    description: CPU writes known value to SRAM via normal AHB path
+  - step: 9
+    action: swd_mem_read
+    addr: 0x20000100
+    expected: 0x12345678
+    description: Read same SRAM address via SWD DAP MEM-AP; verify data matches
+  - step: 10
+    action: swd_mem_write
+    addr: 0x20000200
+    data: 0xDEADC0DE
+    description: Write to SRAM via DAP MEM-AP
+  - step: 11
+    action: ahb_read_check
+    addr: 0x20000200
+    expected: 0xDEADC0DE
+    description: Read same address via normal CPU AHB path; verify write took effect
+  - step: 12
+    action: swd_halt_cpu
+    description: Write DMCONTROL.haltreq=1 via SWD Debug Module; verify halted
+  - step: 13
+    action: swd_verify_halted
+    description: Read DMSTATUS; verify allhalted bit set
+  - step: 14
+    action: swd_read_gpr
+    register: x1
+    description: Read GPR x1 via abstract command while CPU is halted
+  - step: 15
+    action: swd_resume_cpu
+    description: Write DMCONTROL.resumereq=1 to resume CPU execution
+  - step: 16
+    action: swd_verify_running
+    description: Read DMSTATUS; verify allrunning bit set after resume
+
+checks:
+  - id: CHK-DBG-01
+    checklist_id: DBG-01
+    description: SWD DPIDR returns 0x0BC11477 (Hazard3 DAP identity)
+    expected: DPIDR == 0x0BC11477
+  - id: CHK-DBG-02
+    checklist_id: DBG-02
+    description: DAP MEM-AP reads SRAM address 0x20000100; data matches CPU-written value
+    expected: SWD read returns 0x12345678
+  - id: CHK-DBG-03
+    checklist_id: DBG-03
+    description: DAP MEM-AP write to 0x20000200; CPU AHB read returns same value
+    expected: AHB read returns 0xDEADC0DE
+  - id: CHK-DBG-04
+    checklist_id: DBG-04
+    description: CPU halts on haltreq; allhalted confirmed; GPR readable; CPU resumes on resumereq
+    expected: DMSTATUS.allhalted=1 during halt; DMSTATUS.allrunning=1 after resume
+
+pass_criteria:
+  - All CHK-DBG checks PASS
+  - SWD protocol model reports no framing or parity errors
+  - No simulation hang during SWD transactions

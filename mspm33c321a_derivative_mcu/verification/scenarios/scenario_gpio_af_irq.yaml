@@ -1,0 +1,131 @@
+scenario_name: scenario_gpio_af_irq
+description: >
+  Verifies GPIO alternate-function (pinmux) selection and GPIO edge-triggered
+  interrupt generation on mspm33c321a_derivative. Also covers the IRQ-05 case
+  for GPIOA/B/C edge triggers routing to IRQ0/1/2 in the Hazard3 PLIC.
+  UART and I2C alternate functions on GPIOA and GPIOB are validated by
+  confirming AF output connectivity when the AF matrix is configured.
+checklist_ids:
+  - GPIO-08
+  - GPIO-09
+  - IRQ-05
+test_names:
+  - test_gpio_af_pinmux
+  - test_gpio_edge_irq
+  - test_irq_gpio_edge
+priority: P1
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+external_devices:
+  - name: uart_model
+    type: uart
+    connect:
+      rx_from_soc: uart0_tx_pad
+      tx_to_soc: uart0_rx_pad
+    params:
+      baud_rate: 115200
+  - name: i2c_slave_model
+    type: i2c_memory
+    connect:
+      sda: i2c0_sda_pad
+      scl: i2c0_scl_pad
+    params:
+      address_7bit: 0x50
+      mem_size_bytes: 256
+  - name: jtag_probe_model
+    type: gpio_stimulus
+    connect:
+      stimulus_out: gpioa_in[3]
+    params:
+      pulse_width_ns: 200
+      assert_polarity: high
+
+stimulus:
+  - step: 1
+    action: release_reset
+    description: Release reset; all GPIO pins default to GPIO mode
+  - step: 2
+    action: apb_write
+    peripheral: GPIOA_PINMUX
+    register: AF_SEL_PIN0
+    value: 0x1
+    description: Select UART0 TX alternate function on GPIOA[0]
+  - step: 3
+    action: apb_write
+    peripheral: GPIOA_PINMUX
+    register: AF_SEL_PIN1
+    value: 0x1
+    description: Select UART0 RX alternate function on GPIOA[1]
+  - step: 4
+    action: send_uart_byte
+    device: uart_model
+    data: 0xA5
+    description: Send byte via UART model; verify it arrives at UART0 RX FIFO through GPIOA AF
+  - step: 5
+    action: apb_write
+    peripheral: GPIOB_PINMUX
+    register: AF_SEL_PIN4
+    value: 0x2
+    description: Select I2C0 SCL alternate function on GPIOB[4]
+  - step: 6
+    action: apb_write
+    peripheral: GPIOB_PINMUX
+    register: AF_SEL_PIN5
+    value: 0x2
+    description: Select I2C0 SDA alternate function on GPIOB[5]
+  - step: 7
+    action: i2c_write_byte
+    device: i2c_slave_model
+    addr: 0x50
+    reg: 0x00
+    data: 0x42
+    description: Perform I2C write through GPIOB AF; verify SDA/SCL routed correctly
+  - step: 8
+    action: apb_write
+    peripheral: GPIOA
+    register: INT_CFG_PIN3
+    value: 0x3
+    description: Configure GPIOA[3] for both-edge interrupt
+  - step: 9
+    action: drive_gpio_stimulus
+    device: jtag_probe_model
+    description: Pulse GPIOA[3] high then low via stimulus model
+  - step: 10
+    action: check_irq_assertion
+    irq_vector: 0
+    description: Verify PLIC IRQ0 (GPIOA) asserted following edge trigger
+
+checks:
+  - id: CHK-GPIO-08
+    checklist_id: GPIO-08
+    description: UART0 byte received at UART0_RXD FIFO when GPIOA[0:1] configured for UART AF
+    expected: UART0 RX FIFO contains 0xA5
+  - id: CHK-GPIO-08B
+    checklist_id: GPIO-08
+    description: I2C0 write completes through GPIOB[4:5] AF routing
+    expected: I2C slave ACKs write; data stored at slave address 0x00
+  - id: CHK-GPIO-09
+    checklist_id: GPIO-09
+    description: Edge on GPIOA[3] sets interrupt pending flag and ISR fires
+    expected: GPIOA interrupt flag set; ISR executes and clears flag
+  - id: CHK-IRQ-05
+    checklist_id: IRQ-05
+    description: PLIC IRQ0 (GPIOA) is claimed by CPU after edge event
+    expected: PLIC claim register returns IRQ0 source ID
+
+pass_criteria:
+  - All CHK-GPIO-08, CHK-GPIO-09, CHK-IRQ-05 checks PASS
+  - No protocol errors on UART or I2C during AF tests
+  - IRQ flag clears after ISR completion

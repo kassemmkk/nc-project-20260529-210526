@@ -1,0 +1,102 @@
+scenario_name: scenario_sram_memory
+description: >
+  Verifies the 128 KB SRAM subsystem (4 × CF_SRAM_1024x32 banks) of
+  mspm33c321a_derivative. Covers base-address read/write, full address
+  walking over the 128 KB range, sequential and random data-integrity
+  patterns, and concurrent CPU + DMA access without corruption.
+checklist_ids:
+  - MEM-01
+  - MEM-02
+  - MEM-03
+  - MEM-04
+test_names:
+  - test_mem_base_rw
+  - test_mem_addr_walk
+  - test_mem_data_integrity
+  - test_mem_cpu_dma_concurrent
+priority: P0
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+external_devices: []
+
+sram_params:
+  base_addr: 0x20000000
+  size_bytes: 0x00020000   # 128 KB
+  bank_count: 4
+  bank_size_bytes: 0x00008000   # 32 KB each
+
+stimulus:
+  - step: 1
+    action: release_reset
+    description: Release reset and allow bus fabric to initialise
+  - step: 2
+    action: ahb_write_word
+    addr: 0x20000000
+    data: 0xDEADBEEF
+    description: Write known word at SRAM base address
+  - step: 3
+    action: ahb_read_word
+    addr: 0x20000000
+    expected: 0xDEADBEEF
+    description: Read back base address and verify data
+  - step: 4
+    action: ahb_address_walk
+    start_addr: 0x20000000
+    end_addr: 0x2001FFFF
+    pattern: ADDR_AS_DATA
+    description: Write address-as-data to every word; read back and compare
+  - step: 5
+    action: ahb_burst_write
+    start_addr: 0x20000000
+    length_words: 32768
+    pattern: RANDOM_SEED_0xCAFE
+    description: Sequential burst write with pseudo-random data (LFSR seed 0xCAFE)
+  - step: 6
+    action: ahb_burst_read_check
+    start_addr: 0x20000000
+    length_words: 32768
+    pattern: RANDOM_SEED_0xCAFE
+    description: Burst read and compare against expected LFSR sequence
+  - step: 7
+    action: concurrent_dma_cpu_access
+    dma_channel: 0
+    dma_src: 0x20000000
+    dma_dst: 0x20010000
+    dma_len_bytes: 0x8000
+    cpu_rw_addr: 0x20018000
+    description: CPU reads/writes upper SRAM bank while DMA copies lower bank
+
+checks:
+  - id: CHK-MEM-01
+    checklist_id: MEM-01
+    description: Read-back of 0xDEADBEEF at base address 0x20000000 matches write
+    expected: data == 0xDEADBEEF
+  - id: CHK-MEM-02
+    checklist_id: MEM-02
+    description: All 32768 word addresses in 128 KB read back their written value
+    expected: Zero mismatches in full address walk
+  - id: CHK-MEM-03
+    checklist_id: MEM-03
+    description: All 32768 LFSR-pattern words compare correctly after burst write
+    expected: Zero byte mismatches
+  - id: CHK-MEM-04
+    checklist_id: MEM-04
+    description: DMA copy completes correctly and CPU data is uncorrupted
+    expected: DMA destination matches source; CPU reads are consistent
+
+pass_criteria:
+  - All CHK-MEM checks PASS
+  - No AHB HRESP=ERROR during SRAM access in valid range
+  - DMA transfer-complete flag set within expected cycle count

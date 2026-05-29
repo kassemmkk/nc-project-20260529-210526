@@ -1,0 +1,247 @@
+scenario_name: scenario_integration_multiperiph
+description: >
+  System-level integration tests for mspm33c321a_derivative exercising
+  multiple peripherals simultaneously and in pipeline. Tests cover:
+  concurrent UART0 + SPI0 + I2C0 operation without bus interference,
+  DMA-assisted end-to-end UART transmission, AES-128 encryption followed
+  by CRC-32 of the ciphertext matched against a precomputed reference,
+  and GPIO edge event triggering a DMA transfer with completion IRQ.
+checklist_ids:
+  - INT-02
+  - INT-03
+  - INT-04
+  - INT-05
+test_names:
+  - test_int_multiperiph_concurrent
+  - test_int_dma_uart_e2e
+  - test_int_aes_crc_pipeline
+  - test_int_gpio_dma_trigger
+priority: P1
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+flash_image:
+  hex_file: verification/fw/xip_boot_smoke.hex
+  base_addr: 0x00000000
+  size_bytes: 0x00080000
+
+external_devices:
+  - name: uart_model
+    type: uart
+    connect:
+      rx_from_soc: uart0_tx
+      tx_to_soc: uart0_rx
+    params:
+      baud_rate: 115200
+      data_bits: 8
+      stop_bits: 1
+      parity: none
+  - name: spi_slave_model
+    type: spi_slave
+    connect:
+      sclk: spi0_sclk
+      mosi: spi0_mosi
+      miso: spi0_miso
+      nss:  spi0_nss
+    params:
+      cpol: 0
+      cpha: 0
+      frame_bits: 8
+      loopback: true
+  - name: i2c_slave_model
+    type: i2c_memory
+    connect:
+      sda: i2c0_sda
+      scl: i2c0_scl
+    params:
+      address_7bit: 0x50
+      mem_size_bytes: 256
+      speed_hz: 100000
+  - name: jtag_probe_model
+    type: gpio_stimulus
+    connect:
+      stimulus_out: gpioa_in[0]
+    params:
+      pulse_width_ns: 200
+      assert_polarity: high
+
+# ── INT-02: Concurrent UART0 + SPI0 + I2C0 ───────────────────────────────
+concurrent_test:
+  uart_byte: 0xA5
+  spi_word:  0xC3
+  i2c_addr:  0x50
+  i2c_data:  0x77
+
+# ── INT-04: AES+CRC pipeline reference values ─────────────────────────────
+aes_crc_pipeline:
+  aes_key:       [0x2B, 0x7E, 0x15, 0x16, 0x28, 0xAE, 0xD2, 0xA6,
+                  0xAB, 0xF7, 0x15, 0x88, 0x09, 0xCF, 0x4F, 0x3C]
+  plaintext:     [0x6B, 0xC1, 0xBE, 0xE2, 0x2E, 0x40, 0x9F, 0x96,
+                  0xE9, 0x3D, 0x7E, 0x11, 0x73, 0x93, 0x17, 0x2A]
+  expected_ct:   [0x3A, 0xD7, 0x7B, 0xB4, 0x0D, 0x7A, 0x36, 0x60,
+                  0xA8, 0x9E, 0xCA, 0xF3, 0x24, 0x66, 0xEF, 0x97]
+  expected_crc32: 0x4A3F9B2C    # CRC-32 of 16-byte ciphertext (pre-computed)
+
+stimulus:
+  # ── INT-02: Multi-peripheral concurrent ────────────────────────────────
+  - step: 1
+    action: release_reset
+    description: Release reset; all peripherals in idle state
+  - step: 2
+    action: configure_uart0
+    baud_rate: 115200
+    description: Configure UART0
+  - step: 3
+    action: configure_spi0
+    mode: 0
+    frame_bits: 8
+    description: Configure SPI0
+  - step: 4
+    action: configure_i2c0
+    speed: 100000
+    description: Configure I2C0
+  - step: 5
+    action: launch_concurrent
+    description: >
+      Simultaneously:
+        a) Write 0xA5 to UART0 TX FIFO
+        b) Initiate SPI0 transfer of 0xC3
+        c) Initiate I2C0 write of 0x77 to slave 0x50
+  - step: 6
+    action: wait_all_complete
+    timeout_cycles: 50000
+    description: Wait for UART TX-empty, SPI done, and I2C transfer-complete IRQs
+  - step: 7
+    action: verify_concurrent_results
+    uart_rx_expected: 0xA5
+    spi_rx_expected: 0xC3
+    i2c_read_addr: 0x50
+    i2c_read_reg: 0x00
+    i2c_expected: 0x77
+    description: Verify all three peripheral operations completed correctly
+
+  # ── INT-03: DMA-assisted UART TX end-to-end ────────────────────────────
+  - step: 8
+    action: fill_sram
+    addr: 0x20004000
+    size: 16
+    data: [0x48, 0x65, 0x6C, 0x6C, 0x6F, 0x20, 0x4E, 0x43,
+           0x21, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]
+    description: Write "Hello NC!" string to SRAM for DMA-assisted UART TX
+  - step: 9
+    action: configure_dma_uart_tx
+    dma_channel: 3
+    src_addr: 0x20004000
+    uart_instance: UART0
+    length: 9
+    description: Configure DMA channel 3 for M2P to UART0 TX
+  - step: 10
+    action: enable_dma_channel
+    channel: 3
+    description: Start DMA UART TX transfer
+  - step: 11
+    action: wait_uart_model_receive
+    device: uart_model
+    expected_bytes: [0x48, 0x65, 0x6C, 0x6C, 0x6F, 0x20, 0x4E, 0x43, 0x21]
+    timeout_cycles: 200000
+    description: uart_model captures all 9 bytes; verifies order and content
+
+  # ── INT-04: AES → CRC pipeline ─────────────────────────────────────────
+  - step: 12
+    action: load_sram
+    addr: 0x20005000
+    data: [0x6B, 0xC1, 0xBE, 0xE2, 0x2E, 0x40, 0x9F, 0x96,
+           0xE9, 0x3D, 0x7E, 0x11, 0x73, 0x93, 0x17, 0x2A]
+    description: Place plaintext at 0x20005000
+  - step: 13
+    action: configure_aes
+    key: [0x2B, 0x7E, 0x15, 0x16, 0x28, 0xAE, 0xD2, 0xA6,
+          0xAB, 0xF7, 0x15, 0x88, 0x09, 0xCF, 0x4F, 0x3C]
+    mode: ECB
+    operation: ENCRYPT
+    src_addr: 0x20005000
+    dst_addr: 0x20005010
+    description: Encrypt plaintext block via AES-128 ECB
+  - step: 14
+    action: wait_aes_done
+    timeout_cycles: 500
+    description: Wait for AES done IRQ
+  - step: 15
+    action: compute_crc32_over_block
+    addr: 0x20005010
+    length: 16
+    description: Feed 16-byte ciphertext into CRC-32 accelerator
+  - step: 16
+    action: apb_read_check
+    peripheral: CRC0
+    register: RESULT
+    expected: 0x4A3F9B2C
+    description: Verify CRC-32 over ciphertext matches pre-computed reference
+
+  # ── INT-05: GPIO edge → DMA trigger ────────────────────────────────────
+  - step: 17
+    action: fill_sram
+    addr: 0x20006000
+    size: 64
+    pattern: INCREMENTING
+    description: Fill DMA source buffer at 0x20006000
+  - step: 18
+    action: configure_gpio_dma_trigger
+    gpio_port: GPIOA
+    gpio_pin: 0
+    edge: rising
+    dma_channel: 4
+    dma_src: 0x20006000
+    dma_dst: 0x20007000
+    dma_len: 64
+    description: Configure GPIOA[0] rising edge to trigger DMA channel 4
+  - step: 19
+    action: drive_gpio_stimulus
+    device: jtag_probe_model
+    description: Assert GPIOA[0] rising edge via gpio_stimulus model
+  - step: 20
+    action: wait_irq
+    irq_vector: 20
+    timeout_cycles: 50000
+    description: Wait for DMA transfer-complete IRQ (IRQ20)
+  - step: 21
+    action: compare_memory
+    src_addr: 0x20006000
+    dst_addr: 0x20007000
+    size: 64
+    description: Verify DMA destination matches source
+
+checks:
+  - id: CHK-INT-02
+    checklist_id: INT-02
+    description: All three peripherals (UART0, SPI0, I2C0) complete their operations concurrently without interference
+    expected: All three operations return correct data; no APB or protocol errors
+  - id: CHK-INT-03
+    checklist_id: INT-03
+    description: DMA pushes "Hello NC!" string through UART0 TX; uart_model receives all 9 bytes in order
+    expected: uart_model captured bytes match source buffer exactly
+  - id: CHK-INT-04
+    checklist_id: INT-04
+    description: AES-128 ciphertext CRC-32 result matches pre-computed reference 0x4A3F9B2C
+    expected: CRC0.RESULT == 0x4A3F9B2C
+  - id: CHK-INT-05
+    checklist_id: INT-05
+    description: GPIO edge triggers DMA transfer; destination buffer matches source
+    expected: DMA completes; SRAM comparison passes; IRQ20 asserted
+
+pass_criteria:
+  - All CHK-INT checks PASS
+  - No bus contention or APB arbitration errors during concurrent test
+  - uart_model reports no framing errors during DMA TX test
+  - AES KAT and CRC reference match bit-exactly

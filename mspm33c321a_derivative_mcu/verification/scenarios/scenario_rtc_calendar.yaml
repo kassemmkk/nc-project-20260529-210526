@@ -1,0 +1,164 @@
+scenario_name: scenario_rtc_calendar
+description: >
+  Verifies the Real-Time Clock (RTC) of mspm33c321a_derivative. Tests cover
+  BCD calendar set and read-back (seconds/minutes/hours/day/month/year),
+  time advancement over one real-time second, Alarm A interrupt, Alarm B
+  interrupt (independent of A), and the periodic wakeup timer interrupt.
+checklist_ids:
+  - RTC-01
+  - RTC-02
+  - RTC-03
+  - RTC-04
+  - RTC-05
+test_names:
+  - test_rtc_calendar_set_read
+  - test_rtc_time_advance
+  - test_rtc_alarm_a
+  - test_rtc_alarm_b
+  - test_rtc_periodic_wakeup
+priority: P0
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+external_devices: []
+
+rtc_params:
+  rtc_clock_hz: 32768       # RTC driven by LFOSC at 32.768 kHz
+  fast_sim_scale: 1000      # Speed-up factor for simulation (1 sim-second = 1000 RTC cycles)
+  initial_time:
+    seconds: 0x58
+    minutes: 0x59
+    hours:   0x23
+    day:     0x28
+    month:   0x02
+    year:    0x26
+
+stimulus:
+  - step: 1
+    action: release_reset
+    description: Release reset; RTC in reset state
+  - step: 2
+    action: apb_write
+    peripheral: RTC0
+    register: ISR
+    value: INIT_BIT
+    description: Enter RTC init mode to allow calendar write
+  - step: 3
+    action: apb_write_rtc_calendar
+    seconds: 0x58
+    minutes: 0x59
+    hours:   0x23
+    day:     0x28
+    month:   0x02
+    year:    0x26
+    description: Write BCD calendar time 23:59:58 on 28/02/2026
+  - step: 4
+    action: apb_write
+    peripheral: RTC0
+    register: ISR
+    value: 0x00
+    description: Exit RTC init mode; calendar starts running
+  - step: 5
+    action: apb_read_check_rtc
+    fields: [SECONDS, MINUTES, HOURS, DAY, MONTH, YEAR]
+    expected: [0x58, 0x59, 0x23, 0x28, 0x02, 0x26]
+    description: Read back all calendar fields; verify BCD values match written data
+  - step: 6
+    action: wait_rtc_tick
+    rtc_ticks: 32768
+    description: Wait one RTC second (32768 LFOSC cycles in sim-scaled mode)
+  - step: 7
+    action: apb_read_check
+    peripheral: RTC0
+    register: SECONDS
+    expected: 0x59
+    description: Verify seconds advanced from 0x58 to 0x59
+  - step: 8
+    action: configure_rtc_alarm
+    alarm: A
+    seconds: 0x00
+    minutes: 0x00
+    hours:   0x00
+    irq_enable: true
+    description: Set Alarm A to fire at midnight (00:00:00)
+  - step: 9
+    action: wait_rtc_alarm_irq
+    alarm: A
+    irq_vector: 24
+    timeout_rtc_ticks: 65536
+    description: Wait for Alarm A IRQ (IRQ24) to fire when time reaches 00:00:00
+  - step: 10
+    action: check_irq
+    irq_vector: 24
+    description: Confirm Alarm A IRQ asserted
+  - step: 11
+    action: apb_clear_rtc_alarm_flag
+    alarm: A
+    description: Clear Alarm A interrupt flag
+  - step: 12
+    action: configure_rtc_alarm
+    alarm: B
+    seconds: 0x30
+    minutes: 0x00
+    hours:   0x00
+    irq_enable: true
+    description: Set Alarm B to fire at 00:00:30 (independent of Alarm A)
+  - step: 13
+    action: wait_rtc_alarm_irq
+    alarm: B
+    irq_vector: 24
+    timeout_rtc_ticks: 98304
+    description: Wait for Alarm B IRQ
+  - step: 14
+    action: check_irq
+    irq_vector: 24
+    description: Confirm Alarm B IRQ asserted independently
+  - step: 15
+    action: configure_rtc_wakeup
+    interval_rtc_ticks: 8192
+    irq_enable: true
+    description: Configure periodic wakeup timer at 8192 RTC tick interval (~0.25 s)
+  - step: 16
+    action: wait_rtc_wakeup_irq
+    count: 3
+    irq_vector: 24
+    timeout_rtc_ticks: 30000
+    description: Verify wakeup IRQ fires three times at correct interval
+
+checks:
+  - id: CHK-RTC-01
+    checklist_id: RTC-01
+    description: All calendar fields read back matching BCD values after write
+    expected: SECONDS=0x58, MINUTES=0x59, HOURS=0x23, DAY=0x28, MONTH=0x02, YEAR=0x26
+  - id: CHK-RTC-02
+    checklist_id: RTC-02
+    description: SECONDS register increments from 0x58 to 0x59 after one RTC second
+    expected: SECONDS == 0x59 after 32768 LFOSC ticks
+  - id: CHK-RTC-03
+    checklist_id: RTC-03
+    description: Alarm A IRQ fires when calendar time matches alarm configuration
+    expected: IRQ24 asserts at time 00:00:00
+  - id: CHK-RTC-04
+    checklist_id: RTC-04
+    description: Alarm B fires at configured time independent of Alarm A
+    expected: IRQ24 asserts at time 00:00:30; distinct from Alarm A event
+  - id: CHK-RTC-05
+    checklist_id: RTC-05
+    description: Periodic wakeup IRQ fires at 8192-tick intervals; three consecutive events verified
+    expected: Three IRQ24 assertions each separated by ~8192 RTC ticks
+
+pass_criteria:
+  - All CHK-RTC checks PASS
+  - BCD calendar arithmetic is correct across minute/hour rollover
+  - Alarm A and Alarm B are independent (Alarm A cleared does not affect Alarm B)

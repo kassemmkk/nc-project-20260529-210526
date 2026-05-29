@@ -1,0 +1,1111 @@
+{
+  "version": 1,
+  "scope": "compute_ss_to_padframe_handoff",
+  "soc": {
+    "name": "mspm33c321a_derivative",
+    "top_module": "mspm33c321a_derivative_compute_ss",
+    "package": "LQFP64"
+  },
+  "pinmux_policy": {
+    "max_functions_per_pad": 4,
+    "assignment_mode": "unassigned_handoff"
+  },
+  "pads": [
+    {
+      "name": "PAD0",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD1",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD2",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD3",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD4",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD5",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD6",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD7",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD8",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD9",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD10",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD11",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD12",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD13",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD14",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD15",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD16",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD17",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD18",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD19",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD20",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD21",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD22",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD23",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD24",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD25",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD26",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD27",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD28",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD29",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD30",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD31",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD32",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD33",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD34",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD35",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD36",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD37",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD38",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD39",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD40",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD41",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD42",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD43",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD44",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD45",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD46",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD47",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD48",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD49",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD50",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    },
+    {
+      "name": "PAD51",
+      "direction": "inout",
+      "max_mux_functions": 4,
+      "assigned_function": null,
+      "candidate_functions": []
+    }
+  ],
+  "functions": [
+    {
+      "name": "gpioa_0",
+      "source": "gpio",
+      "instance": "gpioa",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioa_1",
+      "source": "gpio",
+      "instance": "gpioa",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioa_10",
+      "source": "gpio",
+      "instance": "gpioa",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioa_11",
+      "source": "gpio",
+      "instance": "gpioa",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioa_12",
+      "source": "gpio",
+      "instance": "gpioa",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioa_13",
+      "source": "gpio",
+      "instance": "gpioa",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioa_14",
+      "source": "gpio",
+      "instance": "gpioa",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioa_15",
+      "source": "gpio",
+      "instance": "gpioa",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioa_2",
+      "source": "gpio",
+      "instance": "gpioa",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioa_3",
+      "source": "gpio",
+      "instance": "gpioa",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioa_4",
+      "source": "gpio",
+      "instance": "gpioa",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioa_5",
+      "source": "gpio",
+      "instance": "gpioa",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioa_6",
+      "source": "gpio",
+      "instance": "gpioa",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioa_7",
+      "source": "gpio",
+      "instance": "gpioa",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioa_8",
+      "source": "gpio",
+      "instance": "gpioa",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioa_9",
+      "source": "gpio",
+      "instance": "gpioa",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpiob_0",
+      "source": "gpio",
+      "instance": "gpiob",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpiob_1",
+      "source": "gpio",
+      "instance": "gpiob",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpiob_10",
+      "source": "gpio",
+      "instance": "gpiob",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpiob_11",
+      "source": "gpio",
+      "instance": "gpiob",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpiob_12",
+      "source": "gpio",
+      "instance": "gpiob",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpiob_13",
+      "source": "gpio",
+      "instance": "gpiob",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpiob_14",
+      "source": "gpio",
+      "instance": "gpiob",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpiob_15",
+      "source": "gpio",
+      "instance": "gpiob",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpiob_2",
+      "source": "gpio",
+      "instance": "gpiob",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpiob_3",
+      "source": "gpio",
+      "instance": "gpiob",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpiob_4",
+      "source": "gpio",
+      "instance": "gpiob",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpiob_5",
+      "source": "gpio",
+      "instance": "gpiob",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpiob_6",
+      "source": "gpio",
+      "instance": "gpiob",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpiob_7",
+      "source": "gpio",
+      "instance": "gpiob",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpiob_8",
+      "source": "gpio",
+      "instance": "gpiob",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpiob_9",
+      "source": "gpio",
+      "instance": "gpiob",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioc_0",
+      "source": "gpio",
+      "instance": "gpioc",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioc_1",
+      "source": "gpio",
+      "instance": "gpioc",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioc_10",
+      "source": "gpio",
+      "instance": "gpioc",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioc_11",
+      "source": "gpio",
+      "instance": "gpioc",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioc_12",
+      "source": "gpio",
+      "instance": "gpioc",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioc_13",
+      "source": "gpio",
+      "instance": "gpioc",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioc_14",
+      "source": "gpio",
+      "instance": "gpioc",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioc_15",
+      "source": "gpio",
+      "instance": "gpioc",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioc_2",
+      "source": "gpio",
+      "instance": "gpioc",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioc_3",
+      "source": "gpio",
+      "instance": "gpioc",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioc_4",
+      "source": "gpio",
+      "instance": "gpioc",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioc_5",
+      "source": "gpio",
+      "instance": "gpioc",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioc_6",
+      "source": "gpio",
+      "instance": "gpioc",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioc_7",
+      "source": "gpio",
+      "instance": "gpioc",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioc_8",
+      "source": "gpio",
+      "instance": "gpioc",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "gpioc_9",
+      "source": "gpio",
+      "instance": "gpioc",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "i2c0_scl",
+      "source": "i2c",
+      "instance": "i2c0",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "i2c0_sda",
+      "source": "i2c",
+      "instance": "i2c0",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "i2c1_scl",
+      "source": "i2c",
+      "instance": "i2c1",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "i2c1_sda",
+      "source": "i2c",
+      "instance": "i2c1",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "i2c2_scl",
+      "source": "i2c",
+      "instance": "i2c2",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "i2c2_sda",
+      "source": "i2c",
+      "instance": "i2c2",
+      "direction": "inout",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "pwm0_pwm_out",
+      "source": "pwm",
+      "instance": "pwm0",
+      "direction": "output",
+      "width": 4,
+      "required": false
+    },
+    {
+      "name": "pwm0_pwm_out_n",
+      "source": "pwm",
+      "instance": "pwm0",
+      "direction": "output",
+      "width": 3,
+      "required": false
+    },
+    {
+      "name": "pwm1_pwm_out",
+      "source": "pwm",
+      "instance": "pwm1",
+      "direction": "output",
+      "width": 4,
+      "required": false
+    },
+    {
+      "name": "pwm1_pwm_out_n",
+      "source": "pwm",
+      "instance": "pwm1",
+      "direction": "output",
+      "width": 3,
+      "required": false
+    },
+    {
+      "name": "qspi_ce_n",
+      "source": "xip",
+      "instance": "xip0",
+      "direction": "output",
+      "width": 1,
+      "required": true
+    },
+    {
+      "name": "qspi_din",
+      "source": "xip",
+      "instance": "xip0",
+      "direction": "input",
+      "width": 4,
+      "required": true
+    },
+    {
+      "name": "qspi_dout",
+      "source": "xip",
+      "instance": "xip0",
+      "direction": "output",
+      "width": 4,
+      "required": true
+    },
+    {
+      "name": "qspi_douten",
+      "source": "xip",
+      "instance": "xip0",
+      "direction": "output",
+      "width": 4,
+      "required": true
+    },
+    {
+      "name": "qspi_sck",
+      "source": "xip",
+      "instance": "xip0",
+      "direction": "output",
+      "width": 1,
+      "required": true
+    },
+    {
+      "name": "rtc0_alarm",
+      "source": "rtc",
+      "instance": "rtc0",
+      "direction": "output",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "rtc0_calib",
+      "source": "rtc",
+      "instance": "rtc0",
+      "direction": "output",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "rtc0_wkup",
+      "source": "rtc",
+      "instance": "rtc0",
+      "direction": "output",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "spi0_cs_n",
+      "source": "spi",
+      "instance": "spi0",
+      "direction": "output",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "spi0_miso",
+      "source": "spi",
+      "instance": "spi0",
+      "direction": "input",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "spi0_mosi",
+      "source": "spi",
+      "instance": "spi0",
+      "direction": "output",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "spi0_sck",
+      "source": "spi",
+      "instance": "spi0",
+      "direction": "output",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "spi1_cs_n",
+      "source": "spi",
+      "instance": "spi1",
+      "direction": "output",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "spi1_miso",
+      "source": "spi",
+      "instance": "spi1",
+      "direction": "input",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "spi1_mosi",
+      "source": "spi",
+      "instance": "spi1",
+      "direction": "output",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "spi1_sck",
+      "source": "spi",
+      "instance": "spi1",
+      "direction": "output",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "tmr0_ch",
+      "source": "tmr",
+      "instance": "tmr0",
+      "direction": "output",
+      "width": 4,
+      "required": false
+    },
+    {
+      "name": "tmr1_ch",
+      "source": "tmr",
+      "instance": "tmr1",
+      "direction": "output",
+      "width": 4,
+      "required": false
+    },
+    {
+      "name": "tmr2_ch",
+      "source": "tmr",
+      "instance": "tmr2",
+      "direction": "output",
+      "width": 4,
+      "required": false
+    },
+    {
+      "name": "tmr3_ch",
+      "source": "tmr",
+      "instance": "tmr3",
+      "direction": "output",
+      "width": 4,
+      "required": false
+    },
+    {
+      "name": "tmr4_ch",
+      "source": "tmr",
+      "instance": "tmr4",
+      "direction": "output",
+      "width": 4,
+      "required": false
+    },
+    {
+      "name": "tmr5_ch",
+      "source": "tmr",
+      "instance": "tmr5",
+      "direction": "output",
+      "width": 4,
+      "required": false
+    },
+    {
+      "name": "uart0_rx",
+      "source": "uart",
+      "instance": "uart0",
+      "direction": "input",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "uart0_tx",
+      "source": "uart",
+      "instance": "uart0",
+      "direction": "output",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "uart1_rx",
+      "source": "uart",
+      "instance": "uart1",
+      "direction": "input",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "uart1_tx",
+      "source": "uart",
+      "instance": "uart1",
+      "direction": "output",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "uart2_rx",
+      "source": "uart",
+      "instance": "uart2",
+      "direction": "input",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "uart2_tx",
+      "source": "uart",
+      "instance": "uart2",
+      "direction": "output",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "uart3_rx",
+      "source": "uart",
+      "instance": "uart3",
+      "direction": "input",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "uart3_tx",
+      "source": "uart",
+      "instance": "uart3",
+      "direction": "output",
+      "width": 1,
+      "required": false
+    },
+    {
+      "name": "wwdt0_wdt_reset",
+      "source": "wwdt",
+      "instance": "wwdt0",
+      "direction": "output",
+      "width": 1,
+      "required": false
+    }
+  ],
+  "gpio_ports": [
+    {
+      "name": "gpioa",
+      "width": 16
+    },
+    {
+      "name": "gpiob",
+      "width": 16
+    },
+    {
+      "name": "gpioc",
+      "width": 16
+    }
+  ],
+  "notes": [
+    "This artifact is intentionally assignment-free.",
+    "Use padframe-gen to map functions onto physical pads and produce final mux/select tables."
+  ]
+}

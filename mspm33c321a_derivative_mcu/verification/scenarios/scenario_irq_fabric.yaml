@@ -1,0 +1,164 @@
+scenario_name: scenario_irq_fabric
+description: >
+  Verifies the Hazard3 PLIC interrupt fabric of mspm33c321a_derivative.
+  Tests cover all 26 peripheral IRQ sources asserting correctly to the PLIC,
+  PLIC claim/complete handshake for acknowledgment, priority arbitration
+  between simultaneous IRQs, and nested-interrupt preemption (IRQ nesting).
+checklist_ids:
+  - IRQ-01
+  - IRQ-02
+  - IRQ-03
+  - IRQ-04
+test_names:
+  - test_irq_all_sources
+  - test_irq_ack_clear
+  - test_irq_priority
+  - test_irq_nesting
+priority: P0
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+external_devices:
+  - name: uart_model
+    type: uart
+    connect:
+      rx_from_soc: uart0_tx
+      tx_to_soc: uart0_rx
+    params:
+      baud_rate: 115200
+      data_bits: 8
+      stop_bits: 1
+      parity: none
+  - name: i2c_slave_model
+    type: i2c_memory
+    connect:
+      sda: i2c0_sda
+      scl: i2c0_scl
+    params:
+      address_7bit: 0x50
+      mem_size_bytes: 256
+      speed_hz: 100000
+
+irq_map:
+  - irq: 0  ; source: GPIOA
+  - irq: 1  ; source: GPIOB
+  - irq: 2  ; source: GPIOC
+  - irq: 3  ; source: UART0
+  - irq: 4  ; source: UART1
+  - irq: 5  ; source: UART2
+  - irq: 6  ; source: UART3
+  - irq: 7  ; source: SPI0
+  - irq: 8  ; source: SPI1
+  - irq: 9  ; source: I2C0
+  - irq: 10 ; source: I2C1
+  - irq: 11 ; source: I2C2
+  - irq: 12 ; source: TMR0
+  - irq: 13 ; source: TMR1
+  - irq: 14 ; source: TMR2
+  - irq: 15 ; source: TMR3
+  - irq: 16 ; source: TMR4
+  - irq: 17 ; source: TMR5
+  - irq: 18 ; source: PWM0
+  - irq: 19 ; source: PWM1
+  - irq: 20 ; source: DMAC0
+  - irq: 21 ; source: CRC0
+  - irq: 22 ; source: AES0
+  - irq: 23 ; source: WWDT0
+  - irq: 24 ; source: RTC0
+  - irq: 25 ; source: SYSTICK0
+
+stimulus:
+  - step: 1
+    action: release_reset
+    description: Release reset; PLIC in default state (all IRQs disabled, priority 0)
+  - step: 2
+    action: plic_enable_all_irqs
+    description: Enable all 26 IRQ sources in PLIC enable registers
+  - step: 3
+    action: plic_set_threshold
+    level: 0
+    description: Set PLIC claim threshold to 0 (allow any priority through)
+  - step: 4
+    action: trigger_each_peripheral_irq
+    method: minimal_stimulus
+    description: >
+      Trigger each peripheral IRQ in sequence using minimal stimulus:
+      UART TX-empty, SPI done, I2C done, TMR overflow, DMA complete, CRC done,
+      AES done, WWDT early-warning, RTC alarm, SysTick underflow, GPIO edge.
+  - step: 5
+    action: verify_plic_pending
+    all_irqs: true
+    description: Confirm each peripheral sets corresponding PLIC pending bit
+  - step: 6
+    action: plic_claim_all_irqs
+    description: CPU claims each pending IRQ in order; verify claim register returns correct source ID
+  - step: 7
+    action: plic_complete_all_irqs
+    description: CPU completes each IRQ; verify pending bits clear after complete
+  - step: 8
+    action: apb_read_check
+    peripheral: PLIC
+    register: PENDING0
+    expected: 0x00000000
+    description: Verify all pending bits cleared after claim/complete cycle
+  - step: 9
+    action: plic_set_priority
+    irq_high: 12
+    priority_high: 7
+    irq_low: 3
+    priority_low: 1
+    description: Set TMR0 (IRQ12) to priority 7, UART0 (IRQ3) to priority 1
+  - step: 10
+    action: trigger_simultaneous_irqs
+    irqs: [3, 12]
+    description: Simultaneously trigger UART0 and TMR0 IRQs
+  - step: 11
+    action: verify_claim_order
+    expected_first: 12
+    description: Verify PLIC claim returns IRQ12 (higher priority) first
+  - step: 12
+    action: plic_set_priority
+    irq_outer: 3
+    priority_outer: 1
+    irq_inner: 12
+    priority_inner: 7
+    description: Configure nested IRQ scenario: outer ISR priority 1, inner IRQ priority 7
+  - step: 13
+    action: trigger_nested_irq_sequence
+    outer_irq: 3
+    inner_irq: 12
+    description: Assert UART0 IRQ; while in UART0 ISR, assert TMR0 (higher priority); verify preemption
+
+checks:
+  - id: CHK-IRQ-01
+    checklist_id: IRQ-01
+    description: All 26 peripheral IRQs set corresponding PLIC pending bit when triggered
+    expected: PLIC pending registers show each source asserted in sequence
+  - id: CHK-IRQ-02
+    checklist_id: IRQ-02
+    description: PLIC claim/complete handshake clears pending bit for each IRQ
+    expected: PENDING0/PENDING1 == 0 after all claims completed
+  - id: CHK-IRQ-03
+    checklist_id: IRQ-03
+    description: Simultaneous UART0 (P1) and TMR0 (P7) — PLIC claims TMR0 first
+    expected: First claim returns source ID 12 (TMR0)
+  - id: CHK-IRQ-04
+    checklist_id: IRQ-04
+    description: TMR0 (P7) preempts UART0 ISR (P1); preemption observed in PC trace
+    expected: PC branches to TMR0 ISR before UART0 ISR completes
+
+pass_criteria:
+  - All CHK-IRQ checks PASS
+  - No spurious IRQs observed
+  - All 26 source IDs returned correctly from PLIC claim register

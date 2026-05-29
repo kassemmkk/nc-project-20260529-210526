@@ -1,0 +1,113 @@
+scenario_name: scenario_systick_timer
+description: >
+  Verifies the SysTick timer of mspm33c321a_derivative. Tests cover underflow
+  interrupt generation when the counter reaches zero from a programmed reload
+  value, tick interval accuracy for a given reload, and enable/disable
+  behaviour (counter halts when disabled, resumes from reload when re-enabled).
+checklist_ids:
+  - SYSTICK-01
+  - SYSTICK-02
+  - SYSTICK-03
+test_names:
+  - test_systick_underflow_irq
+  - test_systick_reload_interval
+  - test_systick_enable_disable
+priority: P0
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+external_devices: []
+
+systick_params:
+  reload_value: 0x000003E7    # 999 → 1000-cycle period at 80 MHz = 12.5 µs
+  clock_source: core_clk     # CPU clock (80 MHz)
+
+stimulus:
+  - step: 1
+    action: release_reset
+    description: Release reset; SysTick counter disabled at reset
+  - step: 2
+    action: apb_write
+    peripheral: SYSTICK0
+    register: RVR
+    value: 0x000003E7
+    description: Write reload value 999 to SysTick Reload Value Register
+  - step: 3
+    action: apb_write
+    peripheral: SYSTICK0
+    register: CVR
+    value: 0x00000000
+    description: Clear current value register (triggers reload from RVR)
+  - step: 4
+    action: apb_write
+    peripheral: SYSTICK0
+    register: CSR
+    value: CLKSOURCE_BIT | TICKINT_BIT | ENABLE_BIT
+    description: Enable SysTick with core clock, enable underflow interrupt
+  - step: 5
+    action: wait_irq
+    irq_vector: 25
+    timeout_cycles: 2000
+    description: Wait for SysTick underflow IRQ (IRQ25) to fire
+  - step: 6
+    action: record_underflow_time
+    description: Record simulation time at which underflow IRQ fires
+  - step: 7
+    action: wait_irq
+    irq_vector: 25
+    timeout_cycles: 2000
+    description: Wait for second underflow to measure interval
+  - step: 8
+    action: verify_interval
+    expected_cycles: 1000
+    tolerance_cycles: 2
+    description: Verify interval between consecutive underflows is 1000 cycles ±2
+  - step: 9
+    action: apb_write
+    peripheral: SYSTICK0
+    register: CSR
+    value: 0x00000000
+    description: Disable SysTick (clear ENABLE bit)
+  - step: 10
+    action: read_cvr_twice
+    delay_cycles: 500
+    description: Read CVR at time T and T+500 cycles; verify value is frozen
+  - step: 11
+    action: apb_write
+    peripheral: SYSTICK0
+    register: CSR
+    value: CLKSOURCE_BIT | TICKINT_BIT | ENABLE_BIT
+    description: Re-enable SysTick
+  - step: 12
+    action: check_cvr_decrementing
+    description: Verify CVR resumes counting down from reload value after re-enable
+
+checks:
+  - id: CHK-SYSTICK-01
+    checklist_id: SYSTICK-01
+    description: SysTick underflow IRQ fires when CVR transitions from 1 to 0
+    expected: IRQ25 asserts after 1000 clk cycles from enable
+  - id: CHK-SYSTICK-02
+    checklist_id: SYSTICK-02
+    description: Interval between consecutive underflows equals reload value + 1 cycles
+    expected: Interval = 1000 cycles ±2 cycles
+  - id: CHK-SYSTICK-03
+    checklist_id: SYSTICK-03
+    description: CVR freezes when ENABLE=0; resumes counting when ENABLE reasserted
+    expected: CVR unchanged over 500 cycles while disabled; decrements after re-enable
+
+pass_criteria:
+  - All CHK-SYSTICK checks PASS
+  - SysTick interval matches configured reload value to within 2 cycles
+  - No spurious IRQ25 while SysTick disabled

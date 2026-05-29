@@ -1,0 +1,125 @@
+scenario_name: scenario_pwm_output
+description: >
+  Verifies PWM0 and PWM1 instances of mspm33c321a_derivative. Tests cover
+  period and duty-cycle measurement on PWM0, complementary output with
+  dead-time insertion on PWM1 (no shoot-through), fault input forcing safe
+  state on PWM0, and register smoke test on both instances.
+checklist_ids:
+  - PWM-01
+  - PWM-02
+  - PWM-03
+  - PWM-04
+test_names:
+  - test_pwm0_period_duty
+  - test_pwm1_complementary_deadtime
+  - test_pwm0_fault_response
+  - test_pwm_reg_smoke
+priority: P0
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+external_devices:
+  - name: jtag_probe_model
+    type: gpio_stimulus
+    connect:
+      stimulus_out: pwm0_fault_in
+    params:
+      pulse_width_ns: 250
+      assert_polarity: high
+
+stimulus:
+  - step: 1
+    action: release_reset
+    description: Release reset
+  - step: 2
+    action: apb_configure_pwm
+    instance: PWM0
+    period_counts: 0x0FFF
+    duty_counts: 0x07FF
+    mode: edge_aligned
+    description: Configure PWM0 period=0x0FFF, duty=50% (0x07FF)
+  - step: 3
+    action: apb_write
+    peripheral: PWM0
+    register: CR1
+    value: MOE_BIT | CEN_BIT
+    description: Enable PWM0 main output and counter
+  - step: 4
+    action: measure_pwm_output
+    signal: pwm0_out
+    expected_period_counts: 0x0FFF
+    expected_high_counts: 0x07FF
+    tolerance_percent: 1.0
+    description: Measure PWM0 output period and high-time
+  - step: 5
+    action: apb_configure_pwm
+    instance: PWM1
+    period_counts: 0x07FF
+    duty_counts: 0x03FF
+    mode: complementary
+    dead_time_counts: 8
+    description: Configure PWM1 complementary pair with 8-cycle dead time
+  - step: 6
+    action: apb_write
+    peripheral: PWM1
+    register: CR1
+    value: MOE_BIT | CEN_BIT
+    description: Enable PWM1
+  - step: 7
+    action: verify_no_shootthrough
+    signal_p: pwm1_out_p
+    signal_n: pwm1_out_n
+    min_deadtime_counts: 8
+    description: Verify PWM1 complementary outputs never overlap
+  - step: 8
+    action: apb_configure_pwm
+    instance: PWM0
+    fault_input_enable: true
+    description: Enable fault input on PWM0
+  - step: 9
+    action: drive_gpio_stimulus
+    device: jtag_probe_model
+    description: Assert PWM0 fault input via gpio_stimulus model
+  - step: 10
+    action: verify_pwm_safe_state
+    signal: pwm0_out
+    expected_state: low
+    description: Verify PWM0 output forced to safe (low) state on fault assertion
+  - step: 11
+    action: apb_read_all_csr
+    peripherals: [PWM0, PWM1]
+    description: Read all PWM CSRs; verify reset defaults
+
+checks:
+  - id: CHK-PWM-01
+    checklist_id: PWM-01
+    description: PWM0 output period and high-time within 1% of configured values
+    expected: period = 0x0FFF cycles ± 1%; duty = 50% ± 1%
+  - id: CHK-PWM-02
+    checklist_id: PWM-02
+    description: PWM1 complementary outputs never simultaneously high; dead-time ≥ 8 cycles
+    expected: min dead time observed ≥ 8 clk cycles; no shoot-through
+  - id: CHK-PWM-03
+    checklist_id: PWM-03
+    description: PWM0 fault input forces output to safe (low) state immediately
+    expected: pwm0_out goes low within 1 cycle of fault assertion
+  - id: CHK-PWM-04
+    checklist_id: PWM-04
+    description: All PWM CSRs at reset defaults for both instances
+    expected: No unexpected register values
+
+pass_criteria:
+  - All CHK-PWM checks PASS
+  - No shoot-through condition observed on PWM1
+  - Fault response within 1 clock cycle

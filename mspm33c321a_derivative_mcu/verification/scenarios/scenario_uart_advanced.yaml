@@ -1,0 +1,133 @@
+scenario_name: scenario_uart_advanced
+description: >
+  Verifies advanced UART0 features on mspm33c321a_derivative: 8-deep TX FIFO
+  fill and TX-empty interrupt, framing error detection, multi-baud-rate
+  configuration (9600 / 115200 / 921600), and register smoke test covering
+  all four UART instances (UART0–UART3).
+checklist_ids:
+  - UART-05
+  - UART-06
+  - UART-07
+  - UART-08
+test_names:
+  - test_uart0_fifo_txrx
+  - test_uart0_framing_error
+  - test_uart0_baud_rates
+  - test_uart_reg_smoke
+priority: P1
+dut:
+  top_module: mspm33c321a_derivative_compute_ss
+  filelist: rtl/compute_ss/mspm33c321a_derivative_compute_ss.f
+
+clock:
+  name: clk
+  period_ns: 12.5
+
+reset:
+  name: reset_n
+  active_low: true
+  assert_cycles: 20
+  deassert_cycles: 5
+
+external_devices:
+  - name: uart_model
+    type: uart
+    connect:
+      rx_from_soc: uart0_tx
+      tx_to_soc: uart0_rx
+    params:
+      baud_rate: 115200
+      data_bits: 8
+      stop_bits: 1
+      parity: none
+      inject_framing_error: false
+
+stimulus:
+  - step: 1
+    action: release_reset
+    description: Release reset
+  - step: 2
+    action: apb_configure_uart
+    instance: UART0
+    baud_rate: 115200
+    description: Configure UART0 at 115200 baud
+  - step: 3
+    action: apb_burst_write_uart_tx
+    instance: UART0
+    data: [0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77]
+    description: Write 8 bytes to UART0 TX FIFO (fills 8-deep FIFO)
+  - step: 4
+    action: wait_uart_tx_empty_irq
+    instance: UART0
+    timeout_cycles: 10000
+    description: Wait for TX-empty interrupt after FIFO drains
+  - step: 5
+    action: check_irq
+    irq_vector: 3
+    description: Confirm UART0 TX-empty IRQ fires
+  - step: 6
+    action: configure_uart_model
+    device: uart_model
+    inject_framing_error: true
+    description: Set uart_model to inject an invalid stop bit
+  - step: 7
+    action: uart_model_send_bad_frame
+    device: uart_model
+    data: 0xCC
+    description: Send byte with bad stop bit from model to UART0 RX
+  - step: 8
+    action: apb_read_check
+    peripheral: UART0
+    register: STATUS
+    mask: FERR_BIT
+    expected: 1
+    description: Verify FERR (framing error) flag is set in UART0 STATUS
+  - step: 9
+    action: apb_configure_uart
+    instance: UART0
+    baud_rate: 9600
+    description: Reconfigure UART0 to 9600 baud
+  - step: 10
+    action: uart_loopback_byte
+    instance: UART0
+    baud_rate: 9600
+    data: 0xF0
+    description: Single-byte loopback at 9600 baud to verify divisor setting
+  - step: 11
+    action: apb_configure_uart
+    instance: UART0
+    baud_rate: 921600
+    description: Reconfigure UART0 to 921600 baud
+  - step: 12
+    action: uart_loopback_byte
+    instance: UART0
+    baud_rate: 921600
+    data: 0x0F
+    description: Single-byte loopback at 921600 baud
+  - step: 13
+    action: apb_read_all_csr
+    peripherals: [UART0, UART1, UART2, UART3]
+    description: Read all registers across all four UART instances; verify reset defaults
+
+checks:
+  - id: CHK-UART-05
+    checklist_id: UART-05
+    description: TX-empty IRQ fires after 8-byte FIFO drains completely
+    expected: UART0 TX-empty IRQ asserted; TXFIFO_EMPTY flag set
+  - id: CHK-UART-06
+    checklist_id: UART-06
+    description: FERR flag set in UART0 STATUS after injected framing error
+    expected: STATUS.FERR == 1; UART0 IRQ fires for error condition
+  - id: CHK-UART-07
+    checklist_id: UART-07
+    description: UART0 operates correctly at 9600, 115200, and 921600 baud
+    expected: Loopback byte received correctly at each baud rate
+  - id: CHK-UART-08
+    checklist_id: UART-08
+    description: All UART CSRs across all four instances return expected reset values
+    expected: No unexpected register values; no APB errors
+
+pass_criteria:
+  - All CHK-UART-05 through CHK-UART-08 checks PASS
+  - FERR flag clears after software acknowledgment
+  - No simulation hang during FIFO drain wait

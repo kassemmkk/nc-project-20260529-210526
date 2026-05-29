@@ -1,0 +1,218 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 2423 >>
+stream
+BT
+/F1 11 Tf
+14 TL
+54 758 Td
+(mspm33c321a_derivative Compute Subsystem Datasheet) Tj
+T*
+(Top: mspm33c321a_derivative_compute_ss) Tj
+T*
+(CPU: hazard3_2port_swd) Tj
+T*
+(SRAM: 0x20000000 size 0x00020000) Tj
+T*
+(XiP:  0x00000000 size 0x00080000) Tj
+T*
+(APB buses: 2) Tj
+T*
+(Peripherals: 26) Tj
+T*
+(Infra control bus: apb1) Tj
+T*
+(Pinmux routes: 129) Tj
+T*
+(Pinmux defaults: 9) Tj
+T*
+(Pinmux conflict pins: 9) Tj
+ET
+1 w
+60 620 120 42 re S
+230 620 140 42 re S
+420 680 130 36 re S
+420 620 130 36 re S
+420 560 130 36 re S
+180 641 m 230 641 l S
+370 641 m 420 698 l S
+370 641 m 420 638 l S
+370 641 m 420 578 l S
+BT
+/F1 10 Tf
+12 TL
+105 645 Td
+(CPU) Tj
+ET
+BT
+/F1 10 Tf
+12 TL
+266 645 Td
+(AHB Fabric) Tj
+ET
+BT
+/F1 10 Tf
+12 TL
+470 696 Td
+(SRAM) Tj
+ET
+BT
+/F1 10 Tf
+12 TL
+475 634 Td
+(XiP) Tj
+ET
+BT
+/F1 10 Tf
+12 TL
+447 574 Td
+(APB Bridges) Tj
+ET
+BT
+/F1 9 Tf
+11 TL
+60 525 Td
+(apb0: base 0x40000000 window 0x00010000) Tj
+ET
+BT
+/F1 9 Tf
+11 TL
+60 513 Td
+(apb1: base 0x40010000 window 0x00010000) Tj
+ET
+BT
+/F1 8 Tf
+10 TL
+60 493 Td
+(gpio0      apb0[00] 0x40000000 irq=0 dma=-) Tj
+ET
+BT
+/F1 8 Tf
+10 TL
+60 483 Td
+(gpio1      apb0[01] 0x40001000 irq=1 dma=-) Tj
+ET
+BT
+/F1 8 Tf
+10 TL
+60 473 Td
+(gpio2      apb0[02] 0x40002000 irq=2 dma=-) Tj
+ET
+BT
+/F1 8 Tf
+10 TL
+60 463 Td
+(uart0      apb0[03] 0x40003000 irq=3 dma=0,1) Tj
+ET
+BT
+/F1 8 Tf
+10 TL
+60 453 Td
+(uart1      apb0[04] 0x40004000 irq=4 dma=2,3) Tj
+ET
+BT
+/F1 8 Tf
+10 TL
+60 443 Td
+(uart2      apb0[05] 0x40005000 irq=5 dma=4,5) Tj
+ET
+BT
+/F1 8 Tf
+10 TL
+60 433 Td
+(uart3      apb0[06] 0x40006000 irq=6 dma=6,7) Tj
+ET
+BT
+/F1 8 Tf
+10 TL
+60 423 Td
+(spi0       apb0[07] 0x40007000 irq=7 dma=8,9) Tj
+ET
+BT
+/F1 8 Tf
+10 TL
+60 413 Td
+(spi1       apb0[08] 0x40008000 irq=8 dma=10,11) Tj
+ET
+BT
+/F1 8 Tf
+10 TL
+60 403 Td
+(i2c0       apb0[09] 0x40009000 irq=9 dma=-) Tj
+ET
+BT
+/F1 8 Tf
+10 TL
+60 393 Td
+(i2c1       apb0[10] 0x4000A000 irq=10 dma=-) Tj
+ET
+BT
+/F1 8 Tf
+10 TL
+60 383 Td
+(i2c2       apb0[11] 0x4000B000 irq=11 dma=-) Tj
+ET
+BT
+/F1 8 Tf
+10 TL
+60 373 Td
+(tmr0       apb0[12] 0x4000C000 irq=12 dma=-) Tj
+ET
+BT
+/F1 8 Tf
+10 TL
+60 363 Td
+(tmr1       apb0[13] 0x4000D000 irq=13 dma=-) Tj
+ET
+BT
+/F1 8 Tf
+10 TL
+60 353 Td
+(tmr2       apb0[14] 0x4000E000 irq=14 dma=-) Tj
+ET
+BT
+/F1 8 Tf
+10 TL
+60 343 Td
+(tmr3       apb0[15] 0x4000F000 irq=15 dma=-) Tj
+ET
+BT
+/F1 8 Tf
+10 TL
+60 333 Td
+(tmr4       apb1[00] 0x40010000 irq=16 dma=-) Tj
+ET
+BT
+/F1 8 Tf
+10 TL
+60 323 Td
+(tmr5       apb1[01] 0x40011000 irq=17 dma=-) Tj
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000121 00000 n 
+0000000247 00000 n 
+0000000317 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2792
+%%EOF
