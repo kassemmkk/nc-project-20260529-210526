@@ -759,6 +759,32 @@ module tb_mspm33c321a_derivative_compute_ss_smoke_bfm;
 `include "mspm33c321a_derivative_compute_ss_pinmux_directed_seq.vh"
 `elsif TEST_SEQ_CONTENTION
 `include "mspm33c321a_derivative_compute_ss_contention_directed_seq.vh"
+`elsif TEST_SEQ_GPIO
+`include "mspm33c321a_derivative_compute_ss_gpio_seq.vh"
+`elsif TEST_SEQ_UART
+`include "mspm33c321a_derivative_compute_ss_uart_seq.vh"
+`elsif TEST_SEQ_SPI
+`include "mspm33c321a_derivative_compute_ss_spi_seq.vh"
+`elsif TEST_SEQ_I2C
+`include "mspm33c321a_derivative_compute_ss_i2c_seq.vh"
+`elsif TEST_SEQ_TIMER
+`include "mspm33c321a_derivative_compute_ss_timer_seq.vh"
+`elsif TEST_SEQ_PWM
+`include "mspm33c321a_derivative_compute_ss_pwm_seq.vh"
+`elsif TEST_SEQ_CRC
+`include "mspm33c321a_derivative_compute_ss_crc_seq.vh"
+`elsif TEST_SEQ_AES
+`include "mspm33c321a_derivative_compute_ss_aes_seq.vh"
+`elsif TEST_SEQ_WWDT
+`include "mspm33c321a_derivative_compute_ss_wwdt_seq.vh"
+`elsif TEST_SEQ_RTC
+`include "mspm33c321a_derivative_compute_ss_rtc_seq.vh"
+`elsif TEST_SEQ_SRAM
+`include "mspm33c321a_derivative_compute_ss_sram_seq.vh"
+`elsif TEST_SEQ_SYS_RESET
+`include "mspm33c321a_derivative_compute_ss_sys_reset_seq.vh"
+`elsif TEST_SEQ_SWD
+`include "mspm33c321a_derivative_compute_ss_swd_seq.vh"
 `else
 `include "mspm33c321a_derivative_compute_ss_smoke_seq.vh"
 `endif

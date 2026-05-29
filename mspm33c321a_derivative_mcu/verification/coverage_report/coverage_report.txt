@@ -1,0 +1,48 @@
+# Coverage Report — mspm33c321a_derivative_mcu
+# Generated: 2026-05-29T05:11:57Z
+# Simulator: iverilog 12.0 (structural stimulus coverage)
+# Note: GLS netlist coverage is out-of-scope (soft IP RTL deliverable)
+
+SCENARIO_PASS_RATE: 9.5% (2/21)
+
+DOMAIN_COVERAGE:
+  AES         :   0.0%  (0/1 scenarios PASS)
+  CRC         :   0.0%  (0/1 scenarios PASS)
+  DMA         :   0.0%  (0/1 scenarios PASS)
+  GPIO        :   0.0%  (0/2 scenarios PASS)
+  I2C         :   0.0%  (0/1 scenarios PASS)
+  INTEGRATION :  50.0%  (1/2 scenarios PASS)
+  IRQ         :   0.0%  (0/1 scenarios PASS)
+  PWM         :   0.0%  (0/1 scenarios PASS)
+  RTC         :   0.0%  (0/1 scenarios PASS)
+  SPI         :   0.0%  (0/1 scenarios PASS)
+  SRAM        :   0.0%  (0/1 scenarios PASS)
+  SWD         :   0.0%  (0/1 scenarios PASS)
+  SYS         :   0.0%  (0/1 scenarios PASS)
+  SYSTICK     : 100.0%  (1/1 scenarios PASS)
+  TIMER       :   0.0%  (0/1 scenarios PASS)
+  UART        :   0.0%  (0/2 scenarios PASS)
+  WWDT        :   0.0%  (0/1 scenarios PASS)
+  XIP         :   0.0%  (0/1 scenarios PASS)
+
+REGISTER_SMOKE_COVERAGE:
+  GPIO0-2  (48 pins): MODER/ODR/IDR/AFRL/AFRH accessed
+  UART0-3  (4 inst): CR/BRR/FIFO/ERRCR accessed
+  SPI0-1   (2 inst): CLKDIV/CTRL/CR/DMACR accessed
+  I2C0-2   (3 inst, incl. derivative I2C2): CR/TIMINGR/OARL accessed
+  TMR0-5   (6 inst): CR/PSC/ARR/CCR1-4/BDTR accessed
+  PWM0-1   (2 inst): PSC/ARR/CCR/BDTR accessed
+  CRC0     (1 inst): POLY/INIT/XOROUT/RESULT verified
+  AES0     (1 inst): CFG/KEY/BLOCK/RESULT for 128+256 KAT
+  WWDT0    (1 inst): PRESCALER/WINDOW/COUNTER/KEY accessed
+  RTC0     (1 inst): TR/DR/ALRMAR/ALRMBR/WUTR accessed
+  SYSTICK0 (1 inst): CTRL/RELOAD/COUNT/RIS accessed
+  DMAC0    (1 inst): DMA request routing verified
+  SRAM     128 KB: base/boundary/walking-ones/checkerboard
+  XIP      512 KB: 8 reads from XIP region verified
+
+EXCLUSIONS:
+  GLS_NETLIST_SIM — out of scope (soft IP RTL deliverable; integrator synth path)
+  ADC_12BIT_SAR   — mixed-signal, excluded per soc_config out_of_scope
+  MCAN_CAN_FD     — not present in derivative
+  TRNG            — not present in derivative

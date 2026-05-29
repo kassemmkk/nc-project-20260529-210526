@@ -8,30 +8,39 @@
 
     // -----------------------------------------------------------------------
     // GPIO0 (GPIOA) @ 0x40000000
+    // Port width: 16 pins. ODR is 16-bit (reads back as zero-padded 32-bit).
+    // MODER: 2 bits per pin, 32-bit register. AFRL/AFRH: 4 bits per pin.
     // -----------------------------------------------------------------------
     // CHK-GPIO-07: MODER reset state = 0x00000000 (all inputs / Hi-Z)
     smoke_read32(32'h40000100, rd_data);   // MODER
     smoke_expect_eq(32'h40000100, rd_data, 32'h00000000);
     // CHK-GPIO-01: Write alternating pattern to ODR and read back
-    smoke_write32(32'h40000100, 32'hFFFFFFFF); // set all pins output
+    // MODER: set all 16 pins to output (2'b01 per pin = 0x55555555 for 16 pins)
+    smoke_write32(32'h40000100, 32'h55555555); // output mode
     smoke_read32(32'h40000100, rd_data);
-    smoke_write32(32'h40000108, 32'hAAAAAAAA); // ODR
+    smoke_expect_eq(32'h40000100, rd_data, 32'h55555555);
+    // ODR is a 16-bit register; reads back as {16'h0, odr_reg[15:0]}
+    smoke_write32(32'h40000108, 32'h0000AAAA); // ODR: alternating pattern
     smoke_read32(32'h40000108, rd_data);
-    smoke_expect_eq(32'h40000108, rd_data, 32'hAAAAAAAA);
-    smoke_write32(32'h40000108, 32'h55555555); // ODR complement
+    smoke_expect_eq(32'h40000108, rd_data, 32'h0000AAAA);
+    smoke_write32(32'h40000108, 32'h00005555); // ODR complement
     smoke_read32(32'h40000108, rd_data);
-    smoke_expect_eq(32'h40000108, rd_data, 32'h55555555);
-    // IDR (read-only, driven by pads)
+    smoke_expect_eq(32'h40000108, rd_data, 32'h00005555);
+    // IDR (read-only, driven by pad inputs — no check value needed)
     smoke_read32(32'h40000104, rd_data);   // IDR
-    // AFRL / AFRH
-    smoke_write32(32'h40000118, 32'h12345678); // AFRL
+    // AFRL: alternate function for pins 0-7 (4 bits/pin = 32 bits)
+    // Write a simple pattern and verify readback (no lock, so full mask active)
+    smoke_write32(32'h40000118, 32'h11111111); // AFRL: AF1 on all lower pins
     smoke_read32(32'h40000118, rd_data);
-    smoke_expect_eq(32'h40000118, rd_data, 32'h12345678);
-    smoke_write32(32'h4000011C, 32'h9ABCDEF0); // AFRH
+    smoke_expect_eq(32'h40000118, rd_data, 32'h11111111);
+    // AFRH: alternate function for pins 8-15
+    smoke_write32(32'h4000011C, 32'h22222222); // AFRH: AF2 on all upper pins
     smoke_read32(32'h4000011C, rd_data);
-    smoke_expect_eq(32'h4000011C, rd_data, 32'h9ABCDEF0);
-    // Restore MODER to input
+    smoke_expect_eq(32'h4000011C, rd_data, 32'h22222222);
+    // Restore MODER and AFRL/AFRH to reset defaults
     smoke_write32(32'h40000100, 32'h00000000);
+    smoke_write32(32'h40000118, 32'h00000000);
+    smoke_write32(32'h4000011C, 32'h00000000);
     $display("GPIO_SEQ: GPIOA done");
 
     // -----------------------------------------------------------------------
@@ -39,10 +48,12 @@
     // -----------------------------------------------------------------------
     smoke_read32(32'h40001100, rd_data);   // MODER
     smoke_expect_eq(32'h40001100, rd_data, 32'h00000000);
-    smoke_write32(32'h40001100, 32'hFFFFFFFF);
-    smoke_write32(32'h40001108, 32'hAAAAAAAA); // ODR
+    smoke_write32(32'h40001100, 32'h55555555); // output mode
+    smoke_read32(32'h40001100, rd_data);
+    smoke_expect_eq(32'h40001100, rd_data, 32'h55555555);
+    smoke_write32(32'h40001108, 32'h0000AAAA); // ODR
     smoke_read32(32'h40001108, rd_data);
-    smoke_expect_eq(32'h40001108, rd_data, 32'hAAAAAAAA);
+    smoke_expect_eq(32'h40001108, rd_data, 32'h0000AAAA);
     smoke_write32(32'h40001100, 32'h00000000);
     $display("GPIO_SEQ: GPIOB done");
 
@@ -51,10 +62,12 @@
     // -----------------------------------------------------------------------
     smoke_read32(32'h40002100, rd_data);   // MODER
     smoke_expect_eq(32'h40002100, rd_data, 32'h00000000);
-    smoke_write32(32'h40002100, 32'hFFFFFFFF);
-    smoke_write32(32'h40002108, 32'hAAAAAAAA); // ODR
+    smoke_write32(32'h40002100, 32'h55555555); // output mode
+    smoke_read32(32'h40002100, rd_data);
+    smoke_expect_eq(32'h40002100, rd_data, 32'h55555555);
+    smoke_write32(32'h40002108, 32'h0000AAAA); // ODR
     smoke_read32(32'h40002108, rd_data);
-    smoke_expect_eq(32'h40002108, rd_data, 32'hAAAAAAAA);
+    smoke_expect_eq(32'h40002108, rd_data, 32'h0000AAAA);
     smoke_write32(32'h40002100, 32'h00000000);
     $display("GPIO_SEQ: GPIOC done");
 

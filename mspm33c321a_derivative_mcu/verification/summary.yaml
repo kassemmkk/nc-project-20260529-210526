@@ -1,0 +1,181 @@
+schema: nc_verification_summary/v1
+design: mspm33c321a_derivative
+generated: '2026-05-29T05:11:57Z'
+command: nc_chipgen verify --design-root /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu
+  --all --coverage --nc-lib-root /nc/apps --rv-prefix riscv32-unknown-elf --jobs 0
+exit_code: 1
+total_scenarios: 21
+pass_count: 2
+fail_count: 19
+overall_status: FAIL
+scenarios:
+- scenario: scenario_sys_reset_clock
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_sys_reset_clock.log
+  bfm: smoke_bfm
+  define: TEST_SEQ_SYS_RESET
+- scenario: scenario_xip_flash
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_xip_flash.log
+  bfm: xip_directed_bfm
+  define: TEST_SEQ_XIP
+- scenario: scenario_sram_memory
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_sram_memory.log
+  bfm: smoke_bfm
+  define: TEST_SEQ_SRAM
+- scenario: scenario_gpio_basic
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_gpio_basic.log
+  bfm: smoke_bfm
+  define: TEST_SEQ_GPIO
+- scenario: scenario_gpio_af_irq
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_gpio_af_irq.log
+  bfm: pinmux_directed_bfm
+  define: TEST_SEQ_PINMUX
+- scenario: scenario_uart_loopback
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_uart_loopback.log
+  bfm: smoke_bfm
+  define: TEST_SEQ_UART
+- scenario: scenario_uart_advanced
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_uart_advanced.log
+  bfm: smoke_bfm
+  define: TEST_SEQ_UART
+- scenario: scenario_spi_transfer
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_spi_transfer.log
+  bfm: smoke_bfm
+  define: TEST_SEQ_SPI
+- scenario: scenario_i2c_transfer
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_i2c_transfer.log
+  bfm: smoke_bfm
+  define: TEST_SEQ_I2C
+- scenario: scenario_timer_basic
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_timer_basic.log
+  bfm: smoke_bfm
+  define: TEST_SEQ_TIMER
+- scenario: scenario_pwm_output
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_pwm_output.log
+  bfm: smoke_bfm
+  define: TEST_SEQ_PWM
+- scenario: scenario_dma_transfer
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_dma_transfer.log
+  bfm: dma_directed_bfm
+  define: TEST_SEQ_DMA
+- scenario: scenario_crc_kat
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_crc_kat.log
+  bfm: smoke_bfm
+  define: TEST_SEQ_CRC
+- scenario: scenario_aes_kat
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_aes_kat.log
+  bfm: smoke_bfm
+  define: TEST_SEQ_AES
+- scenario: scenario_wwdt_window
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_wwdt_window.log
+  bfm: smoke_bfm
+  define: TEST_SEQ_WWDT
+- scenario: scenario_rtc_calendar
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_rtc_calendar.log
+  bfm: smoke_bfm
+  define: TEST_SEQ_RTC
+- scenario: scenario_systick_timer
+  status: PASS
+  detail: 'SMOKE_SUMMARY: reads=10 writes=5 errors=0'
+  elapsed_s: 3.47
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_systick_timer.log
+  bfm: smoke_bfm
+  define: ''
+- scenario: scenario_irq_fabric
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_irq_fabric.log
+  bfm: irq_directed_bfm
+  define: TEST_SEQ_IRQ
+- scenario: scenario_swd_debug
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_swd_debug.log
+  bfm: smoke_bfm
+  define: TEST_SEQ_SWD
+- scenario: scenario_integration_boot
+  status: PASS
+  detail: 'SMOKE_SUMMARY: reads=10 writes=5 errors=0'
+  elapsed_s: 3.52
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_integration_boot.log
+  bfm: fw_boot
+  define: ''
+- scenario: scenario_integration_multiperiph
+  status: ERROR
+  detail: 'compile failed: Preprocessor failed with 1 errors.'
+  elapsed_s: 0.08
+  log: /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verification/sim_build/scenario_integration_multiperiph.log
+  bfm: contention_directed_bfm
+  define: TEST_SEQ_CONTENTION
+pass_list:
+- scenario_systick_timer
+- scenario_integration_boot
+fail_list:
+- scenario_sys_reset_clock
+- scenario_xip_flash
+- scenario_sram_memory
+- scenario_gpio_basic
+- scenario_gpio_af_irq
+- scenario_uart_loopback
+- scenario_uart_advanced
+- scenario_spi_transfer
+- scenario_i2c_transfer
+- scenario_timer_basic
+- scenario_pwm_output
+- scenario_dma_transfer
+- scenario_crc_kat
+- scenario_aes_kat
+- scenario_wwdt_window
+- scenario_rtc_calendar
+- scenario_irq_fabric
+- scenario_swd_debug
+- scenario_integration_multiperiph
