@@ -1,0 +1,25 @@
+{
+  "session_id": "4d679dddfc1d4fca97ede9bf0ae55293",
+  "created_at": "2026-05-29T04:07:05.014661",
+  "last_updated": "2026-05-29T04:27:22.113221",
+  "delegates": [
+    {
+      "id": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_requirements",
+      "agent_name": "mcu_factory_requirements",
+      "created_at": "2026-05-29T04:08:20.014180",
+      "task": "Parse the MSPM33C321A derivative user brief and produce all Stage 1 artifacts: requirements.md, spec.md, padframe_requirements.md, soc_config.yaml, and the MCU Factory Spec Advisory output.",
+      "status": "completed",
+      "completed_at": "2026-05-29T04:26:55.462127",
+      "parent_id": "4d679dddfc1d4fca97ede9bf0ae55293"
+    },
+    {
+      "id": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_verification_planning",
+      "agent_name": "mcu_factory_verification_planning",
+      "created_at": "2026-05-29T04:27:22.113180",
+      "task": "Build a complete verification checklist and generate all scenario YAMLs for the MSPM33C321A derivative MCU (mspm33c321a_deriv).",
+      "status": "active",
+      "completed_at": null,
+      "parent_id": "4d679dddfc1d4fca97ede9bf0ae55293"
+    }
+  ]
+}

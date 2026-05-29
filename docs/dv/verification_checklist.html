@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verification Checklist — MSPM33C321A Derivative MCU</title>
+  <style>
+    /* ── Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px;
+           background: #f4f6f9; color: #1a1a2e; }
+
+    /* ── Header ── */
+    header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+             color: #fff; padding: 28px 40px; }
+    header h1 { font-size: 22px; letter-spacing: 0.5px; }
+    header p  { font-size: 12px; opacity: .75; margin-top: 4px; }
+
+    /* ── Stats bar ── */
+    .stats { display: flex; gap: 16px; flex-wrap: wrap;
+             padding: 16px 40px; background: #fff;
+             border-bottom: 1px solid #e0e6ed; }
+    .stat-box { background: #f0f4ff; border-radius: 8px;
+                padding: 10px 18px; min-width: 100px; text-align: center; }
+    .stat-box .num { font-size: 26px; font-weight: 700; color: #0f3460; }
+    .stat-box .lbl { font-size: 11px; color: #666; margin-top: 2px; }
+
+    /* ── Controls ── */
+    .controls { padding: 12px 40px; background: #fff;
+                border-bottom: 1px solid #e0e6ed;
+                display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .controls label { font-size: 12px; color: #555; }
+    .controls select, .controls input {
+      font-size: 12px; border: 1px solid #ccd3e0; border-radius: 6px;
+      padding: 5px 10px; outline: none; }
+    .controls input { width: 220px; }
+
+    /* ── Main content ── */
+    main { padding: 24px 40px 60px; }
+
+    /* ── Domain section ── */
+    .domain-section { margin-bottom: 28px; }
+    .domain-header { display: flex; align-items: center; gap: 12px;
+                     background: #16213e; color: #fff;
+                     border-radius: 8px 8px 0 0; padding: 10px 18px;
+                     cursor: pointer; user-select: none; }
+    .domain-header .badge { background: #e94560; color: #fff;
+                            font-size: 11px; font-weight: 700;
+                            border-radius: 12px; padding: 2px 10px; }
+    .domain-header .domain-name { font-size: 15px; font-weight: 600; flex: 1; }
+    .domain-header .toggle-icon { font-size: 18px; transition: transform .2s; }
+    .domain-header.collapsed .toggle-icon { transform: rotate(-90deg); }
+
+    /* ── Table ── */
+    .checklist-table { width: 100%; border-collapse: collapse;
+                       border: 1px solid #e0e6ed;
+                       border-top: none;
+                       border-radius: 0 0 8px 8px;
+                       overflow: hidden; background: #fff; }
+    .checklist-table th {
+      background: #eef2fb; font-size: 11px; text-transform: uppercase;
+      letter-spacing: .5px; color: #444; padding: 8px 12px;
+      border-bottom: 2px solid #ccd3e0; text-align: left; }
+    .checklist-table td { padding: 9px 12px; border-bottom: 1px solid #f0f2f6;
+                          vertical-align: middle; font-size: 13px; }
+    .checklist-table tr:last-child td { border-bottom: none; }
+    .checklist-table tr:hover td { background: #f7f9ff; }
+    .checklist-table.hidden { display: none; }
+
+    /* ── ID cell ── */
+    .id-cell { font-family: monospace; font-weight: 700;
+               color: #0f3460; font-size: 12px; white-space: nowrap; }
+
+    /* ── Priority badges ── */
+    .prio { display: inline-block; font-size: 10px; font-weight: 700;
+            border-radius: 10px; padding: 2px 8px; white-space: nowrap; }
+    .prio-P0 { background: #fde8e8; color: #c0392b; }
+    .prio-P1 { background: #fef3cd; color: #b7770d; }
+    .prio-P2 { background: #e8f5e9; color: #2e7d32; }
+
+    /* ── Status badges ── */
+    .status { display: inline-block; font-size: 10px; font-weight: 600;
+              border-radius: 10px; padding: 2px 10px; white-space: nowrap; }
+    .status-todo   { background: #f0f4ff; color: #4a5568; }
+    .status-pass   { background: #d4edda; color: #155724; }
+    .status-fail   { background: #f8d7da; color: #721c24; }
+    .status-waived { background: #fff3cd; color: #856404; }
+
+    /* ── Scenario link ── */
+    .scenario-name { font-family: monospace; font-size: 11px;
+                     color: #0070cc; white-space: nowrap; }
+
+    /* ── Derivative highlight ── */
+    .deriv-flag { display: inline-block; font-size: 9px; font-weight: 700;
+                  background: #0f3460; color: #fff;
+                  border-radius: 4px; padding: 1px 5px;
+                  margin-left: 4px; vertical-align: middle; }
+
+    /* ── Legend ── */
+    .legend { margin-top: 32px; background: #fff; border-radius: 8px;
+              border: 1px solid #e0e6ed; padding: 16px 20px; }
+    .legend h3 { font-size: 13px; margin-bottom: 10px; color: #1a1a2e; }
+    .legend-grid { display: flex; gap: 16px; flex-wrap: wrap; }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; }
+
+    /* ── Summary table ── */
+    .summary-table { width: 100%; border-collapse: collapse; margin-top: 20px;
+                     border: 1px solid #e0e6ed; background: #fff;
+                     border-radius: 8px; overflow: hidden; }
+    .summary-table th { background: #eef2fb; font-size: 11px;
+                        text-transform: uppercase; color: #444;
+                        padding: 7px 12px; text-align: center;
+                        border-bottom: 2px solid #ccd3e0; }
+    .summary-table td { padding: 7px 12px; border-bottom: 1px solid #f0f2f6;
+                        text-align: center; font-size: 12px; }
+    .summary-table td:first-child { text-align: left; font-weight: 600; }
+    .summary-table tr:last-child td { border-bottom: none; font-weight: 700;
+                                       background: #f7f9ff; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Verification Checklist — MSPM33C321A Derivative MCU</h1>
+  <p>Design: mspm33c321a_derivative &nbsp;|&nbsp; Generated: 2026-05-29 &nbsp;|&nbsp;
+     Spec: docs/requirements.md, docs/specifications.md, config/soc_config.yaml</p>
+</header>
+
+<!-- Stats bar -->
+<div class="stats">
+  <div class="stat-box"><div class="num">97</div><div class="lbl">Total Items</div></div>
+  <div class="stat-box"><div class="num">63</div><div class="lbl">Priority P0</div></div>
+  <div class="stat-box"><div class="num">32</div><div class="lbl">Priority P1</div></div>
+  <div class="stat-box"><div class="num">3</div><div class="lbl">Priority P2</div></div>
+  <div class="stat-box"><div class="num">21</div><div class="lbl">Scenarios</div></div>
+  <div class="stat-box"><div class="num">18</div><div class="lbl">Domains</div></div>
+</div>
+
+<!-- Controls -->
+<div class="controls">
+  <label>Filter by Priority:
+    <select id="filterPrio" onchange="applyFilters()">
+      <option value="">All</option>
+      <option value="P0">P0</option>
+      <option value="P1">P1</option>
+      <option value="P2">P2</option>
+    </select>
+  </label>
+  <label>Filter by Domain:
+    <select id="filterDomain" onchange="applyFilters()">
+      <option value="">All</option>
+      <option value="SYS">SYS — System</option>
+      <option value="XIP">XIP — Flash</option>
+      <option value="MEM">MEM — SRAM</option>
+      <option value="GPIO">GPIO</option>
+      <option value="UART">UART</option>
+      <option value="SPI">SPI</option>
+      <option value="I2C">I2C</option>
+      <option value="TMR">TMR — Timers</option>
+      <option value="PWM">PWM</option>
+      <option value="DMA">DMA</option>
+      <option value="CRC">CRC</option>
+      <option value="AES">AES</option>
+      <option value="WWDT">WWDT</option>
+      <option value="RTC">RTC</option>
+      <option value="SYSTICK">SYSTICK</option>
+      <option value="IRQ">IRQ</option>
+      <option value="DBG">DBG — Debug</option>
+      <option value="INT">INT — Integration</option>
+    </select>
+  </label>
+  <label>Search:
+    <input type="text" id="searchBox" placeholder="ID / requirement / test…" oninput="applyFilters()"/>
+  </label>
+</div>
+
+<main>
+
+<!-- ═══════════════════════ SYS ═══════════════════════ -->
+<section class="domain-section" data-domain="SYS">
+  <div class="domain-header" onclick="toggleDomain(this)">
+    <span class="badge">SYS</span>
+    <span class="domain-name">System — Reset &amp; Clock</span>
+    <span style="font-size:12px;opacity:.7;">5 items</span>
+    <span class="toggle-icon">▾</span>
+  </div>
+  <table class="checklist-table">
+    <thead><tr>
+      <th>ID</th><th>Requirement</th><th>Test Name</th>
+      <th>Priority</th><th>Scenario</th><th>Status</th>
+    </tr></thead>
+    <tbody>
+      <tr data-domain="SYS" data-prio="P0"><td class="id-cell">SYS-01</td><td>Power-on reset holds all peripherals in reset state until release</td><td><code>test_sys_por_state</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_sys_reset_clock</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="SYS" data-prio="P0"><td class="id-cell">SYS-02</td><td>External nRESET pad assertion de-asserts the compute_ss reset_n correctly</td><td><code>test_sys_external_reset</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_sys_reset_clock</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="SYS" data-prio="P0"><td class="id-cell">SYS-03</td><td>Software reset (SYSRESETREQ) resets CPU core and all peripherals</td><td><code>test_sys_sw_reset</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_sys_reset_clock</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="SYS" data-prio="P0"><td class="id-cell">SYS-04</td><td>System clock reaches 80 MHz target after reset release and PLL lock</td><td><code>test_sys_clock_freq</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_sys_reset_clock</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="SYS" data-prio="P1"><td class="id-cell">SYS-05</td><td>WWDT timeout causes a full chip reset (reset propagation path)</td><td><code>test_sys_wwdt_reset_path</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_sys_reset_clock</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════ XIP ═══════════════════════ -->
+<section class="domain-section" data-domain="XIP">
+  <div class="domain-header" onclick="toggleDomain(this)">
+    <span class="badge">XIP</span>
+    <span class="domain-name">Execute-in-Place Flash Controller (512 KB)</span>
+    <span style="font-size:12px;opacity:.7;">4 items</span>
+    <span class="toggle-icon">▾</span>
+  </div>
+  <table class="checklist-table">
+    <thead><tr><th>ID</th><th>Requirement</th><th>Test Name</th><th>Priority</th><th>Scenario</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr data-domain="XIP" data-prio="P0"><td class="id-cell">XIP-01</td><td>System boots from XIP flash at 0x00000000 and fetches first instruction correctly</td><td><code>test_xip_boot_fetch</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_xip_flash</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="XIP" data-prio="P0"><td class="id-cell">XIP-02</td><td>XIP controller CSR smoke test — all readable registers return valid reset values</td><td><code>test_xip_reg_smoke</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_xip_flash</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="XIP" data-prio="P0"><td class="id-cell">XIP-03</td><td>XIP read data integrity — known pattern in flash image read back without corruption</td><td><code>test_xip_data_integrity</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_xip_flash</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="XIP" data-prio="P1"><td class="id-cell">XIP-04</td><td>XIP address boundary — 512 KB top (0x0007FFFF) succeeds; 0x00080000 wraps or faults</td><td><code>test_xip_addr_boundary</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_xip_flash</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════ MEM ═══════════════════════ -->
+<section class="domain-section" data-domain="MEM">
+  <div class="domain-header" onclick="toggleDomain(this)">
+    <span class="badge">MEM</span>
+    <span class="domain-name">SRAM Memory (128 KB — 4 × 32 KB banks)</span>
+    <span style="font-size:12px;opacity:.7;">4 items</span>
+    <span class="toggle-icon">▾</span>
+  </div>
+  <table class="checklist-table">
+    <thead><tr><th>ID</th><th>Requirement</th><th>Test Name</th><th>Priority</th><th>Scenario</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr data-domain="MEM" data-prio="P0"><td class="id-cell">MEM-01</td><td>SRAM write and read-back at base address 0x20000000 returns correct data</td><td><code>test_mem_base_rw</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_sram_memory</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="MEM" data-prio="P0"><td class="id-cell">MEM-02</td><td>SRAM full 128 KB address walking test — all word addresses written and verified</td><td><code>test_mem_addr_walk</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_sram_memory</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="MEM" data-prio="P0"><td class="id-cell">MEM-03</td><td>SRAM read-after-write data integrity — sequential and random patterns verified</td><td><code>test_mem_data_integrity</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_sram_memory</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="MEM" data-prio="P1"><td class="id-cell">MEM-04</td><td>SRAM simultaneous access by CPU and DMA — no data corruption observed</td><td><code>test_mem_cpu_dma_concurrent</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_sram_memory</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════ GPIO ═══════════════════════ -->
+<section class="domain-section" data-domain="GPIO">
+  <div class="domain-header" onclick="toggleDomain(this)">
+    <span class="badge">GPIO</span>
+    <span class="domain-name">GPIO — Ports A, B, C (48 pins)</span>
+    <span style="font-size:12px;opacity:.7;">9 items</span>
+    <span class="toggle-icon">▾</span>
+  </div>
+  <table class="checklist-table">
+    <thead><tr><th>ID</th><th>Requirement</th><th>Test Name</th><th>Priority</th><th>Scenario</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr data-domain="GPIO" data-prio="P0"><td class="id-cell">GPIO-01</td><td>GPIOA output: set direction to output, write data register, verify toggling on all 16 pins</td><td><code>test_gpio_porta_output</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_gpio_basic</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="GPIO" data-prio="P0"><td class="id-cell">GPIO-02</td><td>GPIOA input: drive pads externally, read input data register on all 16 pins</td><td><code>test_gpio_porta_input</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_gpio_basic</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="GPIO" data-prio="P0"><td class="id-cell">GPIO-03</td><td>GPIOB output: set direction to output, write and verify all 16 pins</td><td><code>test_gpio_portb_output</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_gpio_basic</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="GPIO" data-prio="P0"><td class="id-cell">GPIO-04</td><td>GPIOB input: drive pads externally, read back on all 16 pins</td><td><code>test_gpio_portb_input</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_gpio_basic</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="GPIO" data-prio="P0"><td class="id-cell">GPIO-05</td><td>GPIOC output: set direction to output, write and verify all 16 pins</td><td><code>test_gpio_portc_output</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_gpio_basic</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="GPIO" data-prio="P0"><td class="id-cell">GPIO-06</td><td>GPIOC input: drive pads externally, read back on all 16 pins</td><td><code>test_gpio_portc_input</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_gpio_basic</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="GPIO" data-prio="P0"><td class="id-cell">GPIO-07</td><td>GPIO reset state: all pins default to input (Hi-Z) direction after power-on reset</td><td><code>test_gpio_reset_state</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_gpio_basic</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="GPIO" data-prio="P1"><td class="id-cell">GPIO-08</td><td>GPIO alternate function selection via pinmux — UART AF on GPIOA, I2C AF on GPIOB</td><td><code>test_gpio_af_pinmux</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_gpio_af_irq</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="GPIO" data-prio="P1"><td class="id-cell">GPIO-09</td><td>GPIO edge interrupt — rising and falling edge triggers on GPIOA pin, ISR fires and clears</td><td><code>test_gpio_edge_irq</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_gpio_af_irq</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════ UART ═══════════════════════ -->
+<section class="domain-section" data-domain="UART">
+  <div class="domain-header" onclick="toggleDomain(this)">
+    <span class="badge">UART</span>
+    <span class="domain-name">UART — 4 Instances (UART0–UART3)</span>
+    <span style="font-size:12px;opacity:.7;">8 items</span>
+    <span class="toggle-icon">▾</span>
+  </div>
+  <table class="checklist-table">
+    <thead><tr><th>ID</th><th>Requirement</th><th>Test Name</th><th>Priority</th><th>Scenario</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr data-domain="UART" data-prio="P0"><td class="id-cell">UART-01</td><td>UART0 TX/RX loopback at 115200 baud — transmit and receive single byte correctly</td><td><code>test_uart0_loopback_115200</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_uart_loopback</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="UART" data-prio="P0"><td class="id-cell">UART-02</td><td>UART1 TX/RX loopback at 115200 baud — transmit and receive single byte correctly</td><td><code>test_uart1_loopback_115200</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_uart_loopback</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="UART" data-prio="P0"><td class="id-cell">UART-03</td><td>UART2 TX/RX loopback at 115200 baud — transmit and receive single byte correctly</td><td><code>test_uart2_loopback_115200</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_uart_loopback</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="UART" data-prio="P0"><td class="id-cell">UART-04</td><td>UART3 TX/RX loopback at 115200 baud — transmit and receive single byte correctly</td><td><code>test_uart3_loopback_115200</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_uart_loopback</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="UART" data-prio="P1"><td class="id-cell">UART-05</td><td>UART0 TX FIFO fill: write 8 bytes to TX FIFO, verify TX-empty IRQ fires after drain</td><td><code>test_uart0_fifo_txrx</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_uart_advanced</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="UART" data-prio="P1"><td class="id-cell">UART-06</td><td>UART0 framing error detection — inject invalid stop bit, verify FERR flag and IRQ</td><td><code>test_uart0_framing_error</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_uart_advanced</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="UART" data-prio="P1"><td class="id-cell">UART-07</td><td>UART0 multi-baud rate configuration — 9600, 115200, 921600 baud correctness verified</td><td><code>test_uart0_baud_rates</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_uart_advanced</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="UART" data-prio="P0"><td class="id-cell">UART-08</td><td>UART register smoke test — all four instances, CSRs return correct reset values</td><td><code>test_uart_reg_smoke</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_uart_advanced</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════ SPI ═══════════════════════ -->
+<section class="domain-section" data-domain="SPI">
+  <div class="domain-header" onclick="toggleDomain(this)">
+    <span class="badge">SPI</span>
+    <span class="domain-name">SPI — 2 Instances (SPI0–SPI1)</span>
+    <span style="font-size:12px;opacity:.7;">5 items</span>
+    <span class="toggle-icon">▾</span>
+  </div>
+  <table class="checklist-table">
+    <thead><tr><th>ID</th><th>Requirement</th><th>Test Name</th><th>Priority</th><th>Scenario</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr data-domain="SPI" data-prio="P0"><td class="id-cell">SPI-01</td><td>SPI0 master-mode full-duplex transfer, mode 0 (CPOL=0, CPHA=0), 8-bit frame</td><td><code>test_spi0_mode0_transfer</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_spi_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="SPI" data-prio="P1"><td class="id-cell">SPI-02</td><td>SPI0 master-mode full-duplex transfer, mode 3 (CPOL=1, CPHA=1), 8-bit frame</td><td><code>test_spi0_mode3_transfer</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_spi_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="SPI" data-prio="P0"><td class="id-cell">SPI-03</td><td>SPI1 master-mode full-duplex transfer — data integrity verified against reference</td><td><code>test_spi1_transfer</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_spi_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="SPI" data-prio="P1"><td class="id-cell">SPI-04</td><td>SPI0 16-bit frame mode — transmit and receive 16-bit word correctly</td><td><code>test_spi0_16bit_frame</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_spi_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="SPI" data-prio="P0"><td class="id-cell">SPI-05</td><td>SPI register smoke test — both instances, all CSRs readable at reset values</td><td><code>test_spi_reg_smoke</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_spi_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════ I2C ═══════════════════════ -->
+<section class="domain-section" data-domain="I2C">
+  <div class="domain-header" onclick="toggleDomain(this)">
+    <span class="badge">I2C</span>
+    <span class="domain-name">I2C — 3 Instances (I2C0–I2C2) <span class="deriv-flag">DERIV +1</span></span>
+    <span style="font-size:12px;opacity:.7;">8 items</span>
+    <span class="toggle-icon">▾</span>
+  </div>
+  <table class="checklist-table">
+    <thead><tr><th>ID</th><th>Requirement</th><th>Test Name</th><th>Priority</th><th>Scenario</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr data-domain="I2C" data-prio="P0"><td class="id-cell">I2C-01</td><td>I2C0 7-bit address write transaction to slave model — ACK verified</td><td><code>test_i2c0_7bit_write</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_i2c_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="I2C" data-prio="P0"><td class="id-cell">I2C-02</td><td>I2C0 7-bit address read transaction from slave model — data verified</td><td><code>test_i2c0_7bit_read</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_i2c_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="I2C" data-prio="P0"><td class="id-cell">I2C-03</td><td>I2C1 7-bit address write/read transaction — ACK and data verified</td><td><code>test_i2c1_transfer</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_i2c_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="I2C" data-prio="P0"><td class="id-cell">I2C-04</td><td>I2C2 7-bit write/read transaction — new derivative instance functional verification <span class="deriv-flag">DERIV</span></td><td><code>test_i2c2_transfer</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_i2c_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="I2C" data-prio="P1"><td class="id-cell">I2C-05</td><td>I2C0 10-bit address mode write/read — extended address space verified</td><td><code>test_i2c0_10bit_addr</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_i2c_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="I2C" data-prio="P1"><td class="id-cell">I2C-06</td><td>I2C0 fast-mode (400 kHz) transaction completes successfully</td><td><code>test_i2c0_fast_mode</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_i2c_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="I2C" data-prio="P2"><td class="id-cell">I2C-07</td><td>I2C0 fast-plus-mode (1 MHz) transaction completes successfully</td><td><code>test_i2c0_fast_plus</code></td><td><span class="prio prio-P2">P2</span></td><td><span class="scenario-name">scenario_i2c_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="I2C" data-prio="P0"><td class="id-cell">I2C-08</td><td>I2C register smoke test — all three instances (I2C0, I2C1, I2C2) CSRs at reset values</td><td><code>test_i2c_reg_smoke</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_i2c_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════ TMR ═══════════════════════ -->
+<section class="domain-section" data-domain="TMR">
+  <div class="domain-header" onclick="toggleDomain(this)">
+    <span class="badge">TMR</span>
+    <span class="domain-name">Timers — 6 Instances (TMR0–TMR3 GP, TMR4–TMR5 Advanced)</span>
+    <span style="font-size:12px;opacity:.7;">7 items</span>
+    <span class="toggle-icon">▾</span>
+  </div>
+  <table class="checklist-table">
+    <thead><tr><th>ID</th><th>Requirement</th><th>Test Name</th><th>Priority</th><th>Scenario</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr data-domain="TMR" data-prio="P0"><td class="id-cell">TMR-01</td><td>TMR0 up-count overflow interrupt fires at correct period; ISR acknowledges</td><td><code>test_tmr0_overflow_irq</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_timer_basic</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="TMR" data-prio="P1"><td class="id-cell">TMR-02</td><td>TMR1 input capture mode — capture event latches timer value correctly</td><td><code>test_tmr1_input_capture</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_timer_basic</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="TMR" data-prio="P0"><td class="id-cell">TMR-03</td><td>TMR2 compare-match interrupt fires when count reaches compare register value</td><td><code>test_tmr2_compare_irq</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_timer_basic</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="TMR" data-prio="P1"><td class="id-cell">TMR-04</td><td>TMR3 prescaler configuration — multiple prescale values produce correct period</td><td><code>test_tmr3_prescaler</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_timer_basic</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="TMR" data-prio="P1"><td class="id-cell">TMR-05</td><td>TMR4 advanced control up/down count mode with configurable period</td><td><code>test_tmr4_updown_count</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_timer_basic</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="TMR" data-prio="P1"><td class="id-cell">TMR-06</td><td>TMR5 advanced control center-aligned count mode</td><td><code>test_tmr5_center_aligned</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_timer_basic</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="TMR" data-prio="P0"><td class="id-cell">TMR-07</td><td>Timer register smoke test — all six instances (TMR0–TMR5) CSRs at reset values</td><td><code>test_tmr_reg_smoke</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_timer_basic</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════ PWM ═══════════════════════ -->
+<section class="domain-section" data-domain="PWM">
+  <div class="domain-header" onclick="toggleDomain(this)">
+    <span class="badge">PWM</span>
+    <span class="domain-name">PWM — 2 Instances (PWM0–PWM1)</span>
+    <span style="font-size:12px;opacity:.7;">4 items</span>
+    <span class="toggle-icon">▾</span>
+  </div>
+  <table class="checklist-table">
+    <thead><tr><th>ID</th><th>Requirement</th><th>Test Name</th><th>Priority</th><th>Scenario</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr data-domain="PWM" data-prio="P0"><td class="id-cell">PWM-01</td><td>PWM0 period and duty cycle configuration — output period and high-time measured correctly</td><td><code>test_pwm0_period_duty</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_pwm_output</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="PWM" data-prio="P1"><td class="id-cell">PWM-02</td><td>PWM1 complementary output pair with dead-time insertion — no shoot-through period</td><td><code>test_pwm1_complementary_deadtime</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_pwm_output</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="PWM" data-prio="P1"><td class="id-cell">PWM-03</td><td>PWM0 fault input assertion immediately forces outputs to safe state</td><td><code>test_pwm0_fault_response</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_pwm_output</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="PWM" data-prio="P0"><td class="id-cell">PWM-04</td><td>PWM register smoke test — both instances, all CSRs readable at reset values</td><td><code>test_pwm_reg_smoke</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_pwm_output</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════ DMA ═══════════════════════ -->
+<section class="domain-section" data-domain="DMA">
+  <div class="domain-header" onclick="toggleDomain(this)">
+    <span class="badge">DMA</span>
+    <span class="domain-name">DMA Controller — 8 Channels</span>
+    <span style="font-size:12px;opacity:.7;">7 items</span>
+    <span class="toggle-icon">▾</span>
+  </div>
+  <table class="checklist-table">
+    <thead><tr><th>ID</th><th>Requirement</th><th>Test Name</th><th>Priority</th><th>Scenario</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr data-domain="DMA" data-prio="P0"><td class="id-cell">DMA-01</td><td>DMA channel 0 memory-to-memory transfer — source and destination data match</td><td><code>test_dma_mem2mem</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_dma_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="DMA" data-prio="P1"><td class="id-cell">DMA-02</td><td>DMA peripheral-to-memory transfer via UART0 RX — received data stored in SRAM</td><td><code>test_dma_uart_rx_to_mem</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_dma_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="DMA" data-prio="P1"><td class="id-cell">DMA-03</td><td>DMA memory-to-peripheral transfer via UART0 TX — SRAM data transmitted over UART</td><td><code>test_dma_mem_to_uart_tx</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_dma_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="DMA" data-prio="P1"><td class="id-cell">DMA-04</td><td>DMA 8-channel concurrent operation — all 8 channels active simultaneously, no corruption</td><td><code>test_dma_8ch_concurrent</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_dma_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="DMA" data-prio="P0"><td class="id-cell">DMA-05</td><td>DMA transfer-complete interrupt fires after channel finishes transfer</td><td><code>test_dma_done_irq</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_dma_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="DMA" data-prio="P1"><td class="id-cell">DMA-06</td><td>DMA error interrupt fires on invalid transfer configuration</td><td><code>test_dma_error_irq</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_dma_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="DMA" data-prio="P2"><td class="id-cell">DMA-07</td><td>DMA channel priority arbitration — higher-priority channel preempts lower-priority</td><td><code>test_dma_priority_arb</code></td><td><span class="prio prio-P2">P2</span></td><td><span class="scenario-name">scenario_dma_transfer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════ CRC ═══════════════════════ -->
+<section class="domain-section" data-domain="CRC">
+  <div class="domain-header" onclick="toggleDomain(this)">
+    <span class="badge">CRC</span>
+    <span class="domain-name">CRC Accelerator</span>
+    <span style="font-size:12px;opacity:.7;">4 items</span>
+    <span class="toggle-icon">▾</span>
+  </div>
+  <table class="checklist-table">
+    <thead><tr><th>ID</th><th>Requirement</th><th>Test Name</th><th>Priority</th><th>Scenario</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr data-domain="CRC" data-prio="P0"><td class="id-cell">CRC-01</td><td>CRC-32 known-answer test — IEEE 802.3 polynomial, input vector produces expected digest</td><td><code>test_crc32_kat</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_crc_kat</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="CRC" data-prio="P0"><td class="id-cell">CRC-02</td><td>CRC-16 known-answer test — CCITT polynomial, input vector produces expected digest</td><td><code>test_crc16_kat</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_crc_kat</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="CRC" data-prio="P0"><td class="id-cell">CRC-03</td><td>CRC-8 known-answer test — CRC-8/MAXIM polynomial, input vector produces expected digest</td><td><code>test_crc8_kat</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_crc_kat</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="CRC" data-prio="P0"><td class="id-cell">CRC-04</td><td>CRC register smoke test — polynomial selection, data input, and result registers accessible</td><td><code>test_crc_reg_smoke</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_crc_kat</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════ AES ═══════════════════════ -->
+<section class="domain-section" data-domain="AES">
+  <div class="domain-header" onclick="toggleDomain(this)">
+    <span class="badge">AES</span>
+    <span class="domain-name">AES Accelerator (AES-128/256)</span>
+    <span style="font-size:12px;opacity:.7;">6 items</span>
+    <span class="toggle-icon">▾</span>
+  </div>
+  <table class="checklist-table">
+    <thead><tr><th>ID</th><th>Requirement</th><th>Test Name</th><th>Priority</th><th>Scenario</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr data-domain="AES" data-prio="P0"><td class="id-cell">AES-01</td><td>AES-128 ECB encryption KAT — NIST FIPS-197 test vector</td><td><code>test_aes128_ecb_encrypt_kat</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_aes_kat</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="AES" data-prio="P0"><td class="id-cell">AES-02</td><td>AES-128 ECB decryption KAT — ciphertext recovers original plaintext</td><td><code>test_aes128_ecb_decrypt_kat</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_aes_kat</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="AES" data-prio="P0"><td class="id-cell">AES-03</td><td>AES-256 ECB encryption KAT — NIST FIPS-197 test vector</td><td><code>test_aes256_ecb_encrypt_kat</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_aes_kat</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="AES" data-prio="P1"><td class="id-cell">AES-04</td><td>AES-128 CBC mode encryption — chained blocks produce correct output</td><td><code>test_aes128_cbc_encrypt</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_aes_kat</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="AES" data-prio="P1"><td class="id-cell">AES-05</td><td>AES DMA-assisted bulk encryption — 256-byte block encrypted via DMA, result verified</td><td><code>test_aes_dma_bulk</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_aes_kat</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="AES" data-prio="P0"><td class="id-cell">AES-06</td><td>AES done interrupt fires after encryption operation completes</td><td><code>test_aes_done_irq</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_aes_kat</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════ WWDT ═══════════════════════ -->
+<section class="domain-section" data-domain="WWDT">
+  <div class="domain-header" onclick="toggleDomain(this)">
+    <span class="badge">WWDT</span>
+    <span class="domain-name">Windowed Watchdog Timer</span>
+    <span style="font-size:12px;opacity:.7;">4 items</span>
+    <span class="toggle-icon">▾</span>
+  </div>
+  <table class="checklist-table">
+    <thead><tr><th>ID</th><th>Requirement</th><th>Test Name</th><th>Priority</th><th>Scenario</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr data-domain="WWDT" data-prio="P0"><td class="id-cell">WWDT-01</td><td>WWDT service within valid window — no reset occurs; watchdog counter reloads</td><td><code>test_wwdt_normal_service</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_wwdt_window</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="WWDT" data-prio="P1"><td class="id-cell">WWDT-02</td><td>WWDT early-warning interrupt fires before window opens</td><td><code>test_wwdt_early_warning_irq</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_wwdt_window</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="WWDT" data-prio="P0"><td class="id-cell">WWDT-03</td><td>WWDT timeout — service not called; watchdog expires and triggers system reset</td><td><code>test_wwdt_timeout_reset</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_wwdt_window</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="WWDT" data-prio="P0"><td class="id-cell">WWDT-04</td><td>WWDT window-violation reset — service outside permitted window triggers reset</td><td><code>test_wwdt_window_violation</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_wwdt_window</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════ RTC ═══════════════════════ -->
+<section class="domain-section" data-domain="RTC">
+  <div class="domain-header" onclick="toggleDomain(this)">
+    <span class="badge">RTC</span>
+    <span class="domain-name">Real-Time Clock with Calendar</span>
+    <span style="font-size:12px;opacity:.7;">5 items</span>
+    <span class="toggle-icon">▾</span>
+  </div>
+  <table class="checklist-table">
+    <thead><tr><th>ID</th><th>Requirement</th><th>Test Name</th><th>Priority</th><th>Scenario</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr data-domain="RTC" data-prio="P0"><td class="id-cell">RTC-01</td><td>RTC calendar set — write BCD seconds, minutes, hours, day, month, year; read back correct</td><td><code>test_rtc_calendar_set_read</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_rtc_calendar</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="RTC" data-prio="P0"><td class="id-cell">RTC-02</td><td>RTC time advancement — confirm seconds register increments each second</td><td><code>test_rtc_time_advance</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_rtc_calendar</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="RTC" data-prio="P0"><td class="id-cell">RTC-03</td><td>RTC Alarm A fires interrupt at configured time</td><td><code>test_rtc_alarm_a</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_rtc_calendar</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="RTC" data-prio="P1"><td class="id-cell">RTC-04</td><td>RTC Alarm B fires interrupt at configured time (independent of Alarm A)</td><td><code>test_rtc_alarm_b</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_rtc_calendar</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="RTC" data-prio="P1"><td class="id-cell">RTC-05</td><td>RTC periodic wakeup timer fires at configured interval</td><td><code>test_rtc_periodic_wakeup</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_rtc_calendar</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════ SYSTICK ═══════════════════════ -->
+<section class="domain-section" data-domain="SYSTICK">
+  <div class="domain-header" onclick="toggleDomain(this)">
+    <span class="badge">SYSTICK</span>
+    <span class="domain-name">SysTick Timer</span>
+    <span style="font-size:12px;opacity:.7;">3 items</span>
+    <span class="toggle-icon">▾</span>
+  </div>
+  <table class="checklist-table">
+    <thead><tr><th>ID</th><th>Requirement</th><th>Test Name</th><th>Priority</th><th>Scenario</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr data-domain="SYSTICK" data-prio="P0"><td class="id-cell">SYSTICK-01</td><td>SysTick underflow interrupt fires when counter reaches zero from reload value</td><td><code>test_systick_underflow_irq</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_systick_timer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="SYSTICK" data-prio="P0"><td class="id-cell">SYSTICK-02</td><td>SysTick reload value configures correct tick interval</td><td><code>test_systick_reload_interval</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_systick_timer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="SYSTICK" data-prio="P1"><td class="id-cell">SYSTICK-03</td><td>SysTick enable and disable — counter stops when disabled, resumes from reload when re-enabled</td><td><code>test_systick_enable_disable</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_systick_timer</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════ IRQ ═══════════════════════ -->
+<section class="domain-section" data-domain="IRQ">
+  <div class="domain-header" onclick="toggleDomain(this)">
+    <span class="badge">IRQ</span>
+    <span class="domain-name">Interrupt Controller — Hazard3 PLIC (26 IRQ vectors)</span>
+    <span style="font-size:12px;opacity:.7;">5 items</span>
+    <span class="toggle-icon">▾</span>
+  </div>
+  <table class="checklist-table">
+    <thead><tr><th>ID</th><th>Requirement</th><th>Test Name</th><th>Priority</th><th>Scenario</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr data-domain="IRQ" data-prio="P0"><td class="id-cell">IRQ-01</td><td>All peripheral IRQ vectors assert correctly — each peripheral raises IRQ to PLIC</td><td><code>test_irq_all_sources</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_irq_fabric</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="IRQ" data-prio="P0"><td class="id-cell">IRQ-02</td><td>IRQ acknowledgment clears pending flag — PLIC claim/complete handshake tested</td><td><code>test_irq_ack_clear</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_irq_fabric</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="IRQ" data-prio="P1"><td class="id-cell">IRQ-03</td><td>IRQ priority arbitration — higher-priority IRQ handled before lower-priority pending IRQ</td><td><code>test_irq_priority</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_irq_fabric</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="IRQ" data-prio="P2"><td class="id-cell">IRQ-04</td><td>IRQ nesting — higher-priority IRQ preempts lower-priority ISR in progress</td><td><code>test_irq_nesting</code></td><td><span class="prio prio-P2">P2</span></td><td><span class="scenario-name">scenario_irq_fabric</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="IRQ" data-prio="P1"><td class="id-cell">IRQ-05</td><td>GPIO edge interrupt — GPIOA/B/C edge trigger generates correct IRQ vector (IRQ0/1/2)</td><td><code>test_irq_gpio_edge</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_gpio_af_irq</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════ DBG ═══════════════════════ -->
+<section class="domain-section" data-domain="DBG">
+  <div class="domain-header" onclick="toggleDomain(this)">
+    <span class="badge">DBG</span>
+    <span class="domain-name">SWD Debug Port (Hazard3 2-pin SWD)</span>
+    <span style="font-size:12px;opacity:.7;">4 items</span>
+    <span class="toggle-icon">▾</span>
+  </div>
+  <table class="checklist-table">
+    <thead><tr><th>ID</th><th>Requirement</th><th>Test Name</th><th>Priority</th><th>Scenario</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr data-domain="DBG" data-prio="P0"><td class="id-cell">DBG-01</td><td>SWD DAP connection established — DPIDR reads valid Hazard3 Debug Port ID</td><td><code>test_dbg_dap_connect</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_swd_debug</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="DBG" data-prio="P0"><td class="id-cell">DBG-02</td><td>SWD memory read via DAP — read SRAM contents through debug access port</td><td><code>test_dbg_mem_read</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_swd_debug</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="DBG" data-prio="P0"><td class="id-cell">DBG-03</td><td>SWD memory write via DAP — write to SRAM through debug port, verify via normal read</td><td><code>test_dbg_mem_write</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_swd_debug</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="DBG" data-prio="P1"><td class="id-cell">DBG-04</td><td>SWD halt and resume — CPU halted via debug, GPR read, execution resumed</td><td><code>test_dbg_halt_resume</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_swd_debug</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════ INT ═══════════════════════ -->
+<section class="domain-section" data-domain="INT">
+  <div class="domain-header" onclick="toggleDomain(this)">
+    <span class="badge">INT</span>
+    <span class="domain-name">Integration &amp; System-Level</span>
+    <span style="font-size:12px;opacity:.7;">5 items</span>
+    <span class="toggle-icon">▾</span>
+  </div>
+  <table class="checklist-table">
+    <thead><tr><th>ID</th><th>Requirement</th><th>Test Name</th><th>Priority</th><th>Scenario</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr data-domain="INT" data-prio="P0"><td class="id-cell">INT-01</td><td>Full SoC boot — CPU fetches reset vector from XIP flash, executes firmware, writes signature to SRAM</td><td><code>test_int_full_boot</code></td><td><span class="prio prio-P0">P0</span></td><td><span class="scenario-name">scenario_integration_boot</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="INT" data-prio="P1"><td class="id-cell">INT-02</td><td>Multi-peripheral concurrent operation — UART0 TX, SPI0 transfer, and I2C0 write operate simultaneously without interference</td><td><code>test_int_multiperiph_concurrent</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_integration_multiperiph</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="INT" data-prio="P1"><td class="id-cell">INT-03</td><td>DMA-assisted UART transmission end-to-end — firmware triggers DMA to push buffer via UART0, remote model receives and verifies</td><td><code>test_int_dma_uart_e2e</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_integration_multiperiph</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="INT" data-prio="P1"><td class="id-cell">INT-04</td><td>AES + CRC pipeline — encrypt data block with AES-128, compute CRC-32 over ciphertext, results match reference</td><td><code>test_int_aes_crc_pipeline</code></td><td><span class="prio prio-P1">P1</span></td><td><span class="scenario-name">scenario_integration_multiperiph</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+      <tr data-domain="INT" data-prio="P2"><td class="id-cell">INT-05</td><td>GPIO-triggered DMA — GPIO input edge event initiates DMA transfer; DMA moves data, IRQ fires</td><td><code>test_int_gpio_dma_trigger</code></td><td><span class="prio prio-P2">P2</span></td><td><span class="scenario-name">scenario_integration_multiperiph</span></td><td><span class="status status-todo">Not Run</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Summary -->
+<h2 style="margin-top:36px; font-size:16px; color:#1a1a2e;">Domain Summary</h2>
+<table class="summary-table">
+  <thead><tr><th>Domain</th><th>Total</th><th>P0</th><th>P1</th><th>P2</th></tr></thead>
+  <tbody>
+    <tr><td>SYS — System Reset &amp; Clock</td><td>5</td><td>4</td><td>1</td><td>0</td></tr>
+    <tr><td>XIP — Flash Controller</td><td>4</td><td>3</td><td>1</td><td>0</td></tr>
+    <tr><td>MEM — SRAM Memory</td><td>4</td><td>3</td><td>1</td><td>0</td></tr>
+    <tr><td>GPIO — Ports A/B/C</td><td>9</td><td>5</td><td>2</td><td>0</td></tr>
+    <tr><td>UART — 4 Instances</td><td>8</td><td>5</td><td>3</td><td>0</td></tr>
+    <tr><td>SPI — 2 Instances</td><td>5</td><td>3</td><td>2</td><td>0</td></tr>
+    <tr><td>I2C — 3 Instances (+1 derivative)</td><td>8</td><td>5</td><td>2</td><td>1</td></tr>
+    <tr><td>TMR — 6 Timer Instances</td><td>7</td><td>3</td><td>4</td><td>0</td></tr>
+    <tr><td>PWM — 2 Instances</td><td>4</td><td>2</td><td>2</td><td>0</td></tr>
+    <tr><td>DMA — 8-Channel Controller</td><td>7</td><td>3</td><td>3</td><td>1</td></tr>
+    <tr><td>CRC — Accelerator</td><td>4</td><td>4</td><td>0</td><td>0</td></tr>
+    <tr><td>AES — 128/256-bit Accelerator</td><td>6</td><td>4</td><td>2</td><td>0</td></tr>
+    <tr><td>WWDT — Windowed Watchdog</td><td>4</td><td>3</td><td>1</td><td>0</td></tr>
+    <tr><td>RTC — Calendar with Alarms</td><td>5</td><td>3</td><td>2</td><td>0</td></tr>
+    <tr><td>SYSTICK — SysTick Timer</td><td>3</td><td>2</td><td>1</td><td>0</td></tr>
+    <tr><td>IRQ — Interrupt Controller</td><td>5</td><td>3</td><td>1</td><td>1</td></tr>
+    <tr><td>DBG — SWD Debug Port</td><td>4</td><td>3</td><td>1</td><td>0</td></tr>
+    <tr><td>INT — Integration / System</td><td>5</td><td>1</td><td>3</td><td>1</td></tr>
+    <tr><td><strong>TOTAL</strong></td><td><strong>97</strong></td><td><strong>63</strong></td><td><strong>32</strong></td><td><strong>3</strong></td></tr>
+  </tbody>
+</table>
+
+<!-- Legend -->
+<div class="legend" style="margin-top:24px;">
+  <h3>Legend</h3>
+  <div class="legend-grid">
+    <div class="legend-item"><span class="prio prio-P0">P0</span> Critical — must pass before tape-out</div>
+    <div class="legend-item"><span class="prio prio-P1">P1</span> Important — must pass before silicon release</div>
+    <div class="legend-item"><span class="prio prio-P2">P2</span> Desirable — best-effort, may be waived</div>
+    <div class="legend-item"><span class="status status-todo">Not Run</span> Test not yet executed</div>
+    <div class="legend-item"><span class="status status-pass">Pass</span> Test passed</div>
+    <div class="legend-item"><span class="status status-fail">Fail</span> Test failed — open defect</div>
+    <div class="legend-item"><span class="status status-waived">Waived</span> Formally waived</div>
+    <div class="legend-item"><span class="deriv-flag">DERIV</span> Derivative-specific delta vs reference MSPM33C321A</div>
+  </div>
+</div>
+
+</main>
+
+<script>
+function toggleDomain(header) {
+  header.classList.toggle('collapsed');
+  const table = header.parentElement.querySelector('.checklist-table');
+  table.classList.toggle('hidden');
+}
+
+function applyFilters() {
+  const prio   = document.getElementById('filterPrio').value;
+  const domain = document.getElementById('filterDomain').value;
+  const search = document.getElementById('searchBox').value.toLowerCase();
+
+  document.querySelectorAll('.domain-section').forEach(section => {
+    const sectionDomain = section.dataset.domain;
+    let sectionVisible = false;
+
+    section.querySelectorAll('tbody tr').forEach(row => {
+      const rowDomain = row.dataset.domain || sectionDomain;
+      const rowPrio   = row.dataset.prio   || '';
+      const text      = row.textContent.toLowerCase();
+
+      const domainOk = !domain || rowDomain === domain;
+      const prioOk   = !prio   || rowPrio   === prio;
+      const searchOk = !search || text.includes(search);
+
+      const show = domainOk && prioOk && searchOk;
+      row.style.display = show ? '' : 'none';
+      if (show) sectionVisible = true;
+    });
+
+    section.style.display = sectionVisible ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
