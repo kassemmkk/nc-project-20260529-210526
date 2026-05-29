@@ -12,7 +12,7 @@
     "mcu_factory_verification_reviewer": "anthropic/claude-sonnet-4-6",
     "chipgen_pnr": "anthropic/claude-sonnet-4-6"
   },
-  "exported_at": "2026-05-29T05:02:29.713117+00:00",
+  "exported_at": "2026-05-29T05:05:37.490409+00:00",
   "streams": [
     {
       "sid": "4d679dddfc1d4fca97ede9bf0ae55293",
