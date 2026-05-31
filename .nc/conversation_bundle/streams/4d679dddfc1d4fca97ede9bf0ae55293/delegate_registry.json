@@ -1,7 +1,7 @@
 {
   "session_id": "4d679dddfc1d4fca97ede9bf0ae55293",
   "created_at": "2026-05-29T04:07:05.014661",
-  "last_updated": "2026-05-29T06:04:00.978435",
+  "last_updated": "2026-05-30T04:03:35.766666",
   "delegates": [
     {
       "id": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_requirements",
@@ -53,6 +53,15 @@
       "agent_name": "chipgen_pnr",
       "created_at": "2026-05-29T06:04:00.977711",
       "task": "Execute hierarchical Place-and-Route for the mspm33c321a_derivative_mcu design using nc_chipgen's pre-generated OpenLane config, harden the wrapper macro, then run top-level chip PnR integrating the wrapper with the padframe GDS.",
+      "status": "completed",
+      "completed_at": "2026-05-30T04:03:35.766641",
+      "parent_id": "4d679dddfc1d4fca97ede9bf0ae55293"
+    },
+    {
+      "id": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-chipgen_pnr",
+      "agent_name": "chipgen_pnr",
+      "created_at": "2026-05-29T21:12:01.212072",
+      "task": "Resume the wrapper-level physical design (PnR) for the mspm33c321a_derivative_mcu by restarting Detailed Routing (DRT) from the last good checkpoint, then completing all remaining signoff steps to produce the final hardened macro GDS/LEF.",
       "status": "active",
       "completed_at": null,
       "parent_id": "4d679dddfc1d4fca97ede9bf0ae55293"

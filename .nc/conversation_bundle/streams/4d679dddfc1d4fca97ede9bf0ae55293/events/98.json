@@ -1,0 +1,1 @@
+{"id": 98, "timestamp": "2026-05-29T13:22:16.956998", "source": "environment", "message": "", "observation": "agent_state_changed", "content": "", "extras": {"agent_state": "paused", "reason": "", "agent_name": "mcu_factory_project_manager", "agent_class": "CodeActAgent"}}

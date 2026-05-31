@@ -1,0 +1,327 @@
+{
+    "STD_CELL_LIBRARY": "sky130_fd_sc_hd",
+    "VDD_PIN": "VPWR",
+    "GND_PIN": "VGND",
+    "TECH_LEFS": {
+        "nom_*": "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef",
+        "min_*": "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__min.tlef",
+        "max_*": "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__max.tlef"
+    },
+    "PRIMARY_GDSII_STREAMOUT_TOOL": "magic",
+    "DEFAULT_MAX_TRAN": null,
+    "DEFAULT_CORNER": "nom_tt_025C_1v80",
+    "STA_CORNERS": [
+        "nom_tt_025C_1v80",
+        "nom_ss_100C_1v60",
+        "nom_ff_n40C_1v95",
+        "min_tt_025C_1v80",
+        "min_ss_100C_1v60",
+        "min_ff_n40C_1v95",
+        "max_tt_025C_1v80",
+        "max_ss_100C_1v60",
+        "max_ff_n40C_1v95"
+    ],
+    "RT_MIN_LAYER": "met1",
+    "RT_MAX_LAYER": "met5",
+    "SCL_GROUND_PINS": [
+        "VGND",
+        "VNB"
+    ],
+    "SCL_POWER_PINS": [
+        "VPWR",
+        "VPB"
+    ],
+    "TRISTATE_CELLS": [
+        "sky130_fd_sc_hd__ebuf*"
+    ],
+    "FILL_CELLS": [
+        "sky130_fd_sc_hd__fill_2",
+        "sky130_fd_sc_hd__fill_1"
+    ],
+    "DECAP_CELLS": [
+        "sky130_fd_sc_hd__decap_3"
+    ],
+    "LIB": {
+        "*_tt_025C_1v80": [
+            "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+        ],
+        "*_ss_100C_1v60": [
+            "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib"
+        ],
+        "*_ff_n40C_1v95": [
+            "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib"
+        ]
+    },
+    "CELL_LEFS": [
+        "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef",
+        "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef"
+    ],
+    "CELL_GDS": [
+        "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/gds/sky130_fd_sc_hd.gds"
+    ],
+    "CELL_VERILOG_MODELS": [
+        "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/verilog/primitives.v",
+        "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd.v"
+    ],
+    "CELL_BB_VERILOG_MODELS": [
+        "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd__blackbox.v",
+        "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd__blackbox_pp.v"
+    ],
+    "CELL_SPICE_MODELS": [
+        "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__decap_12.spice",
+        "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__decap_20_12.spice",
+        "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__decap_40_12.spice",
+        "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__decap_60_12.spice",
+        "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__decap_80_12.spice",
+        "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__fill_12.spice",
+        "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__fill_2.spice",
+        "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__fill_4.spice",
+        "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__fill_8.spice",
+        "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice"
+    ],
+    "CELL_CDLS": [
+        "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/cdl/sky130_fd_sc_hd.cdl"
+    ],
+    "SYNTH_EXCLUDED_CELL_FILE": "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.tech/openlane/sky130_fd_sc_hd/no_synth.cells",
+    "PNR_EXCLUDED_CELL_FILE": "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.tech/openlane/sky130_fd_sc_hd/drc_exclude.cells",
+    "OUTPUT_CAP_LOAD": 33.442,
+    "MAX_FANOUT_CONSTRAINT": 10,
+    "MAX_TRANSITION_CONSTRAINT": 0.75,
+    "MAX_CAPACITANCE_CONSTRAINT": 0.2,
+    "CLOCK_UNCERTAINTY_CONSTRAINT": 0.25,
+    "CLOCK_TRANSITION_CONSTRAINT": 0.15,
+    "TIME_DERATING_CONSTRAINT": 5,
+    "IO_DELAY_CONSTRAINT": 20,
+    "SYNTH_DRIVING_CELL": "sky130_fd_sc_hd__inv_2/Y",
+    "SYNTH_CLK_DRIVING_CELL": null,
+    "SYNTH_TIEHI_CELL": "sky130_fd_sc_hd__conb_1/HI",
+    "SYNTH_TIELO_CELL": "sky130_fd_sc_hd__conb_1/LO",
+    "SYNTH_BUFFER_CELL": "sky130_fd_sc_hd__buf_2/A/X",
+    "PLACE_SITE": "unithd",
+    "CELL_PAD_EXCLUDE": [
+        "sky130_fd_sc_hd__tap*",
+        "sky130_fd_sc_hd__decap*",
+        "sky130_ef_sc_hd__decap*",
+        "sky130_fd_sc_hd__fill*"
+    ],
+    "DIODE_CELL": "sky130_fd_sc_hd__diode_2/DIODE",
+    "WELLTAP_CELL": "sky130_fd_sc_hd__tapvpwrvgnd_1",
+    "ENDCAP_CELL": "sky130_fd_sc_hd__decap_3",
+    "DESIGN_DIR": "/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper",
+    "PDK_ROOT": "/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71",
+    "DESIGN_NAME": "mspm33c321a_derivative_mcu_wrapper",
+    "PDK": "sky130A",
+    "CLOCK_PERIOD": 25,
+    "CLOCK_PORT": "clk_in",
+    "CLOCK_NET": "clk_in",
+    "VDD_NETS": [
+        "VCCD"
+    ],
+    "GND_NETS": [
+        "VSSD"
+    ],
+    "DIE_AREA": [
+        0,
+        0,
+        4278.67,
+        3778.67
+    ],
+    "EXTRA_EXCLUDED_CELLS": null,
+    "MACROS": {
+        "CF_SRAM_1024x32": {
+            "gds": [
+                "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/gds/CF_SRAM_1024x32.gds"
+            ],
+            "lef": [
+                "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lef/CF_SRAM_1024x32.lef"
+            ],
+            "instances": {
+                "u_core.u_cf_sram_b0": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b1": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b2": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b3": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b4": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b5": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b6": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b7": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b8": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b9": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b10": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b11": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b12": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b13": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b14": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b15": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b16": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b17": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b18": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b19": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b20": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b21": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b22": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b23": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b24": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b25": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b26": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b27": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b28": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b29": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b30": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b31": {
+                    "location": null,
+                    "orientation": "N"
+                }
+            },
+            "vh": [],
+            "nl": [],
+            "pnl": [],
+            "spef": {},
+            "lib": {
+                "nom_*": [
+                    "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib"
+                ],
+                "min_*": [
+                    "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib"
+                ],
+                "max_*": [
+                    "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib"
+                ]
+            },
+            "spice": [],
+            "sdf": {},
+            "json_h": null
+        }
+    },
+    "EXTRA_LEFS": [
+        "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lef/CF_SRAM_1024x32.lef"
+    ],
+    "EXTRA_VERILOG_MODELS": [
+        "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/hdl/CF_SRAM_1024x32_stub.v"
+    ],
+    "EXTRA_SPICE_MODELS": null,
+    "EXTRA_CDLS": null,
+    "EXTRA_LIBS": [
+        "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib",
+        "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib",
+        "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib"
+    ],
+    "EXTRA_GDS": [
+        "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/gds/CF_SRAM_1024x32.gds"
+    ],
+    "FALLBACK_SDC": "/nix/store/dvl0axlikmchlnqgk5880gqkgnak5szw-python3-3.13.9-env/lib/python3.13/site-packages/librelane/scripts/base.sdc",
+    "PAD_GDS": null,
+    "PAD_LEFS": null,
+    "PAD_VERILOG_MODELS": null,
+    "PAD_SPICE_MODELS": null,
+    "PAD_CDLS": null,
+    "PAD_LIBS": null,
+    "PAD_CORNER": null,
+    "PAD_FILLERS": null,
+    "PAD_SITE_NAME": null,
+    "PAD_CORNER_SITE_NAME": null,
+    "PAD_FAKE_SITES": null,
+    "PAD_BONDPAD_NAME": null,
+    "PAD_BONDPAD_WIDTH": null,
+    "PAD_BONDPAD_HEIGHT": null,
+    "PAD_BONDPAD_OFFSETS": null,
+    "PAD_PLACE_IO_TERMINALS": null,
+    "PAD_EDGE_SPACING": 0,
+    "ERROR_ON_UNMAPPED_CELLS": true,
+    "meta": {
+        "librelane_version": "3.0.2",
+        "step": "Checker.YosysUnmappedCells"
+    }
+}

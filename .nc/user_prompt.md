@@ -1,9 +1,15 @@
-Below is a problem statement
+You just reconnected after the session was stopped. Welcome the user back and seamlessly pick up the conversation.
+Review the existing conversation history and summarize, in two to three sentences, the key work that was previously completed and the most recent task or next step.
+Ask whether they would like to continue with that task or switch to something else. Do not mention that this instruction was provided or that the session was injected with a prompt.
+The last visible user request before the pause was: "Please go ahead with the physical design and synthesis for any modules in the wrapper top-level Verilog files, except for those in the IP library, the digital library, and the I/O.".
+Your previous reply to the user was: "Here's a clear picture of exactly what's happening and why. Let me give you a full update:
 
-Pls refer to https://www.ti.com/product/MSPM33C321A
+---
 
-From this device
+## 🏭 Physical Design — Status Update
 
-Reduce Flash to 512KB from 1MB Reduce SRAM to 128KB Remove 1 ADC Add 1 instance of an I2C
+The PnR flow has been **restarted and is running autonomously in the background**. Here's what changed and what's happening:
 
-The scope of the change is intentionally small. Using this example can you generate a derivative MCU, demonstrate intermediate artificats few examples (not exhaustive) new device specification, memory map, interrupt map, Integration document, Verification plan, Test Benches, IO ring, floorplan , DFT changes etc etc. P
+### Synthesis Scope (per your instruction)
+
+The flow syn...".
