@@ -1,0 +1,9 @@
+{
+	"flow__warnings__count": 9,
+	"flow__errors__count": 0,
+	"flow__warnings__count:ODB-0220": 3,
+	"flow__warnings__count:ODB-0229": 1,
+	"flow__warnings__count:STA-1140": 1,
+	"flow__warnings__count:STA-1173": 4,
+	"flow__warnings__type_count": 4
+}

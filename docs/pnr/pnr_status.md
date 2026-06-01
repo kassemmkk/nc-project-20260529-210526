@@ -1,31 +1,35 @@
-# PnR Status — mspm33c321a_derivative_mcu (Run v2)
+# PnR Status — mspm33c321a_derivative_mcu_wrapper
 
-**Last Updated:** 2026-05-31
-**Run Tag:** pnr_run_v2
-**Status:** SYNTHESIS IN PROGRESS
+## Run: pnr_run_v2 (resumed)
 
-## Pre-run Fixes Applied (Session Restart Recovery)
+**Status**: RUNNING — GlobalPlacement completed, post-GPL repair in progress  
+**PID**: 84508  
+**Log**: /tmp/pnr_gpl.log  
+**Run dir**: .../openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v2/
 
-| Fix | Description |
-|-----|-------------|
-| IP paths updated | All 48 `/workspace/.../ip/` paths → `/nc/ip/<NAME>/<VERSION>/` |
-| CF_SRAM LEF/lib/GDS updated | → `/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/` |
-| RUN_CTS=false | Correct librelane 3.x gating variable (replaces invalid SKIP_STEPS) |
-| RUN_POST_CTS_RESIZER_TIMING=false | No post-CTS resizer since CTS is skipped |
-| amuxbus ports removed | 100 inout amuxbus_a/b declarations removed from wrapper.v (prevents GPL-0326) |
-| mcu_chip.v added | Now included in VERILOG_FILES (82 total) |
-| FP_TEMPLATE_COPY_POWER_PINS=false | Prevents DRT-0302 VDDIO bterm error |
-| DRT_OPT_ITERS=40 | Reduced from default 64 for faster convergence |
+## Fixes Applied This Session
 
-## Synthesis Scope
-- Synthesised: wrapper glue, compute_ss, hazard3 CPU (22 files), OpenDAP SWD debug (7 files), NC_* IPs (48 files)
-- Black-boxed: CF_SRAM_1024x32 (32 instances, hard macro)
-- Excluded: padframe/IO cells (chip-top level), sky130 stdcell lib (tech mapping target)
+| Fix | Description | Status |
+|-----|-------------|--------|
+| GPL-0326 (first) | Removed `reset_n_pad_a_esd_0_h`, `reset_n_pad_a_noesd_h` from wrapper.v port list | ✅ Applied |
+| GPL-0326 (ODB) | Removed same 2 ports from all 13 intermediate ODB files via OpenROAD | ✅ Applied |
+| GPL-0326 (netlists) | Patched all 12 intermediate .nl.v/.pnl.v copies in run dir | ✅ Applied |
 
-## Current Progress
-- Step 03: Yosys.Synthesis — IN PROGRESS (PID 20756)
-- Expected synthesis duration: ~20-30 minutes
-- Expected total PnR duration: ~12-20 hours
+## Flow Progress
 
-## Run Directory
-`mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v2/`
+| Step | Description | Status |
+|------|-------------|--------|
+| 01-03 | Yosys synthesis | ✅ DONE |
+| 04-09 | Checkers + STA pre-PnR | ✅ DONE |
+| 10-44 | Floorplan → macro placement → PDN → ApplyDEFTemplate | ✅ DONE |
+| 45-46 | GlobalPlacement (routability-driven, density=0.5279) | ✅ DONE (overflow ~144) |
+| 47-48 | IO placement + power grid check | ✅ DONE |
+| 49-50 | STA mid-PnR + RepairDesignPostGPL | 🔄 IN PROGRESS |
+| 51+ | DetailedPlacement → GlobalRoute → DRT → Signoff | ⏳ PENDING |
+
+## Global Placement Results
+
+- Final overflow: ~144.7 (GRT-based, routability-driven)
+- Overflowed tiles: ~0.74%
+- Density: 0.5279
+- Convergence: Achieved (routability revert-to-snapshot, then Nesterov settled)

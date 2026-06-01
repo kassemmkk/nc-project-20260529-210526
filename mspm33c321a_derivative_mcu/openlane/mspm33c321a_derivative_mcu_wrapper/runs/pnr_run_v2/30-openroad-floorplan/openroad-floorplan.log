@@ -1,0 +1,202 @@
+Reading timing models for corner nom_tt_025C_1v80…
+Reading timing library for the 'nom_tt_025C_1v80' corner at '/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'…
+Reading timing library for the 'nom_tt_025C_1v80' corner at '/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib'…
+[WARNING STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+Reading explicitly-specified extra libs for nom_tt_025C_1v80…
+Reading extra timing library for the 'nom_tt_025C_1v80' corner at '/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib'…
+[WARNING STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+Reading extra timing library for the 'nom_tt_025C_1v80' corner at '/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib'…
+[WARNING STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+Reading extra timing library for the 'nom_tt_025C_1v80' corner at '/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib'…
+[WARNING STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[WARNING STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+Reading technology LEF file at '/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef'…
+[INFO ODB-0227] LEF file: /nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef, created 14 layers, 25 vias
+Reading cell LEF file at '/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef'…
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef at line 2.
+
+[INFO ODB-0227] LEF file: /nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef, created 437 library cells
+Reading cell LEF file at '/nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef'…
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef at line 2.
+
+[INFO ODB-0227] LEF file: /nc/pdk/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef, created 8 library cells
+Reading macro LEF file at '/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lef/CF_SRAM_1024x32.lef'…
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lef/CF_SRAM_1024x32.lef at line 26.
+
+[INFO ODB-0227] LEF file: /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lef/CF_SRAM_1024x32.lef, created 1 library cells
+Reading extra LEF file at '/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lef/CF_SRAM_1024x32.lef'…
+[WARNING ODB-0229] Error: library (CF_SRAM_1024x32) already exists
+Reading top-level netlist at '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v2/18-openroad-generatepdn/mspm33c321a_derivative_mcu_wrapper.nl.v'…
+Linking design 'mspm33c321a_derivative_mcu_wrapper' from netlist…
+[WARNING ORD-2011] LEF master sky130_fd_sc_hd__tapvpwrvgnd_1 has no liberty cell.
+Reading design constraints file at '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/mspm33c321a_derivative_mcu_wrapper.sdc'…
+[WARNING STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
+[INFO] No information on clock propagation in input SDC file-- propagating all clocks.
+Using site height: 2.72 and site width: 0.46…
+[INFO] Using absolute sizing for the floorplan.
+[INFO] Using the set CORE_AREA; ignoring core margin parameters
++ initialize_floorplan -site unithd -die_area 0.0 0.0 4278.67 3778.67 -core_area 275.0 275.0 4003.67 3503.67
+[WARNING IFP-0028] Core area lower left (275.000, 275.000) snapped to (275.080, 277.440).
+[INFO IFP-0001] Added 1186 rows of 8105 site unithd.
+[INFO IFP-0100] Die BBox:  (  0.000  0.000 ) ( 4278.670 3778.670 ) um
+[INFO IFP-0101] Core BBox: ( 275.080 277.440 ) ( 4003.380 3503.360 ) um
+[INFO IFP-0102] Core area:                     12027197.536 um^2
+[INFO IFP-0103] Total instances area:           5184933.147 um^2
+[INFO IFP-0104] Effective utilization:                0.431
+[INFO IFP-0105] Number of instances:                 212042
+[INFO IFP-0030] Inserted 0 tiecells using sky130_fd_sc_hd__conb_1/LO.
+[INFO IFP-0030] Inserted 0 tiecells using sky130_fd_sc_hd__conb_1/HI.
+[INFO] Extracting DIE_AREA and CORE_AREA from the floorplan
+[INFO] Floorplanned on a die area of 0.0 0.0 4278.67 3778.67 (µm).
+[INFO] Floorplanned on a core area of 275.08 277.44 4003.38 3503.36 (µm).
+Writing metric design__die__bbox: 0.0 0.0 4278.67 3778.67
+Writing metric design__core__bbox: 275.08 277.44 4003.38 3503.36
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+u_core.u_cf_sram_b0 matched with u_core.u_cf_sram_b0
+u_core.u_cf_sram_b0 matched with u_core.u_cf_sram_b0
+u_core.u_cf_sram_b0 matched with u_core.u_cf_sram_b0
+u_core.u_cf_sram_b0 matched with u_core.u_cf_sram_b0
+u_core.u_cf_sram_b1 matched with u_core.u_cf_sram_b1
+u_core.u_cf_sram_b1 matched with u_core.u_cf_sram_b1
+u_core.u_cf_sram_b1 matched with u_core.u_cf_sram_b1
+u_core.u_cf_sram_b1 matched with u_core.u_cf_sram_b1
+u_core.u_cf_sram_b2 matched with u_core.u_cf_sram_b2
+u_core.u_cf_sram_b2 matched with u_core.u_cf_sram_b2
+u_core.u_cf_sram_b2 matched with u_core.u_cf_sram_b2
+u_core.u_cf_sram_b2 matched with u_core.u_cf_sram_b2
+u_core.u_cf_sram_b3 matched with u_core.u_cf_sram_b3
+u_core.u_cf_sram_b3 matched with u_core.u_cf_sram_b3
+u_core.u_cf_sram_b3 matched with u_core.u_cf_sram_b3
+u_core.u_cf_sram_b3 matched with u_core.u_cf_sram_b3
+u_core.u_cf_sram_b4 matched with u_core.u_cf_sram_b4
+u_core.u_cf_sram_b4 matched with u_core.u_cf_sram_b4
+u_core.u_cf_sram_b4 matched with u_core.u_cf_sram_b4
+u_core.u_cf_sram_b4 matched with u_core.u_cf_sram_b4
+u_core.u_cf_sram_b5 matched with u_core.u_cf_sram_b5
+u_core.u_cf_sram_b5 matched with u_core.u_cf_sram_b5
+u_core.u_cf_sram_b5 matched with u_core.u_cf_sram_b5
+u_core.u_cf_sram_b5 matched with u_core.u_cf_sram_b5
+u_core.u_cf_sram_b6 matched with u_core.u_cf_sram_b6
+u_core.u_cf_sram_b6 matched with u_core.u_cf_sram_b6
+u_core.u_cf_sram_b6 matched with u_core.u_cf_sram_b6
+u_core.u_cf_sram_b6 matched with u_core.u_cf_sram_b6
+u_core.u_cf_sram_b7 matched with u_core.u_cf_sram_b7
+u_core.u_cf_sram_b7 matched with u_core.u_cf_sram_b7
+u_core.u_cf_sram_b7 matched with u_core.u_cf_sram_b7
+u_core.u_cf_sram_b7 matched with u_core.u_cf_sram_b7
+u_core.u_cf_sram_b8 matched with u_core.u_cf_sram_b8
+u_core.u_cf_sram_b8 matched with u_core.u_cf_sram_b8
+u_core.u_cf_sram_b8 matched with u_core.u_cf_sram_b8
+u_core.u_cf_sram_b8 matched with u_core.u_cf_sram_b8
+u_core.u_cf_sram_b9 matched with u_core.u_cf_sram_b9
+u_core.u_cf_sram_b9 matched with u_core.u_cf_sram_b9
+u_core.u_cf_sram_b9 matched with u_core.u_cf_sram_b9
+u_core.u_cf_sram_b9 matched with u_core.u_cf_sram_b9
+u_core.u_cf_sram_b10 matched with u_core.u_cf_sram_b10
+u_core.u_cf_sram_b10 matched with u_core.u_cf_sram_b10
+u_core.u_cf_sram_b10 matched with u_core.u_cf_sram_b10
+u_core.u_cf_sram_b10 matched with u_core.u_cf_sram_b10
+u_core.u_cf_sram_b11 matched with u_core.u_cf_sram_b11
+u_core.u_cf_sram_b11 matched with u_core.u_cf_sram_b11
+u_core.u_cf_sram_b11 matched with u_core.u_cf_sram_b11
+u_core.u_cf_sram_b11 matched with u_core.u_cf_sram_b11
+u_core.u_cf_sram_b12 matched with u_core.u_cf_sram_b12
+u_core.u_cf_sram_b12 matched with u_core.u_cf_sram_b12
+u_core.u_cf_sram_b12 matched with u_core.u_cf_sram_b12
+u_core.u_cf_sram_b12 matched with u_core.u_cf_sram_b12
+u_core.u_cf_sram_b13 matched with u_core.u_cf_sram_b13
+u_core.u_cf_sram_b13 matched with u_core.u_cf_sram_b13
+u_core.u_cf_sram_b13 matched with u_core.u_cf_sram_b13
+u_core.u_cf_sram_b13 matched with u_core.u_cf_sram_b13
+u_core.u_cf_sram_b14 matched with u_core.u_cf_sram_b14
+u_core.u_cf_sram_b14 matched with u_core.u_cf_sram_b14
+u_core.u_cf_sram_b14 matched with u_core.u_cf_sram_b14
+u_core.u_cf_sram_b14 matched with u_core.u_cf_sram_b14
+u_core.u_cf_sram_b15 matched with u_core.u_cf_sram_b15
+u_core.u_cf_sram_b15 matched with u_core.u_cf_sram_b15
+u_core.u_cf_sram_b15 matched with u_core.u_cf_sram_b15
+u_core.u_cf_sram_b15 matched with u_core.u_cf_sram_b15
+u_core.u_cf_sram_b16 matched with u_core.u_cf_sram_b16
+u_core.u_cf_sram_b16 matched with u_core.u_cf_sram_b16
+u_core.u_cf_sram_b16 matched with u_core.u_cf_sram_b16
+u_core.u_cf_sram_b16 matched with u_core.u_cf_sram_b16
+u_core.u_cf_sram_b17 matched with u_core.u_cf_sram_b17
+u_core.u_cf_sram_b17 matched with u_core.u_cf_sram_b17
+u_core.u_cf_sram_b17 matched with u_core.u_cf_sram_b17
+u_core.u_cf_sram_b17 matched with u_core.u_cf_sram_b17
+u_core.u_cf_sram_b18 matched with u_core.u_cf_sram_b18
+u_core.u_cf_sram_b18 matched with u_core.u_cf_sram_b18
+u_core.u_cf_sram_b18 matched with u_core.u_cf_sram_b18
+u_core.u_cf_sram_b18 matched with u_core.u_cf_sram_b18
+u_core.u_cf_sram_b19 matched with u_core.u_cf_sram_b19
+u_core.u_cf_sram_b19 matched with u_core.u_cf_sram_b19
+u_core.u_cf_sram_b19 matched with u_core.u_cf_sram_b19
+u_core.u_cf_sram_b19 matched with u_core.u_cf_sram_b19
+u_core.u_cf_sram_b20 matched with u_core.u_cf_sram_b20
+u_core.u_cf_sram_b20 matched with u_core.u_cf_sram_b20
+u_core.u_cf_sram_b20 matched with u_core.u_cf_sram_b20
+u_core.u_cf_sram_b20 matched with u_core.u_cf_sram_b20
+u_core.u_cf_sram_b21 matched with u_core.u_cf_sram_b21
+u_core.u_cf_sram_b21 matched with u_core.u_cf_sram_b21
+u_core.u_cf_sram_b21 matched with u_core.u_cf_sram_b21
+u_core.u_cf_sram_b21 matched with u_core.u_cf_sram_b21
+u_core.u_cf_sram_b22 matched with u_core.u_cf_sram_b22
+u_core.u_cf_sram_b22 matched with u_core.u_cf_sram_b22
+u_core.u_cf_sram_b22 matched with u_core.u_cf_sram_b22
+u_core.u_cf_sram_b22 matched with u_core.u_cf_sram_b22
+u_core.u_cf_sram_b23 matched with u_core.u_cf_sram_b23
+u_core.u_cf_sram_b23 matched with u_core.u_cf_sram_b23
+u_core.u_cf_sram_b23 matched with u_core.u_cf_sram_b23
+u_core.u_cf_sram_b23 matched with u_core.u_cf_sram_b23
+u_core.u_cf_sram_b24 matched with u_core.u_cf_sram_b24
+u_core.u_cf_sram_b24 matched with u_core.u_cf_sram_b24
+u_core.u_cf_sram_b24 matched with u_core.u_cf_sram_b24
+u_core.u_cf_sram_b24 matched with u_core.u_cf_sram_b24
+u_core.u_cf_sram_b25 matched with u_core.u_cf_sram_b25
+u_core.u_cf_sram_b25 matched with u_core.u_cf_sram_b25
+u_core.u_cf_sram_b25 matched with u_core.u_cf_sram_b25
+u_core.u_cf_sram_b25 matched with u_core.u_cf_sram_b25
+u_core.u_cf_sram_b26 matched with u_core.u_cf_sram_b26
+u_core.u_cf_sram_b26 matched with u_core.u_cf_sram_b26
+u_core.u_cf_sram_b26 matched with u_core.u_cf_sram_b26
+u_core.u_cf_sram_b26 matched with u_core.u_cf_sram_b26
+u_core.u_cf_sram_b27 matched with u_core.u_cf_sram_b27
+u_core.u_cf_sram_b27 matched with u_core.u_cf_sram_b27
+u_core.u_cf_sram_b27 matched with u_core.u_cf_sram_b27
+u_core.u_cf_sram_b27 matched with u_core.u_cf_sram_b27
+u_core.u_cf_sram_b28 matched with u_core.u_cf_sram_b28
+u_core.u_cf_sram_b28 matched with u_core.u_cf_sram_b28
+u_core.u_cf_sram_b28 matched with u_core.u_cf_sram_b28
+u_core.u_cf_sram_b28 matched with u_core.u_cf_sram_b28
+u_core.u_cf_sram_b29 matched with u_core.u_cf_sram_b29
+u_core.u_cf_sram_b29 matched with u_core.u_cf_sram_b29
+u_core.u_cf_sram_b29 matched with u_core.u_cf_sram_b29
+u_core.u_cf_sram_b29 matched with u_core.u_cf_sram_b29
+u_core.u_cf_sram_b30 matched with u_core.u_cf_sram_b30
+u_core.u_cf_sram_b30 matched with u_core.u_cf_sram_b30
+u_core.u_cf_sram_b30 matched with u_core.u_cf_sram_b30
+u_core.u_cf_sram_b30 matched with u_core.u_cf_sram_b30
+u_core.u_cf_sram_b31 matched with u_core.u_cf_sram_b31
+u_core.u_cf_sram_b31 matched with u_core.u_cf_sram_b31
+u_core.u_cf_sram_b31 matched with u_core.u_cf_sram_b31
+u_core.u_cf_sram_b31 matched with u_core.u_cf_sram_b31
+[INFO ODB-0403] 0 connections made, 0 conflicts skipped.
+Updating metrics…
+Cell type report:                       Count       Area
+  Macro                                    32 3807642.22
+  Fill cell                             10116   37971.42
+  Tap cell                             110482  138235.08
+  Buffer                                   10      41.29
+  Inverter                               2099    7878.81
+  Sequential cell                       20368  519072.83
+  Multi-Input combinational cell        68935  674091.51
+  Total                                212042 5184933.15
+Writing OpenROAD database to '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v2/30-openroad-floorplan/mspm33c321a_derivative_mcu_wrapper.odb'…
+Writing netlist to '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v2/30-openroad-floorplan/mspm33c321a_derivative_mcu_wrapper.nl.v'…
+Writing powered netlist to '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v2/30-openroad-floorplan/mspm33c321a_derivative_mcu_wrapper.pnl.v'…
+Writing layout to '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v2/30-openroad-floorplan/mspm33c321a_derivative_mcu_wrapper.def'…
+Writing timing constraints to '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v2/30-openroad-floorplan/mspm33c321a_derivative_mcu_wrapper.sdc'…

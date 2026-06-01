@@ -1,0 +1,1 @@
+openroad -exit -no_splash -metrics /workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v2/38-openroad-generatepdn/or_metrics_out.json /nix/store/dvl0axlikmchlnqgk5880gqkgnak5szw-python3-3.13.9-env/lib/python3.13/site-packages/librelane/scripts/openroad/pdn.tcl

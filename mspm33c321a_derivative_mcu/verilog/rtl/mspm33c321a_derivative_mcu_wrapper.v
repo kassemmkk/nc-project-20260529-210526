@@ -40,8 +40,7 @@ module mspm33c321a_derivative_mcu_wrapper (
     inout reset_n_inp_sel_h,
     inout reset_n_pullup_h,
     inout reset_n_tie_weak_hi_h,
-    inout reset_n_pad_a_esd_0_h,
-    inout reset_n_pad_a_noesd_h,
+
     inout reset_n_tie_hi_esd,
     inout reset_n_tie_lo_esd,
     inout pad_gpioa_0_in,
