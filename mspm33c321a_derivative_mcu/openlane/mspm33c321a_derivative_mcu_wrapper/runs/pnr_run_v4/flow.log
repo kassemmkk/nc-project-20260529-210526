@@ -1371,3 +1371,4 @@ Logging subprocess to [repr.filename]'runs/pnr_run_v4/31-openroad-stamidpnr-2/op
 [STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
 [STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
 [STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
+[GRT-0097] No global routing found for nets.
