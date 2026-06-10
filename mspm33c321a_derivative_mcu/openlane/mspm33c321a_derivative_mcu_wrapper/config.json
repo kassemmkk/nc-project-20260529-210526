@@ -473,7 +473,6 @@
     "RUN_LVS": false,
     "ERROR_ON_MAGIC_DRC": false,
     "GRT_ADJUSTMENT": 0.2,
-    "CTS_SINK_CLUSTERING_ENABLE": false,
     "DRT_OPT_ITERS": 40,
     "RUN_CTS": false,
     "RUN_POST_CTS_RESIZER_TIMING": false
