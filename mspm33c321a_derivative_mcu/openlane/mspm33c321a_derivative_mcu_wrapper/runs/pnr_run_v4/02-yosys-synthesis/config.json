@@ -1,0 +1,474 @@
+{
+    "STD_CELL_LIBRARY": "sky130_fd_sc_hd",
+    "VDD_PIN": "VPWR",
+    "VDD_PIN_VOLTAGE": 1.8,
+    "GND_PIN": "VGND",
+    "WIRE_LENGTH_THRESHOLD": null,
+    "TECH_LEFS": {
+        "nom_*": "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef",
+        "min_*": "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__min.tlef",
+        "max_*": "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__max.tlef"
+    },
+    "GPIO_PADS_LEF": [
+        "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_io/lef/sky130_fd_io.lef",
+        "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_io/lef/sky130_ef_io.lef"
+    ],
+    "GPIO_PADS_LEF_CORE_SIDE": [
+        "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/custom_cells/lef/sky130_fd_io_core.lef",
+        "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/custom_cells/lef/sky130_ef_io_core.lef"
+    ],
+    "GPIO_PADS_VERILOG": [
+        "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_io/verilog/sky130_ef_io.v"
+    ],
+    "GPIO_PAD_CELLS": [
+        "sky130_fd_io*",
+        "sky130_ef_io*"
+    ],
+    "PRIMARY_GDSII_STREAMOUT_TOOL": "magic",
+    "DEFAULT_MAX_TRAN": null,
+    "SIGNAL_WIRE_RC_LAYERS": null,
+    "CLOCK_WIRE_RC_LAYERS": null,
+    "DEFAULT_CORNER": "nom_tt_025C_1v80",
+    "STA_CORNERS": [
+        "nom_tt_025C_1v80",
+        "nom_ss_100C_1v60",
+        "nom_ff_n40C_1v95",
+        "min_tt_025C_1v80",
+        "min_ss_100C_1v60",
+        "min_ff_n40C_1v95",
+        "max_tt_025C_1v80",
+        "max_ss_100C_1v60",
+        "max_ff_n40C_1v95"
+    ],
+    "FP_TRACKS_INFO": "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tracks.info",
+    "FP_TAPCELL_DIST": 13,
+    "FP_IO_HLAYER": "met3",
+    "FP_IO_VLAYER": "met2",
+    "RT_MIN_LAYER": "met1",
+    "RT_MAX_LAYER": "met5",
+    "SCL_GROUND_PINS": [
+        "VGND",
+        "VNB"
+    ],
+    "SCL_POWER_PINS": [
+        "VPWR",
+        "VPB"
+    ],
+    "TRISTATE_CELLS": [
+        "sky130_fd_sc_hd__ebuf*"
+    ],
+    "FILL_CELL": [
+        "sky130_fd_sc_hd__fill*"
+    ],
+    "DECAP_CELL": [
+        "sky130_ef_sc_hd__decap_12",
+        "sky130_fd_sc_hd__decap_8",
+        "sky130_fd_sc_hd__decap_6",
+        "sky130_fd_sc_hd__decap_4",
+        "sky130_fd_sc_hd__decap_3"
+    ],
+    "LIB": {
+        "*_tt_025C_1v80": [
+            "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+        ],
+        "*_ss_100C_1v60": [
+            "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib"
+        ],
+        "*_ff_n40C_1v95": [
+            "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib"
+        ]
+    },
+    "CELL_LEFS": [
+        "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef",
+        "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef"
+    ],
+    "CELL_GDS": [
+        "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/gds/sky130_fd_sc_hd.gds"
+    ],
+    "CELL_VERILOG_MODELS": [
+        "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/verilog/primitives.v",
+        "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd.v"
+    ],
+    "CELL_BB_VERILOG_MODELS": [
+        "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd__blackbox.v",
+        "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd__blackbox_pp.v"
+    ],
+    "CELL_SPICE_MODELS": [
+        "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__decap_12.spice",
+        "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__fill_12.spice",
+        "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__fill_4.spice",
+        "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__fill_8.spice",
+        "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice"
+    ],
+    "SYNTH_EXCLUDED_CELL_FILE": "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/no_synth.cells",
+    "PNR_EXCLUDED_CELL_FILE": "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/drc_exclude.cells",
+    "OUTPUT_CAP_LOAD": 33.442,
+    "MAX_FANOUT_CONSTRAINT": 10,
+    "MAX_TRANSITION_CONSTRAINT": 0.75,
+    "MAX_CAPACITANCE_CONSTRAINT": 0.2,
+    "CLOCK_UNCERTAINTY_CONSTRAINT": 0.25,
+    "CLOCK_TRANSITION_CONSTRAINT": 0.15,
+    "TIME_DERATING_CONSTRAINT": 5,
+    "IO_DELAY_CONSTRAINT": 20,
+    "SYNTH_DRIVING_CELL": "sky130_fd_sc_hd__inv_2/Y",
+    "SYNTH_CLK_DRIVING_CELL": null,
+    "SYNTH_TIEHI_CELL": "sky130_fd_sc_hd__conb_1/HI",
+    "SYNTH_TIELO_CELL": "sky130_fd_sc_hd__conb_1/LO",
+    "SYNTH_BUFFER_CELL": "sky130_fd_sc_hd__buf_2/A/X",
+    "WELLTAP_CELL": "sky130_fd_sc_hd__tapvpwrvgnd_1",
+    "ENDCAP_CELL": "sky130_fd_sc_hd__decap_3",
+    "PLACE_SITE": "unithd",
+    "CELL_PAD_EXCLUDE": [
+        "sky130_fd_sc_hd__tap*",
+        "sky130_fd_sc_hd__decap*",
+        "sky130_ef_sc_hd__decap*",
+        "sky130_fd_sc_hd__fill*"
+    ],
+    "DIODE_CELL": "sky130_fd_sc_hd__diode_2/DIODE",
+    "DESIGN_DIR": "/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper",
+    "PDK_ROOT": "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af",
+    "DESIGN_NAME": "mspm33c321a_derivative_mcu_wrapper",
+    "PDK": "sky130A",
+    "CLOCK_PERIOD": 25,
+    "CLOCK_PORT": "clk_in",
+    "CLOCK_NET": "clk_in",
+    "VDD_NETS": [
+        "VCCD"
+    ],
+    "GND_NETS": [
+        "VSSD"
+    ],
+    "DIE_AREA": [
+        0,
+        0,
+        4278.67,
+        3778.67
+    ],
+    "EXTRA_EXCLUDED_CELLS": null,
+    "MACROS": {
+        "CF_SRAM_1024x32": {
+            "gds": [
+                "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/gds/CF_SRAM_1024x32.gds"
+            ],
+            "lef": [
+                "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lef/CF_SRAM_1024x32.lef"
+            ],
+            "instances": {
+                "u_core.u_cf_sram_b0": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b1": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b2": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b3": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b4": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b5": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b6": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b7": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b8": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b9": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b10": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b11": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b12": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b13": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b14": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b15": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b16": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b17": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b18": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b19": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b20": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b21": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b22": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b23": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b24": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b25": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b26": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b27": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b28": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b29": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b30": {
+                    "location": null,
+                    "orientation": "N"
+                },
+                "u_core.u_cf_sram_b31": {
+                    "location": null,
+                    "orientation": "N"
+                }
+            },
+            "vh": [],
+            "nl": [],
+            "pnl": [],
+            "spef": {},
+            "lib": {
+                "nom_*": [
+                    "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib"
+                ],
+                "min_*": [
+                    "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib"
+                ],
+                "max_*": [
+                    "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib"
+                ]
+            },
+            "spice": [],
+            "sdf": {},
+            "json_h": null
+        }
+    },
+    "EXTRA_LEFS": [
+        "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lef/CF_SRAM_1024x32.lef"
+    ],
+    "EXTRA_VERILOG_MODELS": [
+        "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/hdl/CF_SRAM_1024x32_stub.v"
+    ],
+    "EXTRA_SPICE_MODELS": null,
+    "EXTRA_LIBS": [
+        "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib",
+        "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib",
+        "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib"
+    ],
+    "EXTRA_GDS_FILES": [
+        "/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/gds/CF_SRAM_1024x32.gds"
+    ],
+    "FALLBACK_SDC_FILE": "/nix/store/dygnx4pddrv785rmrg7jb5gks9z6hrx7-python3-3.11.9-env/lib/python3.11/site-packages/librelane/scripts/base.sdc",
+    "SYNTH_LATCH_MAP": "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v",
+    "SYNTH_TRISTATE_MAP": "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v",
+    "SYNTH_CSA_MAP": "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/csa_map.v",
+    "SYNTH_RCA_MAP": "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/rca_map.v",
+    "SYNTH_FA_MAP": "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/fa_map.v",
+    "SYNTH_MUX_MAP": "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/mux2_map.v",
+    "SYNTH_MUX4_MAP": "/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/mux4_map.v",
+    "USE_LIGHTER": false,
+    "LIGHTER_DFF_MAP": null,
+    "YOSYS_LOG_LEVEL": "ALL",
+    "SYNTH_CHECKS_ALLOW_TRISTATE": true,
+    "SYNTH_AUTONAME": false,
+    "SYNTH_STRATEGY": "AREA 0",
+    "SYNTH_ABC_BUFFERING": false,
+    "SYNTH_ABC_LEGACY_REFACTOR": false,
+    "SYNTH_ABC_LEGACY_REWRITE": false,
+    "SYNTH_ABC_DFF": false,
+    "SYNTH_ABC_USE_MFS3": false,
+    "SYNTH_ABC_AREA_USE_NF": false,
+    "SYNTH_DIRECT_WIRE_BUFFERING": true,
+    "SYNTH_SPLITNETS": true,
+    "SYNTH_SIZING": false,
+    "SYNTH_HIERARCHY_MODE": "flatten",
+    "SYNTH_SHARE_RESOURCES": true,
+    "SYNTH_ADDER_TYPE": "YOSYS",
+    "SYNTH_EXTRA_MAPPING_FILE": null,
+    "SYNTH_ELABORATE_ONLY": false,
+    "SYNTH_ELABORATE_FLATTEN": true,
+    "SYNTH_MUL_BOOTH": false,
+    "SYNTH_TIE_UNDEFINED": "low",
+    "SYNTH_WRITE_NOATTR": true,
+    "VERILOG_FILES": [
+        "/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verilog/rtl/mspm33c321a_derivative_mcu_wrapper.v",
+        "/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verilog/rtl/mspm33c321a_derivative_compute_ss.v",
+        "/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verilog/rtl/mspm33c321a_derivative_mcu_chip.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_core.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_cpu_2port.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/arith/hazard3_alu.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/arith/hazard3_branchcmp.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/arith/hazard3_mul_fast.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/arith/hazard3_muldiv_seq.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/arith/hazard3_onehot_encode.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/arith/hazard3_onehot_priority.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/arith/hazard3_onehot_priority_dynamic.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/arith/hazard3_priority_encode.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/arith/hazard3_shift_barrel.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_csr.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_decode.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_frontend.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_instr_decompress.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_irq_ctrl.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_pmp.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_power_ctrl.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_regfile_1w2r.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/hazard3_triggers.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/debug/dm/hazard3_dm.v",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/debug/cdc/hazard3_reset_sync.v",
+        "/nc/apps/nc_socgen/external/opendap/hdl/opendap_sw_dp.v",
+        "/nc/apps/nc_socgen/external/opendap/hdl/opendap_sw_dp_serial_comms.v",
+        "/nc/apps/nc_socgen/external/opendap/hdl/opendap_swd_dormant_monitor.v",
+        "/nc/apps/nc_socgen/external/opendap/hdl/cells/opendap_swdio_registers.v",
+        "/nc/apps/nc_socgen/external/opendap/hdl/opendap_mem_ap_apb.v",
+        "/nc/apps/nc_socgen/external/opendap/hdl/opendap_apb_async_bridge.v",
+        "/nc/apps/nc_socgen/external/opendap/hdl/cells/opendap_sync_1bit.v",
+        "/nc/ip/NC_XIP/v1.7.0/rtl/nc_xip.v",
+        "/nc/ip/NC_AMBA/v1.2.0/rtl/nc_mcu_fabric.v",
+        "/nc/ip/NC_AMBA/v1.2.0/rtl/amba.v",
+        "/nc/ip/NC_AMBA/v1.2.0/rtl/nc_amba_blocks.v",
+        "/nc/apps/nc_socgen/external/cf_sram/hdl/CF_SRAM_1024x32.v",
+        "/nc/apps/nc_socgen/external/cf_sram/rtl/CF_SRAM_1024x32_macro_stub.v",
+        "/nc/ip/NC_COMMON/v1.7.0/rtl/nc_sync.v",
+        "/nc/ip/NC_GPIO/v1.7.0/rtl/nc_gpio.v",
+        "/nc/ip/NC_UART/v1.7.1/rtl/nc_uart.v",
+        "/nc/ip/NC_COMMON/v1.7.0/rtl/nc_fifo.v",
+        "/nc/ip/NC_COMMON/v1.7.0/rtl/nc_glitch_filter.v",
+        "/nc/ip/NC_COMMON/v1.7.0/rtl/nc_ticker.v",
+        "/nc/ip/NC_SPI/v1.7.0/rtl/nc_spi.v",
+        "/nc/ip/NC_SPI/v1.7.0/rtl/nc_spi_apb_if.v",
+        "/nc/ip/NC_SPI/v1.7.0/rtl/nc_spi_clk_gen.v",
+        "/nc/ip/NC_SPI/v1.7.0/rtl/nc_spi_cs_ctrl.v",
+        "/nc/ip/NC_SPI/v1.7.0/rtl/nc_spi_ctrl_fsm.v",
+        "/nc/ip/NC_SPI/v1.7.0/rtl/nc_spi_irq_dma.v",
+        "/nc/ip/NC_SPI/v1.7.0/rtl/nc_spi_shift_reg.v",
+        "/nc/ip/NC_I2C/v1.7.0/rtl/nc_i2c.sv",
+        "/nc/ip/NC_I2C/v1.7.0/rtl/nc_i2c_master.sv",
+        "/nc/ip/NC_TMR/v1.7.0/rtl/nc_tmr.v",
+        "/nc/ip/NC_PWM/v2.7.0/rtl/nc_pwm.v",
+        "/nc/ip/NC_DMAC/v1.7.0/rtl/nc_dmac.v",
+        "/nc/ip/NC_DMAC/v1.7.0/rtl/dmac_apb_slave.v",
+        "/nc/ip/NC_DMAC/v1.7.0/rtl/dmac_ahb_master.v",
+        "/nc/ip/NC_DMAC/v1.7.0/rtl/dmac_channel.v",
+        "/nc/ip/NC_DMAC/v1.7.0/rtl/dmac_arbiter.v",
+        "/nc/ip/NC_DMAC/v1.7.0/rtl/dmac_dmamux.v",
+        "/nc/ip/NC_DMAC/v1.7.0/rtl/dmac_register_file.v",
+        "/nc/ip/NC_CRC/v1.7.0/rtl/nc_crc_input_proc.v",
+        "/nc/ip/NC_CRC/v1.7.0/rtl/nc_crc_output_proc.v",
+        "/nc/ip/NC_CRC/v1.7.0/rtl/nc_crc_dma.v",
+        "/nc/ip/NC_CRC/v1.7.0/rtl/nc_crc_core.v",
+        "/nc/ip/NC_CRC/v1.7.0/rtl/nc_crc_ctrl.v",
+        "/nc/ip/NC_CRC/v1.7.0/rtl/nc_crc_apb.v",
+        "/nc/ip/NC_CRC/v1.7.0/rtl/nc_crc.v",
+        "/nc/ip/NC_AES/v1.7.0/rtl/nc_aes.v",
+        "/nc/ip/NC_AES/v1.7.0/rtl/aes_encipher_block_opt.v",
+        "/nc/ip/NC_AES/v1.7.0/rtl/aes_sbox_opt.v",
+        "/nc/ip/NC_AES/v1.7.0/rtl/secworks/aes_core.v",
+        "/nc/ip/NC_AES/v1.7.0/rtl/secworks/aes_encipher_block.v",
+        "/nc/ip/NC_AES/v1.7.0/rtl/secworks/aes_decipher_block.v",
+        "/nc/ip/NC_AES/v1.7.0/rtl/secworks/aes_key_mem.v",
+        "/nc/ip/NC_AES/v1.7.0/rtl/secworks/aes_sbox.v",
+        "/nc/ip/NC_AES/v1.7.0/rtl/secworks/aes_inv_sbox.v",
+        "/nc/ip/NC_WWDT/v1.7.0/rtl/nc_wwdt.v",
+        "/nc/ip/NC_RTC/v1.7.0/rtl/nc_rtc.v",
+        "/nc/ip/NC_RTC/v1.7.0/rtl/rtc_bcd_core.v",
+        "/nc/ip/NC_SYSTICK/v1.1.0/rtl/nc_systick.v"
+    ],
+    "VERILOG_DEFINES": null,
+    "VERILOG_POWER_DEFINE": "USE_POWER_PINS",
+    "VERILOG_INCLUDE_DIRS": [
+        "/nc/apps/nc_socgen/external/cf_sram/hdl",
+        "/nc/apps/nc_socgen/external/cf_sram/rtl",
+        "/nc/apps/nc_socgen/external/hazard3/hdl",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/arith",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/debug/cdc",
+        "/nc/apps/nc_socgen/external/hazard3/hdl/debug/dm",
+        "/nc/apps/nc_socgen/external/opendap/hdl",
+        "/nc/apps/nc_socgen/external/opendap/hdl/cells",
+        "/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/verilog/rtl",
+        "/nc/ip/NC_AES/v1.7.0/rtl",
+        "/nc/ip/NC_AES/v1.7.0/rtl/secworks",
+        "/nc/ip/NC_AMBA/v1.2.0/rtl",
+        "/nc/ip/NC_COMMON/v1.7.0/rtl",
+        "/nc/ip/NC_CRC/v1.7.0/rtl",
+        "/nc/ip/NC_DMAC/v1.7.0/rtl",
+        "/nc/ip/NC_GPIO/v1.7.0/rtl",
+        "/nc/ip/NC_I2C/v1.7.0/rtl",
+        "/nc/ip/NC_PWM/v2.7.0/rtl",
+        "/nc/ip/NC_RTC/v1.7.0/rtl",
+        "/nc/ip/NC_SPI/v1.7.0/rtl",
+        "/nc/ip/NC_SYSTICK/v1.1.0/rtl",
+        "/nc/ip/NC_TMR/v1.7.0/rtl",
+        "/nc/ip/NC_UART/v1.7.1/rtl",
+        "/nc/ip/NC_COMMON/v1.7.0/rtl",
+        "/nc/ip/NC_WWDT/v1.7.0/rtl",
+        "/nc/ip/NC_XIP/v1.7.0/rtl"
+    ],
+    "SYNTH_PARAMETERS": null,
+    "USE_SYNLIG": false,
+    "SYNLIG_DEFER": false,
+    "meta": {
+        "librelane_version": "2.4.6",
+        "step": "Yosys.Synthesis"
+    }
+}
