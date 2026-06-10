@@ -1,23 +1,24 @@
 {
   "conversation_id": "4d679dddfc1d4fca97ede9bf0ae55293",
   "selected_repository": "kassemmkk/nc-project-20260529-210526",
-  "workflow_name": "mcu_factory",
-  "root_agent_name": "mcu_factory_project_manager",
+  "workflow_name": "mcu_factory_lite",
+  "root_agent_name": "mcu_factory_project_manager_lite",
   "agent_llms": {
-    "mcu_factory_project_manager": "anthropic/claude-sonnet-4-6",
-    "mcu_factory_requirements": "anthropic/claude-sonnet-4-6",
+    "mcu_factory_project_manager_lite": "anthropic/claude-sonnet-4-6",
+    "mcu_factory_requirements_lite": "anthropic/claude-sonnet-4-6",
     "mcu_factory_verification_planning": "anthropic/claude-sonnet-4-6",
     "mcu_factory_generation": "anthropic/claude-sonnet-4-6",
     "mcu_factory_verification": "anthropic/claude-sonnet-4-6",
-    "mcu_factory_verification_reviewer": "anthropic/claude-sonnet-4-6",
-    "chipgen_pnr": "anthropic/claude-sonnet-4-6"
+    "mcu_factory_verification_reviewer_lite": "anthropic/claude-sonnet-4-6",
+    "chipgen_pnr": "anthropic/claude-sonnet-4-6",
+    "bom_builder": "anthropic/claude-sonnet-4-6"
   },
-  "exported_at": "2026-06-01T01:12:23.695536+00:00",
+  "exported_at": "2026-06-10T20:56:30.780213+00:00",
   "streams": [
     {
       "sid": "4d679dddfc1d4fca97ede9bf0ae55293",
       "role": "root",
-      "agent_name": "mcu_factory_project_manager",
+      "agent_name": "mcu_factory_project_manager_lite",
       "llm": "anthropic/claude-sonnet-4-6",
       "storage_dir": "users/12261587/sessions/4d679dddfc1d4fca97ede9bf0ae55293/",
       "runtime_dir": "streams/4d679dddfc1d4fca97ede9bf0ae55293"
@@ -42,7 +43,7 @@
       "sid": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_requirements",
       "role": "delegate",
       "agent_name": "mcu_factory_requirements",
-      "llm": "anthropic/claude-sonnet-4-6",
+      "llm": null,
       "storage_dir": "users/12261587/sessions/4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_requirements/",
       "runtime_dir": "streams/4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_requirements"
     },
@@ -66,7 +67,7 @@
       "sid": "4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_verification_reviewer",
       "role": "delegate",
       "agent_name": "mcu_factory_verification_reviewer",
-      "llm": "anthropic/claude-sonnet-4-6",
+      "llm": null,
       "storage_dir": "users/12261587/sessions/4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_verification_reviewer/",
       "runtime_dir": "streams/4d679dddfc1d4fca97ede9bf0ae55293-delegate-mcu_factory_verification_reviewer"
     }
