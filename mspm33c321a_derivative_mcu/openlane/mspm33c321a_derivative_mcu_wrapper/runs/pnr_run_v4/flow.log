@@ -1251,3 +1251,82 @@ Logging subprocess to [repr.filename]'runs/pnr_run_v4/26-openroad-stamidpnr/open
 [STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
 [STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
 [GRT-0097] No global routing found for nets.
+Running 'OpenROAD.RepairDesignPostGPL' at 'runs/pnr_run_v4/27-openroad-repairdesignpostgpl'…
+Logging subprocess to [repr.filename]'runs/pnr_run_v4/27-openroad-repairdesignpostgpl/openroad-repairdesignpostgpl.log'[/repr.filename]…
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 43, library CF_SRAM_1024x32_ff_195V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 43, library CF_SRAM_1024x32_ss_160V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 43, library CF_SRAM_1024x32_ff_195V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 43, library CF_SRAM_1024x32_ss_160V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1140] /nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib line 1, library sky130_fd_sc_hd__tt_025C_1v80 already exists.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 43, library CF_SRAM_1024x32_ff_195V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 43, library CF_SRAM_1024x32_ss_160V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 43, library CF_SRAM_1024x32_ff_195V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 43, library CF_SRAM_1024x32_ff_195V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 43, library CF_SRAM_1024x32_ss_160V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1140] /nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib line 1, library sky130_fd_sc_hd__ff_n40C_1v95 already exists.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 43, library CF_SRAM_1024x32_ff_195V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 43, library CF_SRAM_1024x32_ss_160V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1140] /nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib line 1, library sky130_fd_sc_hd__ss_100C_1v60 already exists.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 43, library CF_SRAM_1024x32_ff_195V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 43, library CF_SRAM_1024x32_ff_195V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 43, library CF_SRAM_1024x32_ss_160V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1140] /nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib line 1, library sky130_fd_sc_hd__tt_025C_1v80 already exists.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 43, library CF_SRAM_1024x32_ss_160V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 43, library CF_SRAM_1024x32_ff_195V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 43, library CF_SRAM_1024x32_ss_160V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1140] /nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib line 1, library sky130_fd_sc_hd__ss_100C_1v60 already exists.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 43, library CF_SRAM_1024x32_ff_195V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 43, library CF_SRAM_1024x32_ss_160V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1140] /nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib line 1, library sky130_fd_sc_hd__ff_n40C_1v95 already exists.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 43, library CF_SRAM_1024x32_ss_160V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 43, library CF_SRAM_1024x32_ff_195V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 43, library CF_SRAM_1024x32_ss_160V_100C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
+[STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
