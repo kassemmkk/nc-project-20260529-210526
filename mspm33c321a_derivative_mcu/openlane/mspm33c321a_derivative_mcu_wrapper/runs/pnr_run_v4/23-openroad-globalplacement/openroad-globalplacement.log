@@ -432,3 +432,229 @@ Reading design constraints file at '/workspace/nc-project-20260529-210526/mspm33
 [INFO GPL-0046] TargetDensity:            0.545
 [INFO GPL-0049] WhiteSpaceArea:      7551518.755 um^2
 [INFO GPL-0050] NesterovInstsArea:   1334290.287 um^2
+[INFO GPL-0051] TotalFillerArea:     2783511.443 um^2
+[INFO GPL-0052] TotalGCellsArea:     4117801.730 um^2
+[INFO GPL-0053] ExpectedGCellsArea:  4121612.156 um^2
+[INFO GPL-0054] NewTargetDensity:         0.546
+[INFO GPL-0055] NewWhiteSpaceArea:   7551518.755 um^2
+[INFO GPL-0056] MovableArea:         4121612.517 um^2
+[INFO GPL-0057] NewNesterovInstArea: 1338100.714 um^2
+[INFO GPL-0058] NewTotalFillerArea:  2783511.804 um^2
+[INFO GPL-0059] NewTotalGCellsArea:  4121612.517 um^2
+[NesterovSolve] Revert back to snapshot coordi
+[NesterovSolve] Iter: 1120 overflow: 0.589 HPWL: 6409871009
+[NesterovSolve] Iter: 1130 overflow: 0.548 HPWL: 6733969743
+[NesterovSolve] Iter: 1140 overflow: 0.500 HPWL: 6696603192
+[NesterovSolve] Iter: 1150 overflow: 0.470 HPWL: 6699979631
+[NesterovSolve] Iter: 1160 overflow: 0.428 HPWL: 6670976744
+[NesterovSolve] Iter: 1170 overflow: 0.389 HPWL: 6661528067
+[NesterovSolve] Iter: 1180 overflow: 0.353 HPWL: 6632136633
+[NesterovSolve] Iter: 1190 overflow: 0.318 HPWL: 6565721077
+[INFO GPL-0075] Routability numCall: 11 inflationIterCnt: 1 bloatIterCnt: 2
+[INFO GPL-0036] TileBBox: (    0    0 ) ( 6900 6900 ) DBU
+[INFO GPL-0038] TileCnt:     620  547
+[INFO GPL-0040] NumTiles: 339140
+[INFO GPL-0081] TotalRouteOverflow: 57.70857310295105
+[INFO GPL-0082] OverflowTileCnt: 1129
+[INFO GPL-0083] 0.5%RC: 1.0309636418198078
+[INFO GPL-0084] 1.0%RC: 0.9958586794552657
+[INFO GPL-0085] 2.0%RC: 0.957703773837938
+[INFO GPL-0086] 5.0%RC: 0.9109447317323911
+[INFO GPL-0087] FinalRC: 1.0134112
+[INFO GPL-0079] MinRC (1.0115076) violation occurred, total count: 2.
+[INFO GPL-0045] InflatedAreaDelta:     3718.407 um^2
+[INFO GPL-0046] TargetDensity:            0.546
+[INFO GPL-0049] WhiteSpaceArea:      7551518.755 um^2
+[INFO GPL-0050] NesterovInstsArea:   1338100.714 um^2
+[INFO GPL-0051] TotalFillerArea:     2783511.804 um^2
+[INFO GPL-0052] TotalGCellsArea:     4121612.517 um^2
+[INFO GPL-0053] ExpectedGCellsArea:  4125330.924 um^2
+[INFO GPL-0054] NewTargetDensity:         0.546
+[INFO GPL-0055] NewWhiteSpaceArea:   7551518.755 um^2
+[INFO GPL-0056] MovableArea:         4125331.292 um^2
+[INFO GPL-0057] NewNesterovInstArea: 1341819.121 um^2
+[INFO GPL-0058] NewTotalFillerArea:  2783512.171 um^2
+[INFO GPL-0059] NewTotalGCellsArea:  4125331.292 um^2
+[NesterovSolve] Revert back to snapshot coordi
+[NesterovSolve] Iter: 1200 overflow: 0.576 HPWL: 6548492328
+[NesterovSolve] Iter: 1210 overflow: 0.544 HPWL: 6759694732
+[NesterovSolve] Iter: 1220 overflow: 0.497 HPWL: 6711315099
+[NesterovSolve] Iter: 1230 overflow: 0.466 HPWL: 6712535136
+[NesterovSolve] Iter: 1240 overflow: 0.424 HPWL: 6688261414
+[NesterovSolve] Iter: 1250 overflow: 0.385 HPWL: 6675687465
+[NesterovSolve] Iter: 1260 overflow: 0.348 HPWL: 6644539279
+[NesterovSolve] Iter: 1270 overflow: 0.317 HPWL: 6572723417
+[INFO GPL-0075] Routability numCall: 12 inflationIterCnt: 2 bloatIterCnt: 2
+[INFO GPL-0036] TileBBox: (    0    0 ) ( 6900 6900 ) DBU
+[INFO GPL-0038] TileCnt:     620  547
+[INFO GPL-0040] NumTiles: 339140
+[INFO GPL-0081] TotalRouteOverflow: 49.71915256977081
+[INFO GPL-0082] OverflowTileCnt: 1055
+[INFO GPL-0083] 0.5%RC: 1.025784452147079
+[INFO GPL-0084] 1.0%RC: 0.9931776430984994
+[INFO GPL-0085] 2.0%RC: 0.9567603513622608
+[INFO GPL-0086] 5.0%RC: 0.9110456992764796
+[INFO GPL-0087] FinalRC: 1.0094811
+[INFO GPL-0077] FinalRC lower than targetRC(1.01), routability not needed.
+[NesterovSolve] Iter: 1280 overflow: 0.283 HPWL: 6512871359
+[NesterovSolve] Iter: 1290 overflow: 0.253 HPWL: 6455292854
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack -2.06e-07
+[INFO GPL-0103] Timing-driven: weighted 9303 nets.
+[NesterovSolve] Iter: 1300 overflow: 0.225 HPWL: 6407648492
+[NesterovSolve] Iter: 1310 overflow: 0.198 HPWL: 6376389854
+[NesterovSolve] Iter: 1320 overflow: 0.176 HPWL: 6328271506
+[NesterovSolve] Iter: 1330 overflow: 0.154 HPWL: 6307120119
+[INFO GPL-0100] Timing-driven: executing resizer for reweighting nets.
+[INFO GPL-0101] Timing-driven: worst slack -2.12e-07
+[INFO GPL-0103] Timing-driven: weighted 9302 nets.
+[NesterovSolve] Iter: 1340 overflow: 0.135 HPWL: 6304379892
+[NesterovSolve] Iter: 1350 overflow: 0.118 HPWL: 6300580560
+[NesterovSolve] Iter: 1360 overflow: 0.105 HPWL: 6301124055
+[NesterovSolve] Finished with Overflow: 0.099738
+[INFO] Setting RC values…
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+u_core.u_cf_sram_b0 matched with u_core.u_cf_sram_b0
+u_core.u_cf_sram_b0 matched with u_core.u_cf_sram_b0
+u_core.u_cf_sram_b0 matched with u_core.u_cf_sram_b0
+u_core.u_cf_sram_b0 matched with u_core.u_cf_sram_b0
+u_core.u_cf_sram_b1 matched with u_core.u_cf_sram_b1
+u_core.u_cf_sram_b1 matched with u_core.u_cf_sram_b1
+u_core.u_cf_sram_b1 matched with u_core.u_cf_sram_b1
+u_core.u_cf_sram_b1 matched with u_core.u_cf_sram_b1
+u_core.u_cf_sram_b2 matched with u_core.u_cf_sram_b2
+u_core.u_cf_sram_b2 matched with u_core.u_cf_sram_b2
+u_core.u_cf_sram_b2 matched with u_core.u_cf_sram_b2
+u_core.u_cf_sram_b2 matched with u_core.u_cf_sram_b2
+u_core.u_cf_sram_b3 matched with u_core.u_cf_sram_b3
+u_core.u_cf_sram_b3 matched with u_core.u_cf_sram_b3
+u_core.u_cf_sram_b3 matched with u_core.u_cf_sram_b3
+u_core.u_cf_sram_b3 matched with u_core.u_cf_sram_b3
+u_core.u_cf_sram_b4 matched with u_core.u_cf_sram_b4
+u_core.u_cf_sram_b4 matched with u_core.u_cf_sram_b4
+u_core.u_cf_sram_b4 matched with u_core.u_cf_sram_b4
+u_core.u_cf_sram_b4 matched with u_core.u_cf_sram_b4
+u_core.u_cf_sram_b5 matched with u_core.u_cf_sram_b5
+u_core.u_cf_sram_b5 matched with u_core.u_cf_sram_b5
+u_core.u_cf_sram_b5 matched with u_core.u_cf_sram_b5
+u_core.u_cf_sram_b5 matched with u_core.u_cf_sram_b5
+u_core.u_cf_sram_b6 matched with u_core.u_cf_sram_b6
+u_core.u_cf_sram_b6 matched with u_core.u_cf_sram_b6
+u_core.u_cf_sram_b6 matched with u_core.u_cf_sram_b6
+u_core.u_cf_sram_b6 matched with u_core.u_cf_sram_b6
+u_core.u_cf_sram_b7 matched with u_core.u_cf_sram_b7
+u_core.u_cf_sram_b7 matched with u_core.u_cf_sram_b7
+u_core.u_cf_sram_b7 matched with u_core.u_cf_sram_b7
+u_core.u_cf_sram_b7 matched with u_core.u_cf_sram_b7
+u_core.u_cf_sram_b8 matched with u_core.u_cf_sram_b8
+u_core.u_cf_sram_b8 matched with u_core.u_cf_sram_b8
+u_core.u_cf_sram_b8 matched with u_core.u_cf_sram_b8
+u_core.u_cf_sram_b8 matched with u_core.u_cf_sram_b8
+u_core.u_cf_sram_b9 matched with u_core.u_cf_sram_b9
+u_core.u_cf_sram_b9 matched with u_core.u_cf_sram_b9
+u_core.u_cf_sram_b9 matched with u_core.u_cf_sram_b9
+u_core.u_cf_sram_b9 matched with u_core.u_cf_sram_b9
+u_core.u_cf_sram_b10 matched with u_core.u_cf_sram_b10
+u_core.u_cf_sram_b10 matched with u_core.u_cf_sram_b10
+u_core.u_cf_sram_b10 matched with u_core.u_cf_sram_b10
+u_core.u_cf_sram_b10 matched with u_core.u_cf_sram_b10
+u_core.u_cf_sram_b11 matched with u_core.u_cf_sram_b11
+u_core.u_cf_sram_b11 matched with u_core.u_cf_sram_b11
+u_core.u_cf_sram_b11 matched with u_core.u_cf_sram_b11
+u_core.u_cf_sram_b11 matched with u_core.u_cf_sram_b11
+u_core.u_cf_sram_b12 matched with u_core.u_cf_sram_b12
+u_core.u_cf_sram_b12 matched with u_core.u_cf_sram_b12
+u_core.u_cf_sram_b12 matched with u_core.u_cf_sram_b12
+u_core.u_cf_sram_b12 matched with u_core.u_cf_sram_b12
+u_core.u_cf_sram_b13 matched with u_core.u_cf_sram_b13
+u_core.u_cf_sram_b13 matched with u_core.u_cf_sram_b13
+u_core.u_cf_sram_b13 matched with u_core.u_cf_sram_b13
+u_core.u_cf_sram_b13 matched with u_core.u_cf_sram_b13
+u_core.u_cf_sram_b14 matched with u_core.u_cf_sram_b14
+u_core.u_cf_sram_b14 matched with u_core.u_cf_sram_b14
+u_core.u_cf_sram_b14 matched with u_core.u_cf_sram_b14
+u_core.u_cf_sram_b14 matched with u_core.u_cf_sram_b14
+u_core.u_cf_sram_b15 matched with u_core.u_cf_sram_b15
+u_core.u_cf_sram_b15 matched with u_core.u_cf_sram_b15
+u_core.u_cf_sram_b15 matched with u_core.u_cf_sram_b15
+u_core.u_cf_sram_b15 matched with u_core.u_cf_sram_b15
+u_core.u_cf_sram_b16 matched with u_core.u_cf_sram_b16
+u_core.u_cf_sram_b16 matched with u_core.u_cf_sram_b16
+u_core.u_cf_sram_b16 matched with u_core.u_cf_sram_b16
+u_core.u_cf_sram_b16 matched with u_core.u_cf_sram_b16
+u_core.u_cf_sram_b17 matched with u_core.u_cf_sram_b17
+u_core.u_cf_sram_b17 matched with u_core.u_cf_sram_b17
+u_core.u_cf_sram_b17 matched with u_core.u_cf_sram_b17
+u_core.u_cf_sram_b17 matched with u_core.u_cf_sram_b17
+u_core.u_cf_sram_b18 matched with u_core.u_cf_sram_b18
+u_core.u_cf_sram_b18 matched with u_core.u_cf_sram_b18
+u_core.u_cf_sram_b18 matched with u_core.u_cf_sram_b18
+u_core.u_cf_sram_b18 matched with u_core.u_cf_sram_b18
+u_core.u_cf_sram_b19 matched with u_core.u_cf_sram_b19
+u_core.u_cf_sram_b19 matched with u_core.u_cf_sram_b19
+u_core.u_cf_sram_b19 matched with u_core.u_cf_sram_b19
+u_core.u_cf_sram_b19 matched with u_core.u_cf_sram_b19
+u_core.u_cf_sram_b20 matched with u_core.u_cf_sram_b20
+u_core.u_cf_sram_b20 matched with u_core.u_cf_sram_b20
+u_core.u_cf_sram_b20 matched with u_core.u_cf_sram_b20
+u_core.u_cf_sram_b20 matched with u_core.u_cf_sram_b20
+u_core.u_cf_sram_b21 matched with u_core.u_cf_sram_b21
+u_core.u_cf_sram_b21 matched with u_core.u_cf_sram_b21
+u_core.u_cf_sram_b21 matched with u_core.u_cf_sram_b21
+u_core.u_cf_sram_b21 matched with u_core.u_cf_sram_b21
+u_core.u_cf_sram_b22 matched with u_core.u_cf_sram_b22
+u_core.u_cf_sram_b22 matched with u_core.u_cf_sram_b22
+u_core.u_cf_sram_b22 matched with u_core.u_cf_sram_b22
+u_core.u_cf_sram_b22 matched with u_core.u_cf_sram_b22
+u_core.u_cf_sram_b23 matched with u_core.u_cf_sram_b23
+u_core.u_cf_sram_b23 matched with u_core.u_cf_sram_b23
+u_core.u_cf_sram_b23 matched with u_core.u_cf_sram_b23
+u_core.u_cf_sram_b23 matched with u_core.u_cf_sram_b23
+u_core.u_cf_sram_b24 matched with u_core.u_cf_sram_b24
+u_core.u_cf_sram_b24 matched with u_core.u_cf_sram_b24
+u_core.u_cf_sram_b24 matched with u_core.u_cf_sram_b24
+u_core.u_cf_sram_b24 matched with u_core.u_cf_sram_b24
+u_core.u_cf_sram_b25 matched with u_core.u_cf_sram_b25
+u_core.u_cf_sram_b25 matched with u_core.u_cf_sram_b25
+u_core.u_cf_sram_b25 matched with u_core.u_cf_sram_b25
+u_core.u_cf_sram_b25 matched with u_core.u_cf_sram_b25
+u_core.u_cf_sram_b26 matched with u_core.u_cf_sram_b26
+u_core.u_cf_sram_b26 matched with u_core.u_cf_sram_b26
+u_core.u_cf_sram_b26 matched with u_core.u_cf_sram_b26
+u_core.u_cf_sram_b26 matched with u_core.u_cf_sram_b26
+u_core.u_cf_sram_b27 matched with u_core.u_cf_sram_b27
+u_core.u_cf_sram_b27 matched with u_core.u_cf_sram_b27
+u_core.u_cf_sram_b27 matched with u_core.u_cf_sram_b27
+u_core.u_cf_sram_b27 matched with u_core.u_cf_sram_b27
+u_core.u_cf_sram_b28 matched with u_core.u_cf_sram_b28
+u_core.u_cf_sram_b28 matched with u_core.u_cf_sram_b28
+u_core.u_cf_sram_b28 matched with u_core.u_cf_sram_b28
+u_core.u_cf_sram_b28 matched with u_core.u_cf_sram_b28
+u_core.u_cf_sram_b29 matched with u_core.u_cf_sram_b29
+u_core.u_cf_sram_b29 matched with u_core.u_cf_sram_b29
+u_core.u_cf_sram_b29 matched with u_core.u_cf_sram_b29
+u_core.u_cf_sram_b29 matched with u_core.u_cf_sram_b29
+u_core.u_cf_sram_b30 matched with u_core.u_cf_sram_b30
+u_core.u_cf_sram_b30 matched with u_core.u_cf_sram_b30
+u_core.u_cf_sram_b30 matched with u_core.u_cf_sram_b30
+u_core.u_cf_sram_b30 matched with u_core.u_cf_sram_b30
+u_core.u_cf_sram_b31 matched with u_core.u_cf_sram_b31
+u_core.u_cf_sram_b31 matched with u_core.u_cf_sram_b31
+u_core.u_cf_sram_b31 matched with u_core.u_cf_sram_b31
+u_core.u_cf_sram_b31 matched with u_core.u_cf_sram_b31
+Updating metrics…
+Cell type report:                       Count       Area
+  Macro                                    32 3807642.22
+  Fill cell                             10116   37971.42
+  Tap cell                             110482  138235.08
+  Buffer                                   42     161.40
+  Inverter                               2184    8197.86
+  Sequential cell                       20337  518263.31
+  Multi-Input combinational cell        70346  680313.72
+  Total                                213539 5190785.01
+Writing OpenROAD database to '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v4/23-openroad-globalplacement/mspm33c321a_derivative_mcu_wrapper.odb'…
+Writing netlist to '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v4/23-openroad-globalplacement/mspm33c321a_derivative_mcu_wrapper.nl.v'…
+Writing powered netlist to '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v4/23-openroad-globalplacement/mspm33c321a_derivative_mcu_wrapper.pnl.v'…
+Writing layout to '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v4/23-openroad-globalplacement/mspm33c321a_derivative_mcu_wrapper.def'…
+Writing timing constraints to '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v4/23-openroad-globalplacement/mspm33c321a_derivative_mcu_wrapper.sdc'…
