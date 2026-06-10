@@ -1075,3 +1075,217 @@ Iteration | Resized | Buffers | Nets repaired | Remaining
     92000 |   80776 |   12073 |          4914 |      4597
     92100 |   80876 |   12073 |          4914 |      4497
     92200 |   80976 |   12078 |          4916 |      4397
+    92300 |   81076 |   12078 |          4916 |      4297
+    92400 |   81176 |   12078 |          4916 |      4197
+    92500 |   81276 |   12078 |          4916 |      4097
+    92600 |   81366 |   12079 |          4917 |      3997
+    92700 |   83250 |   13968 |          4927 |      3897
+    92800 |   83250 |   13972 |          4939 |      3797
+    92900 |   83250 |   13975 |          4949 |      3697
+    93000 |   83250 |   13979 |          4960 |      3597
+    93100 |   83250 |   13981 |          4972 |      3497
+    93200 |   83250 |   13981 |          4981 |      3397
+    93300 |   83250 |   13983 |          4990 |      3297
+    93400 |   83250 |   13987 |          5002 |      3197
+    93500 |   83250 |   13987 |          5013 |      3097
+    93600 |   83250 |   13992 |          5023 |      2997
+    93700 |   83250 |   13995 |          5035 |      2897
+    93800 |   83250 |   13999 |          5047 |      2797
+    93900 |   83250 |   14002 |          5056 |      2697
+    94000 |   83250 |   14002 |          5056 |      2597
+    94100 |   83250 |   14002 |          5056 |      2497
+    94200 |   83250 |   14002 |          5056 |      2397
+    94300 |   83250 |   14002 |          5056 |      2297
+    94400 |   83250 |   14002 |          5056 |      2197
+    94500 |   83250 |   14002 |          5056 |      2097
+    94600 |   83250 |   14002 |          5056 |      1997
+    94700 |   83250 |   14002 |          5056 |      1897
+    94800 |   83250 |   14002 |          5056 |      1797
+    94900 |   83250 |   14002 |          5056 |      1697
+    95000 |   83250 |   14002 |          5056 |      1597
+    95100 |   83250 |   14002 |          5056 |      1497
+    95200 |   83250 |   14002 |          5056 |      1397
+    95300 |   83250 |   14002 |          5056 |      1297
+    95400 |   83250 |   14002 |          5056 |      1197
+    95500 |   83250 |   14002 |          5056 |      1097
+    95600 |   83250 |   14002 |          5056 |       997
+    95700 |   83250 |   14002 |          5056 |       897
+    95800 |   83250 |   14002 |          5056 |       797
+    95900 |   83250 |   14002 |          5056 |       697
+    96000 |   83250 |   14002 |          5056 |       597
+    96100 |   83250 |   14002 |          5056 |       497
+    96200 |   83250 |   14002 |          5056 |       397
+    96300 |   83250 |   14002 |          5056 |       297
+    96400 |   83250 |   14002 |          5056 |       197
+    96500 |   83250 |   14002 |          5056 |        97
+    final |   83250 |   14002 |          5056 |         0
+---------------------------------------------------------
+[INFO RSZ-0034] Found 1998 slew violations.
+[INFO RSZ-0035] Found 3103 fanout violations.
+[INFO RSZ-0036] Found 428 capacitance violations.
+[INFO RSZ-0038] Inserted 14002 buffers in 5056 nets.
+[INFO RSZ-0039] Resized 83250 instances.
+[INFO RSZ-0042] Inserted 826 tie sky130_fd_sc_hd__conb_1 instances.
+[INFO RSZ-0042] Inserted 314 tie sky130_fd_sc_hd__conb_1 instances.
+[WARNING RSZ-0020] found 1 floating nets.
+ reset_n_xres_h_n
+Placement Analysis
+---------------------------------
+total displacement     310889.5 u
+average displacement        1.4 u
+max displacement          180.2 u
+original HPWL         8441502.7 u
+legalized HPWL        8661734.2 u
+delta HPWL                    3 %
+
+[INFO DPL-0020] Mirrored 38967 instances
+[INFO DPL-0021] HPWL before          8661734.2 u
+[INFO DPL-0022] HPWL after           8581958.7 u
+[INFO DPL-0023] HPWL delta               -0.9 %
+[INFO] Setting RC values…
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+u_core.u_cf_sram_b0 matched with u_core.u_cf_sram_b0
+u_core.u_cf_sram_b0 matched with u_core.u_cf_sram_b0
+u_core.u_cf_sram_b0 matched with u_core.u_cf_sram_b0
+u_core.u_cf_sram_b0 matched with u_core.u_cf_sram_b0
+u_core.u_cf_sram_b1 matched with u_core.u_cf_sram_b1
+u_core.u_cf_sram_b1 matched with u_core.u_cf_sram_b1
+u_core.u_cf_sram_b1 matched with u_core.u_cf_sram_b1
+u_core.u_cf_sram_b1 matched with u_core.u_cf_sram_b1
+u_core.u_cf_sram_b2 matched with u_core.u_cf_sram_b2
+u_core.u_cf_sram_b2 matched with u_core.u_cf_sram_b2
+u_core.u_cf_sram_b2 matched with u_core.u_cf_sram_b2
+u_core.u_cf_sram_b2 matched with u_core.u_cf_sram_b2
+u_core.u_cf_sram_b3 matched with u_core.u_cf_sram_b3
+u_core.u_cf_sram_b3 matched with u_core.u_cf_sram_b3
+u_core.u_cf_sram_b3 matched with u_core.u_cf_sram_b3
+u_core.u_cf_sram_b3 matched with u_core.u_cf_sram_b3
+u_core.u_cf_sram_b4 matched with u_core.u_cf_sram_b4
+u_core.u_cf_sram_b4 matched with u_core.u_cf_sram_b4
+u_core.u_cf_sram_b4 matched with u_core.u_cf_sram_b4
+u_core.u_cf_sram_b4 matched with u_core.u_cf_sram_b4
+u_core.u_cf_sram_b5 matched with u_core.u_cf_sram_b5
+u_core.u_cf_sram_b5 matched with u_core.u_cf_sram_b5
+u_core.u_cf_sram_b5 matched with u_core.u_cf_sram_b5
+u_core.u_cf_sram_b5 matched with u_core.u_cf_sram_b5
+u_core.u_cf_sram_b6 matched with u_core.u_cf_sram_b6
+u_core.u_cf_sram_b6 matched with u_core.u_cf_sram_b6
+u_core.u_cf_sram_b6 matched with u_core.u_cf_sram_b6
+u_core.u_cf_sram_b6 matched with u_core.u_cf_sram_b6
+u_core.u_cf_sram_b7 matched with u_core.u_cf_sram_b7
+u_core.u_cf_sram_b7 matched with u_core.u_cf_sram_b7
+u_core.u_cf_sram_b7 matched with u_core.u_cf_sram_b7
+u_core.u_cf_sram_b7 matched with u_core.u_cf_sram_b7
+u_core.u_cf_sram_b8 matched with u_core.u_cf_sram_b8
+u_core.u_cf_sram_b8 matched with u_core.u_cf_sram_b8
+u_core.u_cf_sram_b8 matched with u_core.u_cf_sram_b8
+u_core.u_cf_sram_b8 matched with u_core.u_cf_sram_b8
+u_core.u_cf_sram_b9 matched with u_core.u_cf_sram_b9
+u_core.u_cf_sram_b9 matched with u_core.u_cf_sram_b9
+u_core.u_cf_sram_b9 matched with u_core.u_cf_sram_b9
+u_core.u_cf_sram_b9 matched with u_core.u_cf_sram_b9
+u_core.u_cf_sram_b10 matched with u_core.u_cf_sram_b10
+u_core.u_cf_sram_b10 matched with u_core.u_cf_sram_b10
+u_core.u_cf_sram_b10 matched with u_core.u_cf_sram_b10
+u_core.u_cf_sram_b10 matched with u_core.u_cf_sram_b10
+u_core.u_cf_sram_b11 matched with u_core.u_cf_sram_b11
+u_core.u_cf_sram_b11 matched with u_core.u_cf_sram_b11
+u_core.u_cf_sram_b11 matched with u_core.u_cf_sram_b11
+u_core.u_cf_sram_b11 matched with u_core.u_cf_sram_b11
+u_core.u_cf_sram_b12 matched with u_core.u_cf_sram_b12
+u_core.u_cf_sram_b12 matched with u_core.u_cf_sram_b12
+u_core.u_cf_sram_b12 matched with u_core.u_cf_sram_b12
+u_core.u_cf_sram_b12 matched with u_core.u_cf_sram_b12
+u_core.u_cf_sram_b13 matched with u_core.u_cf_sram_b13
+u_core.u_cf_sram_b13 matched with u_core.u_cf_sram_b13
+u_core.u_cf_sram_b13 matched with u_core.u_cf_sram_b13
+u_core.u_cf_sram_b13 matched with u_core.u_cf_sram_b13
+u_core.u_cf_sram_b14 matched with u_core.u_cf_sram_b14
+u_core.u_cf_sram_b14 matched with u_core.u_cf_sram_b14
+u_core.u_cf_sram_b14 matched with u_core.u_cf_sram_b14
+u_core.u_cf_sram_b14 matched with u_core.u_cf_sram_b14
+u_core.u_cf_sram_b15 matched with u_core.u_cf_sram_b15
+u_core.u_cf_sram_b15 matched with u_core.u_cf_sram_b15
+u_core.u_cf_sram_b15 matched with u_core.u_cf_sram_b15
+u_core.u_cf_sram_b15 matched with u_core.u_cf_sram_b15
+u_core.u_cf_sram_b16 matched with u_core.u_cf_sram_b16
+u_core.u_cf_sram_b16 matched with u_core.u_cf_sram_b16
+u_core.u_cf_sram_b16 matched with u_core.u_cf_sram_b16
+u_core.u_cf_sram_b16 matched with u_core.u_cf_sram_b16
+u_core.u_cf_sram_b17 matched with u_core.u_cf_sram_b17
+u_core.u_cf_sram_b17 matched with u_core.u_cf_sram_b17
+u_core.u_cf_sram_b17 matched with u_core.u_cf_sram_b17
+u_core.u_cf_sram_b17 matched with u_core.u_cf_sram_b17
+u_core.u_cf_sram_b18 matched with u_core.u_cf_sram_b18
+u_core.u_cf_sram_b18 matched with u_core.u_cf_sram_b18
+u_core.u_cf_sram_b18 matched with u_core.u_cf_sram_b18
+u_core.u_cf_sram_b18 matched with u_core.u_cf_sram_b18
+u_core.u_cf_sram_b19 matched with u_core.u_cf_sram_b19
+u_core.u_cf_sram_b19 matched with u_core.u_cf_sram_b19
+u_core.u_cf_sram_b19 matched with u_core.u_cf_sram_b19
+u_core.u_cf_sram_b19 matched with u_core.u_cf_sram_b19
+u_core.u_cf_sram_b20 matched with u_core.u_cf_sram_b20
+u_core.u_cf_sram_b20 matched with u_core.u_cf_sram_b20
+u_core.u_cf_sram_b20 matched with u_core.u_cf_sram_b20
+u_core.u_cf_sram_b20 matched with u_core.u_cf_sram_b20
+u_core.u_cf_sram_b21 matched with u_core.u_cf_sram_b21
+u_core.u_cf_sram_b21 matched with u_core.u_cf_sram_b21
+u_core.u_cf_sram_b21 matched with u_core.u_cf_sram_b21
+u_core.u_cf_sram_b21 matched with u_core.u_cf_sram_b21
+u_core.u_cf_sram_b22 matched with u_core.u_cf_sram_b22
+u_core.u_cf_sram_b22 matched with u_core.u_cf_sram_b22
+u_core.u_cf_sram_b22 matched with u_core.u_cf_sram_b22
+u_core.u_cf_sram_b22 matched with u_core.u_cf_sram_b22
+u_core.u_cf_sram_b23 matched with u_core.u_cf_sram_b23
+u_core.u_cf_sram_b23 matched with u_core.u_cf_sram_b23
+u_core.u_cf_sram_b23 matched with u_core.u_cf_sram_b23
+u_core.u_cf_sram_b23 matched with u_core.u_cf_sram_b23
+u_core.u_cf_sram_b24 matched with u_core.u_cf_sram_b24
+u_core.u_cf_sram_b24 matched with u_core.u_cf_sram_b24
+u_core.u_cf_sram_b24 matched with u_core.u_cf_sram_b24
+u_core.u_cf_sram_b24 matched with u_core.u_cf_sram_b24
+u_core.u_cf_sram_b25 matched with u_core.u_cf_sram_b25
+u_core.u_cf_sram_b25 matched with u_core.u_cf_sram_b25
+u_core.u_cf_sram_b25 matched with u_core.u_cf_sram_b25
+u_core.u_cf_sram_b25 matched with u_core.u_cf_sram_b25
+u_core.u_cf_sram_b26 matched with u_core.u_cf_sram_b26
+u_core.u_cf_sram_b26 matched with u_core.u_cf_sram_b26
+u_core.u_cf_sram_b26 matched with u_core.u_cf_sram_b26
+u_core.u_cf_sram_b26 matched with u_core.u_cf_sram_b26
+u_core.u_cf_sram_b27 matched with u_core.u_cf_sram_b27
+u_core.u_cf_sram_b27 matched with u_core.u_cf_sram_b27
+u_core.u_cf_sram_b27 matched with u_core.u_cf_sram_b27
+u_core.u_cf_sram_b27 matched with u_core.u_cf_sram_b27
+u_core.u_cf_sram_b28 matched with u_core.u_cf_sram_b28
+u_core.u_cf_sram_b28 matched with u_core.u_cf_sram_b28
+u_core.u_cf_sram_b28 matched with u_core.u_cf_sram_b28
+u_core.u_cf_sram_b28 matched with u_core.u_cf_sram_b28
+u_core.u_cf_sram_b29 matched with u_core.u_cf_sram_b29
+u_core.u_cf_sram_b29 matched with u_core.u_cf_sram_b29
+u_core.u_cf_sram_b29 matched with u_core.u_cf_sram_b29
+u_core.u_cf_sram_b29 matched with u_core.u_cf_sram_b29
+u_core.u_cf_sram_b30 matched with u_core.u_cf_sram_b30
+u_core.u_cf_sram_b30 matched with u_core.u_cf_sram_b30
+u_core.u_cf_sram_b30 matched with u_core.u_cf_sram_b30
+u_core.u_cf_sram_b30 matched with u_core.u_cf_sram_b30
+u_core.u_cf_sram_b31 matched with u_core.u_cf_sram_b31
+u_core.u_cf_sram_b31 matched with u_core.u_cf_sram_b31
+u_core.u_cf_sram_b31 matched with u_core.u_cf_sram_b31
+u_core.u_cf_sram_b31 matched with u_core.u_cf_sram_b31
+Updating metrics…
+Cell type report:                       Count       Area
+  Macro                                    32 3807642.22
+  Fill cell                             10116   37971.42
+  Tap cell                             110482  138235.08
+  Buffer                                   42     162.66
+  Timing Repair Buffer                  14002  120925.98
+  Inverter                               2184    8513.16
+  Sequential cell                       20337  502341.79
+  Multi-Input combinational cell        70141  617328.32
+  Total                                227336 5233120.61
+Writing OpenROAD database to '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v4/27-openroad-repairdesignpostgpl/mspm33c321a_derivative_mcu_wrapper.odb'…
+Writing netlist to '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v4/27-openroad-repairdesignpostgpl/mspm33c321a_derivative_mcu_wrapper.nl.v'…
+Writing powered netlist to '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v4/27-openroad-repairdesignpostgpl/mspm33c321a_derivative_mcu_wrapper.pnl.v'…
+Writing layout to '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v4/27-openroad-repairdesignpostgpl/mspm33c321a_derivative_mcu_wrapper.def'…
+Writing timing constraints to '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v4/27-openroad-repairdesignpostgpl/mspm33c321a_derivative_mcu_wrapper.sdc'…
