@@ -1344,3 +1344,17 @@ Logging subprocess to [repr.filename]'runs/pnr_run_v4/29-openroad-detailedplacem
 [STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
 [STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
 [STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
+Gating variable for step 'OpenROAD.CTS' set to 'False'- the step will be skipped.
+Skipping step 'Clock Tree Synthesis'…
+Running 'OpenROAD.STAMidPNR-1' at 'runs/pnr_run_v4/30-openroad-stamidpnr-1'…
+Logging subprocess to [repr.filename]'runs/pnr_run_v4/30-openroad-stamidpnr-1/openroad-stamidpnr-1.log'[/repr.filename]…
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
+[STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
+[GRT-0097] No global routing found for nets.
