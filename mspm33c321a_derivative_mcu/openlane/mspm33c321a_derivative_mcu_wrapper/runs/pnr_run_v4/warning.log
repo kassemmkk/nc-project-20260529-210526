@@ -1261,3 +1261,12 @@ VSSIO not found in template layout, but found in design layout.
 [STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
 [STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
 [GRT-0097] No global routing found for nets.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
+[STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
