@@ -81,3 +81,27 @@ Logging subprocess to [repr.filename]'runs/pnr_run_v4/13-openroad-cutrows/openro
 [STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
 [STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
 [STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
+Running 'OpenROAD.TapEndcapInsertion' at 'runs/pnr_run_v4/14-openroad-tapendcapinsertion'…
+Logging subprocess to [repr.filename]'runs/pnr_run_v4/14-openroad-tapendcapinsertion/openroad-tapendcapinsertion.log'[/repr.filename]…
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
+[STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
+Running 'Odb.AddPDNObstructions' at 'runs/pnr_run_v4/15-odb-addpdnobstructions'…
+'PDN_OBSTRUCTIONS' is not defined. Skipping 'Odb.AddPDNObstructions'…
+Running 'OpenROAD.GeneratePDN' at 'runs/pnr_run_v4/16-openroad-generatepdn'…
+Logging subprocess to [repr.filename]'runs/pnr_run_v4/16-openroad-generatepdn/openroad-generatepdn.log'[/repr.filename]…
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
+[STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.

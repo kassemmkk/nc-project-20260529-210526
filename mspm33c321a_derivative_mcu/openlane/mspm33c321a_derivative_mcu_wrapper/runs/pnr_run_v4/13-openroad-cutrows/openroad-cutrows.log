@@ -1,0 +1,166 @@
+Reading OpenROAD database at '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v4/12-odb-manualmacroplacement/mspm33c321a_derivative_mcu_wrapper.odb'…
+Reading library file at '/nc/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'…
+Reading library file at '/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib'…
+[WARNING STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+Reading macro library file at '/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib'…
+[WARNING STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[WARNING STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+Reading extra library file at '/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib'…
+[WARNING STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+Reading extra library file at '/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib'…
+[WARNING STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+Reading extra library file at '/nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib'…
+[WARNING STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[WARNING STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+Reading design constraints file at '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/mspm33c321a_derivative_mcu_wrapper.sdc'…
+[INFO] Using clock clk_in…
+[INFO] Setting output delay to: 5.0
+[INFO] Setting input delay to: 5.0
+[WARNING STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
+[INFO] Setting load to: 0.033442
+[INFO] Setting clock uncertainty to: 0.25
+[INFO] Setting clock transition to: 0.1499999999999999944488848768742172978818416595458984375
+[INFO] Setting timing derate to: 5%
+[WARNING STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
+[INFO] No information on clock propagation in input SDC file-- propagating all clocks.
+[INFO ODB-0303] The initial 1186 rows (9612530 sites) were cut with 32 shapes for a total of 5058 rows (6176251 sites).
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+u_core.u_cf_sram_b0 matched with u_core.u_cf_sram_b0
+u_core.u_cf_sram_b0 matched with u_core.u_cf_sram_b0
+u_core.u_cf_sram_b0 matched with u_core.u_cf_sram_b0
+u_core.u_cf_sram_b0 matched with u_core.u_cf_sram_b0
+u_core.u_cf_sram_b1 matched with u_core.u_cf_sram_b1
+u_core.u_cf_sram_b1 matched with u_core.u_cf_sram_b1
+u_core.u_cf_sram_b1 matched with u_core.u_cf_sram_b1
+u_core.u_cf_sram_b1 matched with u_core.u_cf_sram_b1
+u_core.u_cf_sram_b2 matched with u_core.u_cf_sram_b2
+u_core.u_cf_sram_b2 matched with u_core.u_cf_sram_b2
+u_core.u_cf_sram_b2 matched with u_core.u_cf_sram_b2
+u_core.u_cf_sram_b2 matched with u_core.u_cf_sram_b2
+u_core.u_cf_sram_b3 matched with u_core.u_cf_sram_b3
+u_core.u_cf_sram_b3 matched with u_core.u_cf_sram_b3
+u_core.u_cf_sram_b3 matched with u_core.u_cf_sram_b3
+u_core.u_cf_sram_b3 matched with u_core.u_cf_sram_b3
+u_core.u_cf_sram_b4 matched with u_core.u_cf_sram_b4
+u_core.u_cf_sram_b4 matched with u_core.u_cf_sram_b4
+u_core.u_cf_sram_b4 matched with u_core.u_cf_sram_b4
+u_core.u_cf_sram_b4 matched with u_core.u_cf_sram_b4
+u_core.u_cf_sram_b5 matched with u_core.u_cf_sram_b5
+u_core.u_cf_sram_b5 matched with u_core.u_cf_sram_b5
+u_core.u_cf_sram_b5 matched with u_core.u_cf_sram_b5
+u_core.u_cf_sram_b5 matched with u_core.u_cf_sram_b5
+u_core.u_cf_sram_b6 matched with u_core.u_cf_sram_b6
+u_core.u_cf_sram_b6 matched with u_core.u_cf_sram_b6
+u_core.u_cf_sram_b6 matched with u_core.u_cf_sram_b6
+u_core.u_cf_sram_b6 matched with u_core.u_cf_sram_b6
+u_core.u_cf_sram_b7 matched with u_core.u_cf_sram_b7
+u_core.u_cf_sram_b7 matched with u_core.u_cf_sram_b7
+u_core.u_cf_sram_b7 matched with u_core.u_cf_sram_b7
+u_core.u_cf_sram_b7 matched with u_core.u_cf_sram_b7
+u_core.u_cf_sram_b8 matched with u_core.u_cf_sram_b8
+u_core.u_cf_sram_b8 matched with u_core.u_cf_sram_b8
+u_core.u_cf_sram_b8 matched with u_core.u_cf_sram_b8
+u_core.u_cf_sram_b8 matched with u_core.u_cf_sram_b8
+u_core.u_cf_sram_b9 matched with u_core.u_cf_sram_b9
+u_core.u_cf_sram_b9 matched with u_core.u_cf_sram_b9
+u_core.u_cf_sram_b9 matched with u_core.u_cf_sram_b9
+u_core.u_cf_sram_b9 matched with u_core.u_cf_sram_b9
+u_core.u_cf_sram_b10 matched with u_core.u_cf_sram_b10
+u_core.u_cf_sram_b10 matched with u_core.u_cf_sram_b10
+u_core.u_cf_sram_b10 matched with u_core.u_cf_sram_b10
+u_core.u_cf_sram_b10 matched with u_core.u_cf_sram_b10
+u_core.u_cf_sram_b11 matched with u_core.u_cf_sram_b11
+u_core.u_cf_sram_b11 matched with u_core.u_cf_sram_b11
+u_core.u_cf_sram_b11 matched with u_core.u_cf_sram_b11
+u_core.u_cf_sram_b11 matched with u_core.u_cf_sram_b11
+u_core.u_cf_sram_b12 matched with u_core.u_cf_sram_b12
+u_core.u_cf_sram_b12 matched with u_core.u_cf_sram_b12
+u_core.u_cf_sram_b12 matched with u_core.u_cf_sram_b12
+u_core.u_cf_sram_b12 matched with u_core.u_cf_sram_b12
+u_core.u_cf_sram_b13 matched with u_core.u_cf_sram_b13
+u_core.u_cf_sram_b13 matched with u_core.u_cf_sram_b13
+u_core.u_cf_sram_b13 matched with u_core.u_cf_sram_b13
+u_core.u_cf_sram_b13 matched with u_core.u_cf_sram_b13
+u_core.u_cf_sram_b14 matched with u_core.u_cf_sram_b14
+u_core.u_cf_sram_b14 matched with u_core.u_cf_sram_b14
+u_core.u_cf_sram_b14 matched with u_core.u_cf_sram_b14
+u_core.u_cf_sram_b14 matched with u_core.u_cf_sram_b14
+u_core.u_cf_sram_b15 matched with u_core.u_cf_sram_b15
+u_core.u_cf_sram_b15 matched with u_core.u_cf_sram_b15
+u_core.u_cf_sram_b15 matched with u_core.u_cf_sram_b15
+u_core.u_cf_sram_b15 matched with u_core.u_cf_sram_b15
+u_core.u_cf_sram_b16 matched with u_core.u_cf_sram_b16
+u_core.u_cf_sram_b16 matched with u_core.u_cf_sram_b16
+u_core.u_cf_sram_b16 matched with u_core.u_cf_sram_b16
+u_core.u_cf_sram_b16 matched with u_core.u_cf_sram_b16
+u_core.u_cf_sram_b17 matched with u_core.u_cf_sram_b17
+u_core.u_cf_sram_b17 matched with u_core.u_cf_sram_b17
+u_core.u_cf_sram_b17 matched with u_core.u_cf_sram_b17
+u_core.u_cf_sram_b17 matched with u_core.u_cf_sram_b17
+u_core.u_cf_sram_b18 matched with u_core.u_cf_sram_b18
+u_core.u_cf_sram_b18 matched with u_core.u_cf_sram_b18
+u_core.u_cf_sram_b18 matched with u_core.u_cf_sram_b18
+u_core.u_cf_sram_b18 matched with u_core.u_cf_sram_b18
+u_core.u_cf_sram_b19 matched with u_core.u_cf_sram_b19
+u_core.u_cf_sram_b19 matched with u_core.u_cf_sram_b19
+u_core.u_cf_sram_b19 matched with u_core.u_cf_sram_b19
+u_core.u_cf_sram_b19 matched with u_core.u_cf_sram_b19
+u_core.u_cf_sram_b20 matched with u_core.u_cf_sram_b20
+u_core.u_cf_sram_b20 matched with u_core.u_cf_sram_b20
+u_core.u_cf_sram_b20 matched with u_core.u_cf_sram_b20
+u_core.u_cf_sram_b20 matched with u_core.u_cf_sram_b20
+u_core.u_cf_sram_b21 matched with u_core.u_cf_sram_b21
+u_core.u_cf_sram_b21 matched with u_core.u_cf_sram_b21
+u_core.u_cf_sram_b21 matched with u_core.u_cf_sram_b21
+u_core.u_cf_sram_b21 matched with u_core.u_cf_sram_b21
+u_core.u_cf_sram_b22 matched with u_core.u_cf_sram_b22
+u_core.u_cf_sram_b22 matched with u_core.u_cf_sram_b22
+u_core.u_cf_sram_b22 matched with u_core.u_cf_sram_b22
+u_core.u_cf_sram_b22 matched with u_core.u_cf_sram_b22
+u_core.u_cf_sram_b23 matched with u_core.u_cf_sram_b23
+u_core.u_cf_sram_b23 matched with u_core.u_cf_sram_b23
+u_core.u_cf_sram_b23 matched with u_core.u_cf_sram_b23
+u_core.u_cf_sram_b23 matched with u_core.u_cf_sram_b23
+u_core.u_cf_sram_b24 matched with u_core.u_cf_sram_b24
+u_core.u_cf_sram_b24 matched with u_core.u_cf_sram_b24
+u_core.u_cf_sram_b24 matched with u_core.u_cf_sram_b24
+u_core.u_cf_sram_b24 matched with u_core.u_cf_sram_b24
+u_core.u_cf_sram_b25 matched with u_core.u_cf_sram_b25
+u_core.u_cf_sram_b25 matched with u_core.u_cf_sram_b25
+u_core.u_cf_sram_b25 matched with u_core.u_cf_sram_b25
+u_core.u_cf_sram_b25 matched with u_core.u_cf_sram_b25
+u_core.u_cf_sram_b26 matched with u_core.u_cf_sram_b26
+u_core.u_cf_sram_b26 matched with u_core.u_cf_sram_b26
+u_core.u_cf_sram_b26 matched with u_core.u_cf_sram_b26
+u_core.u_cf_sram_b26 matched with u_core.u_cf_sram_b26
+u_core.u_cf_sram_b27 matched with u_core.u_cf_sram_b27
+u_core.u_cf_sram_b27 matched with u_core.u_cf_sram_b27
+u_core.u_cf_sram_b27 matched with u_core.u_cf_sram_b27
+u_core.u_cf_sram_b27 matched with u_core.u_cf_sram_b27
+u_core.u_cf_sram_b28 matched with u_core.u_cf_sram_b28
+u_core.u_cf_sram_b28 matched with u_core.u_cf_sram_b28
+u_core.u_cf_sram_b28 matched with u_core.u_cf_sram_b28
+u_core.u_cf_sram_b28 matched with u_core.u_cf_sram_b28
+u_core.u_cf_sram_b29 matched with u_core.u_cf_sram_b29
+u_core.u_cf_sram_b29 matched with u_core.u_cf_sram_b29
+u_core.u_cf_sram_b29 matched with u_core.u_cf_sram_b29
+u_core.u_cf_sram_b29 matched with u_core.u_cf_sram_b29
+u_core.u_cf_sram_b30 matched with u_core.u_cf_sram_b30
+u_core.u_cf_sram_b30 matched with u_core.u_cf_sram_b30
+u_core.u_cf_sram_b30 matched with u_core.u_cf_sram_b30
+u_core.u_cf_sram_b30 matched with u_core.u_cf_sram_b30
+u_core.u_cf_sram_b31 matched with u_core.u_cf_sram_b31
+u_core.u_cf_sram_b31 matched with u_core.u_cf_sram_b31
+u_core.u_cf_sram_b31 matched with u_core.u_cf_sram_b31
+u_core.u_cf_sram_b31 matched with u_core.u_cf_sram_b31
+Updating metrics…
+Cell type report:                       Count       Area
+  Macro                                    32 3807642.22
+  Buffer                                   42     161.40
+  Inverter                               2184    8197.86
+  Sequential cell                       20337  518263.31
+  Multi-Input combinational cell        70346  680313.72
+  Total                                 92941 5014578.51
+Writing OpenROAD database to '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v4/13-openroad-cutrows/mspm33c321a_derivative_mcu_wrapper.odb'…
+Writing layout to '/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v4/13-openroad-cutrows/mspm33c321a_derivative_mcu_wrapper.def'…
