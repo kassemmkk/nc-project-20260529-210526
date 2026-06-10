@@ -1,0 +1,44 @@
+326. Printing statistics.
+
+=== mspm33c321a_derivative_mcu_wrapper ===
+
+   Number of wires:             127411
+   Number of wire bits:         152537
+   Number of public wires:        4816
+   Number of public wire bits:   29564
+   Number of ports:               1289
+   Number of port bits:           1289
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:             145246
+     $_ANDNOT_                   30298
+     $_AND_                       5060
+     $_MUX_                      41086
+     $_NAND_                      4508
+     $_NOR_                       3292
+     $_NOT_                       6707
+     $_ORNOT_                     4318
+     $_OR_                       20635
+     $_XNOR_                      1738
+     $_XOR_                       7187
+     CF_SRAM_1024x32                32
+     sky130_fd_sc_hd__dfrtp_2    15634
+     sky130_fd_sc_hd__dfstp_2     1535
+     sky130_fd_sc_hd__dfxtp_2     3216
+
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+   Area for cell type \CF_SRAM_1024x32 is unknown!
+
+   Chip area for module '\mspm33c321a_derivative_mcu_wrapper': 519524.515200
+     of which used for sequential elements: 519524.515200 (100.00%)
+

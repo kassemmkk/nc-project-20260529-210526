@@ -1,0 +1,68 @@
+320. Printing statistics.
+
+=== mspm33c321a_derivative_mcu_wrapper ===
+
+   Number of wires:             108636
+   Number of wire bits:         133762
+   Number of public wires:        4816
+   Number of public wire bits:   29564
+   Number of ports:               1289
+   Number of port bits:           1289
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:             126471
+     $_ANDNOT_                   30298
+     $_AND_                       5060
+     $_DFFE_PN0N_                  274
+     $_DFFE_PN0P_                13704
+     $_DFFE_PN1N_                   45
+     $_DFFE_PN1P_                 1450
+     $_DFFE_PP_                   2975
+     $_DFF_PN0_                   1656
+     $_DFF_PN1_                     40
+     $_DFF_P_                       67
+     $_MUX_                      22311
+     $_NAND_                      4508
+     $_NOR_                       3292
+     $_NOT_                       6707
+     $_ORNOT_                     4318
+     $_OR_                       20635
+     $_SDFFCE_PN0P_                 41
+     $_SDFFCE_PN1P_                 27
+     $_SDFFE_PN0N_                  15
+     $_SDFFE_PN0P_                  64
+     $_SDFFE_PN1P_                   6
+     $_SDFF_PN0_                    12
+     $_SDFF_PP0_                     9
+     $_XNOR_                      1738
+     $_XOR_                       7187
+     CF_SRAM_1024x32                32
+
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+   Area for cell type $_DFF_P_ is unknown!
+   Area for cell type $_DFFE_PP_ is unknown!
+   Area for cell type $_DFF_PN0_ is unknown!
+   Area for cell type $_DFF_PN1_ is unknown!
+   Area for cell type $_DFFE_PN0N_ is unknown!
+   Area for cell type $_DFFE_PN0P_ is unknown!
+   Area for cell type $_DFFE_PN1N_ is unknown!
+   Area for cell type $_DFFE_PN1P_ is unknown!
+   Area for cell type $_SDFF_PN0_ is unknown!
+   Area for cell type $_SDFF_PP0_ is unknown!
+   Area for cell type $_SDFFE_PN0N_ is unknown!
+   Area for cell type $_SDFFE_PN0P_ is unknown!
+   Area for cell type $_SDFFE_PN1P_ is unknown!
+   Area for cell type $_SDFFCE_PN0P_ is unknown!
+   Area for cell type $_SDFFCE_PN1P_ is unknown!
+   Area for cell type \CF_SRAM_1024x32 is unknown!
+
