@@ -1,0 +1,37 @@
+[WARNING ORD-0039] .openroad ignored with -python
+Placing the following macros:
+{'u_core.u_cf_sram_b0': ['u_core.u_cf_sram_b0', 315000, 315000, 'N'], 'u_core.u_cf_sram_b1': ['u_core.u_cf_sram_b1', 902870, 315000, 'N'], 'u_core.u_cf_sram_b2': ['u_core.u_cf_sram_b2', 1490740, 315000, 'N'], 'u_core.u_cf_sram_b3': ['u_core.u_cf_sram_b3', 2078610, 315000, 'N'], 'u_core.u_cf_sram_b4': ['u_core.u_cf_sram_b4', 2666480, 315000, 'N'], 'u_core.u_cf_sram_b5': ['u_core.u_cf_sram_b5', 3254350, 315000, 'N'], 'u_core.u_cf_sram_b6': ['u_core.u_cf_sram_b6', 315000, 821775, 'N'], 'u_core.u_cf_sram_b7': ['u_core.u_cf_sram_b7', 902870, 821775, 'N'], 'u_core.u_cf_sram_b8': ['u_core.u_cf_sram_b8', 1490740, 821775, 'N'], 'u_core.u_cf_sram_b9': ['u_core.u_cf_sram_b9', 2078610, 821775, 'N'], 'u_core.u_cf_sram_b10': ['u_core.u_cf_sram_b10', 2666480, 821775, 'N'], 'u_core.u_cf_sram_b11': ['u_core.u_cf_sram_b11', 3254350, 821775, 'N'], 'u_core.u_cf_sram_b12': ['u_core.u_cf_sram_b12', 315000, 1328550, 'N'], 'u_core.u_cf_sram_b13': ['u_core.u_cf_sram_b13', 902870, 1328550, 'N'], 'u_core.u_cf_sram_b14': ['u_core.u_cf_sram_b14', 1490740, 1328550, 'N'], 'u_core.u_cf_sram_b15': ['u_core.u_cf_sram_b15', 2078610, 1328550, 'N'], 'u_core.u_cf_sram_b16': ['u_core.u_cf_sram_b16', 2666480, 1328550, 'N'], 'u_core.u_cf_sram_b17': ['u_core.u_cf_sram_b17', 3254350, 1328550, 'N'], 'u_core.u_cf_sram_b18': ['u_core.u_cf_sram_b18', 315000, 1835325, 'N'], 'u_core.u_cf_sram_b19': ['u_core.u_cf_sram_b19', 902870, 1835325, 'N'], 'u_core.u_cf_sram_b20': ['u_core.u_cf_sram_b20', 1490740, 1835325, 'N'], 'u_core.u_cf_sram_b21': ['u_core.u_cf_sram_b21', 2078610, 1835325, 'N'], 'u_core.u_cf_sram_b22': ['u_core.u_cf_sram_b22', 2666480, 1835325, 'N'], 'u_core.u_cf_sram_b23': ['u_core.u_cf_sram_b23', 3254350, 1835325, 'N'], 'u_core.u_cf_sram_b24': ['u_core.u_cf_sram_b24', 315000, 2342100, 'N'], 'u_core.u_cf_sram_b25': ['u_core.u_cf_sram_b25', 902870, 2342100, 'N'], 'u_core.u_cf_sram_b26': ['u_core.u_cf_sram_b26', 1490740, 2342100, 'N'], 'u_core.u_cf_sram_b27': ['u_core.u_cf_sram_b27', 2078610, 2342100, 'N'], 'u_core.u_cf_sram_b28': ['u_core.u_cf_sram_b28', 2666480, 2342100, 'N'], 'u_core.u_cf_sram_b29': ['u_core.u_cf_sram_b29', 3254350, 2342100, 'N'], 'u_core.u_cf_sram_b30': ['u_core.u_cf_sram_b30', 315000, 2848875, 'N'], 'u_core.u_cf_sram_b31': ['u_core.u_cf_sram_b31', 902870, 2848875, 'N']}
+Design name: mspm33c321a_derivative_mcu_wrapper
+Placing u_core.u_cf_sram_b0
+Placing u_core.u_cf_sram_b1
+Placing u_core.u_cf_sram_b10
+Placing u_core.u_cf_sram_b11
+Placing u_core.u_cf_sram_b12
+Placing u_core.u_cf_sram_b13
+Placing u_core.u_cf_sram_b14
+Placing u_core.u_cf_sram_b15
+Placing u_core.u_cf_sram_b16
+Placing u_core.u_cf_sram_b17
+Placing u_core.u_cf_sram_b18
+Placing u_core.u_cf_sram_b19
+Placing u_core.u_cf_sram_b2
+Placing u_core.u_cf_sram_b20
+Placing u_core.u_cf_sram_b21
+Placing u_core.u_cf_sram_b22
+Placing u_core.u_cf_sram_b23
+Placing u_core.u_cf_sram_b24
+Placing u_core.u_cf_sram_b25
+Placing u_core.u_cf_sram_b26
+Placing u_core.u_cf_sram_b27
+Placing u_core.u_cf_sram_b28
+Placing u_core.u_cf_sram_b29
+Placing u_core.u_cf_sram_b3
+Placing u_core.u_cf_sram_b30
+Placing u_core.u_cf_sram_b31
+Placing u_core.u_cf_sram_b4
+Placing u_core.u_cf_sram_b5
+Placing u_core.u_cf_sram_b6
+Placing u_core.u_cf_sram_b7
+Placing u_core.u_cf_sram_b8
+Placing u_core.u_cf_sram_b9
+Successfully placed 32 instances.

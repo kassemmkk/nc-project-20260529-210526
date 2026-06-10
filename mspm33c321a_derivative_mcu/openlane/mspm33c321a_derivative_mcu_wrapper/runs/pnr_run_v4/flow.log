@@ -47,3 +47,37 @@ Finished STA for the nom_tt_025C_1v80 timing corner.
 Finished STA for the min_ss_100C_1v60 timing corner.
 Finished STA for the max_tt_025C_1v80 timing corner.
 Finished STA for the nom_ss_100C_1v60 timing corner.
+Finished STA for the max_ff_n40C_1v95 timing corner.
+Running 'OpenROAD.Floorplan' at 'runs/pnr_run_v4/09-openroad-floorplan'…
+Logging subprocess to [repr.filename]'runs/pnr_run_v4/09-openroad-floorplan/openroad-floorplan.log'[/repr.filename]…
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[ODB-0229] Error: library (CF_SRAM_1024x32) already exists
+[STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
+[STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
+[IFP-0028] Core area lower left (275.000, 275.000) snapped to (275.080, 277.440).
+Running 'Odb.CheckMacroAntennaProperties' at 'runs/pnr_run_v4/10-odb-checkmacroantennaproperties'…
+Logging subprocess to [repr.filename]'runs/pnr_run_v4/10-odb-checkmacroantennaproperties/odb-checkmacroantennaproperties.log'[/repr.filename]…
+Cell 'CF_SRAM_1024x32' has (86) input pin(s) without antenna gate information. They might not be connected to a gate.
+Cell 'CF_SRAM_1024x32' has (33) output pin(s) without antenna diffusion information. They might not be driven.
+Running 'Odb.SetPowerConnections' at 'runs/pnr_run_v4/11-odb-setpowerconnections'…
+Logging subprocess to [repr.filename]'runs/pnr_run_v4/11-odb-setpowerconnections/odb-setpowerconnections.log'[/repr.filename]…
+Running 'Odb.ManualMacroPlacement' at 'runs/pnr_run_v4/12-odb-manualmacroplacement'…
+Using 'MACRO_PLACEMENT_CFG' is deprecated. It is recommended to use the new 'MACROS' configuration variable.
+Logging subprocess to [repr.filename]'runs/pnr_run_v4/12-odb-manualmacroplacement/odb-manualmacroplacement.log'[/repr.filename]…
+Running 'OpenROAD.CutRows' at 'runs/pnr_run_v4/13-openroad-cutrows'…
+Logging subprocess to [repr.filename]'runs/pnr_run_v4/13-openroad-cutrows/openroad-cutrows.log'[/repr.filename]…
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ff_195V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_ss_160V_100C.lib line 76, default_fanout_load is 0.0.
+[STA-1140] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 29, library CF_SRAM_1024x32_tt_180V_25C already exists.
+[STA-1173] /nc/ip/CF_SRAM_1024x32/v2.2.0-nc/lib/CF_SRAM_1024x32_tt_180V_25C.lib line 62, default_fanout_load is 0.0.
+[STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
+[STA-0441] set_output_delay relative to a clock defined on the same port/pin not allowed.
