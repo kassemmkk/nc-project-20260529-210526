@@ -1,0 +1,27 @@
+{
+    "nl": "/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v4/02-yosys-synthesis/mspm33c321a_derivative_mcu_wrapper.nl.v",
+    "pnl": null,
+    "pnl-sdf-friendly": null,
+    "pnl-npc": null,
+    "def": null,
+    "lef": null,
+    "openroad-lef": null,
+    "odb": null,
+    "sdc": null,
+    "sdf": null,
+    "spef": null,
+    "lib": null,
+    "spice": null,
+    "mag": null,
+    "gds": null,
+    "mag_gds": null,
+    "klayout_gds": null,
+    "json_h": "/workspace/nc-project-20260529-210526/mspm33c321a_derivative_mcu/openlane/mspm33c321a_derivative_mcu_wrapper/runs/pnr_run_v4/01-yosys-jsonheader/mspm33c321a_derivative_mcu_wrapper.h.json",
+    "vh": null,
+    "metrics": {
+        "design__instance__count": 92941,
+        "design__instance__area": 1206936.297601,
+        "design__instance_unmapped__count": 0,
+        "synthesis__check_error__count": 37
+    }
+}
