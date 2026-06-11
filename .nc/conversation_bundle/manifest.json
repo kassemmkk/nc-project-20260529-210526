@@ -13,7 +13,7 @@
     "chipgen_pnr": "anthropic/claude-sonnet-4-6",
     "bom_builder": "anthropic/claude-sonnet-4-6"
   },
-  "exported_at": "2026-06-11T01:13:47.466738+00:00",
+  "exported_at": "2026-06-11T01:43:52.357613+00:00",
   "streams": [
     {
       "sid": "4d679dddfc1d4fca97ede9bf0ae55293",
