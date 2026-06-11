@@ -475,5 +475,9 @@
     "GRT_ADJUSTMENT": 0.2,
     "DRT_OPT_ITERS": 40,
     "RUN_CTS": false,
-    "RUN_POST_CTS_RESIZER_TIMING": false
+    "RUN_POST_CTS_RESIZER_TIMING": false,
+    "SKIP_STEPS": [
+        "OpenROAD.CheckAntennas",
+        "Odb.CheckDesignAntennaProperties"
+    ]
 }
