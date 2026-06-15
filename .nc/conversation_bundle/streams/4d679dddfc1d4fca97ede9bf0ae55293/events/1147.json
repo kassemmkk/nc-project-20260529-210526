@@ -1,0 +1,1 @@
+{"id": 1147, "timestamp": "2026-06-11T20:55:53.176408", "source": "environment", "message": "", "observation": "agent_state_changed", "content": "", "extras": {"agent_state": "error", "reason": "AgentStuckInLoopError: Agent got stuck in a loop", "agent_name": "mcu_factory_project_manager_lite", "agent_class": "CodeActAgent"}}
